@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Nivel {
+public class Partida {
 
 }
