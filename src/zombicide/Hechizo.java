@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Hechizo {
+public class Hechizo extends Arma{
 
 }

@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Espada {
+public class Espada extends Arma{
 
 }

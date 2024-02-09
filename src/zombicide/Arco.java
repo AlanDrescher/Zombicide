@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Arco {
+public class Arco  extends Arma{
 
 }

@@ -1,5 +1,5 @@
 package zombicide;
 
-public class ZombieCorredor {
+public class ZombieCorredor extends Zombie{
 
 }
