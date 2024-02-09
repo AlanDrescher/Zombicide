@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Hacha {
+public class Hacha extends Arma{
 
 }
