@@ -1,5 +1,5 @@
 package zombicide;
 
-public class Jugador {
+public class Jugador extends Humanoide{
 	
 }
