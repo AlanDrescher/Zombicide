@@ -4,8 +4,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Zombicide {
+<<<<<<< HEAD
 	private static ArrayList characters;
 	private static boolean leave= false; 
+=======
+	private String nombreCanal;
+	private static boolean salir = false; 
+	
+>>>>>>> 458a8cf1296d374327543fd39884e1bb3d9a0c7a
 	public static void main(String[] args) {
 		showMenu();
 	}
