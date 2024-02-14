@@ -5,14 +5,12 @@ import java.util.Scanner;
 
 public class Juego {
 	private String nombreCanal;
-	private static ArrayList<Canal> characters;
 	private static boolean salir= false; 
 	public static void main(String[] args) {
-		canales = new ArrayList<Canal>();
-		mostrarMenu();
+		showMenu();
 	}
 
-	public static void mostrarMenu() {
+	public static void showMenu() {
 		Scanner leer = new Scanner(System.in);
 		while (!salir) {
 		texto();
@@ -45,9 +43,10 @@ public class Juego {
 	}
 
 	private static void newCharacter() {
+		
 	}
 
-	// TEXTO DE CANAL
+	// TEXTO DE JUEGO
 	public static void texto() {
 			System.out.println("|---Zombicide---|\r\n" + "1- Nueva partida\r\n"
 					+ "2- Nuevo personaje\r\n"
