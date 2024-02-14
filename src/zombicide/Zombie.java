@@ -10,10 +10,6 @@ public class Zombie extends Humanoide{
 	
 	protected Zombie(String name, int health, int maxHealth, boolean status) {
 		super(name, health, maxHealth, status);
-		getName();
-		getHealth();
-		getMaxHealth();
-		getStatus();
 		setMovement(movement);
 		setDamage(damage);
 		setType(type);
