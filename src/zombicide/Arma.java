@@ -9,12 +9,13 @@ public class Arma {
 	private int hit;
 	
 	protected Arma(String name, int damage, int range ,int hit) {
-		setName(name);
-		setDamage(damage);
-		setRange(range);
-		setHit(hit);
+		setName("Daga");
+		setDamage(1);
+		setRange(1);
+		setHit(4);
 	}
 	
+	//Nombre
 	protected String getName() {
 		return name;
 	}
@@ -23,6 +24,7 @@ public class Arma {
 		this.name = name;
 	}
 	
+	//Daño
 	protected int getDamage() {
 		return damage;
 	}
@@ -31,6 +33,7 @@ public class Arma {
 		this.damage = damage;
 	}
 	
+	//Alcance
 	protected int getRange() {
 		return range;
 	}
@@ -39,6 +42,7 @@ public class Arma {
 		this.range = range;
 	}
 	
+	//Acierto
 	protected int getHit() {
 		return hit;
 	}
@@ -49,6 +53,7 @@ public class Arma {
 		hit = Random.nextInt(1,6);
 	}
 	
+	//Habilidad Especial
 	public String toString() {
 		return "No hay habilidad especial";
 	}

@@ -6,13 +6,14 @@ public class Humanoide {
 	private int maxHealth;
 	private boolean status;
 	
-	protected Humanoide() {
+	protected Humanoide(String name, int health, int maxHealth, boolean status) {
 		setName(name);
 		setHealth(health);
 		setMaxHealth(maxHealth);
 		setStatus(status);
 	}
 	
+	//Nombre
 	protected String getName() {
 		return name;
 	}
@@ -21,6 +22,7 @@ public class Humanoide {
 		this.name = name;
 	}
 	
+	//Salud
 	protected int getHealth() {
 		return health;
 	}
@@ -29,6 +31,7 @@ public class Humanoide {
 		this.health = health;
 	}
 	
+	//Salud Máxima
 	protected int getMaxHealth() {
 		return maxHealth;
 	}
@@ -37,6 +40,7 @@ public class Humanoide {
 		this.maxHealth = maxHealth;
 	}
 	
+	//Vivo o Muerto
 	protected boolean getStatus() {
 		return status;
 	}

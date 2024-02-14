@@ -1,16 +1,25 @@
 package zombicide;
 
+import java.util.ArrayList;
+
 public class Zombie extends Humanoide{
 	private int movement;
 	private int damage;
 	private String type;
+	private static ArrayList<Zombie> initzombies;
 	
-	protected Zombie() {
+	protected Zombie(String name, int health, int maxHealth, boolean status) {
+		super(name, health, maxHealth, status);
+		getName();
+		getHealth();
+		getMaxHealth();
+		getStatus();
 		setMovement(movement);
 		setDamage(damage);
 		setType(type);
 	}
 	
+	//Movimiento
 	protected int getMovement() {
 		return movement;
 	}
@@ -19,6 +28,7 @@ public class Zombie extends Humanoide{
 		this.movement = movement;
 	}
 	
+	//Daño
 	protected int getDamage() {
 		return damage;
 	}
@@ -27,11 +37,21 @@ public class Zombie extends Humanoide{
 		this.damage = damage;
 	}
 	
+	//Tipo
 	protected String getType() {
 		return type;
 	}
 	
 	private void setType(String type) {
 		this.type = type;
+	}
+	
+	//Init Zombies
+	public static ArrayList<Zombie> getInitZombies() {
+		return initzombies;
+	}
+
+	public static void setInitZombies(ArrayList<Zombie> initzombies) {
+		Zombie.initzombies = initzombies;
 	}
 }
