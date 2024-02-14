@@ -6,7 +6,7 @@ public class Arma {
 	private int range;
 	private int hit;
 	
-	protected Arma() {
+	protected Arma(String name, int damage, int range ,int hit) {
 		setName(name);
 		setDamage(damage);
 		setRange(range);

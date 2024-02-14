@@ -1,18 +1,18 @@
 package zombicide;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Zombicide {
-	private String nombreCanal;
-	private static boolean salir= false; 
+	private static ArrayList characters;
+	private static boolean leave= false; 
 	public static void main(String[] args) {
 		showMenu();
 	}
 
 	public static void showMenu() {
 		Scanner leer = new Scanner(System.in);
-		while (!salir) {
+		while (!leave) {
 		texto();
 		switch (leer.nextInt()) {
 		//CREAR CANAL
@@ -28,7 +28,7 @@ public class Zombicide {
 		//SALIR DE YOUTUBE
 		case 0: {
 			System.out.println("Zombicide: Se apaga*");
-			salir = true;
+			leave = true;
 			break;
 		}
 		default:
@@ -53,13 +53,12 @@ public class Zombicide {
 					+ "0- Salir\r\n");
 		}
 
-//SET Y GET DE YOUTUBE
-	public void setNombreCanal(String nombre) {
-		nombreCanal = nombre;
-
+	public static ArrayList getCharacters() {
+		return characters;
 	}
 
-	public String getNombreCanal() {
-		return nombreCanal;
+	public static void setCharacters(ArrayList characters) {
+		Zombicide.characters = characters;
 	}
+
 }
