@@ -9,10 +9,10 @@ public class Arma {
 	private int hit;
 	
 	protected Arma(String name, int damage, int range ,int hit) {
-		setName(name);
-		setDamage(damage);
-		setRange(range);
-		setHit(hit);
+		setName("Daga");
+		setDamage(1);
+		setRange(1);
+		setHit(4);
 	}
 	
 	//Nombre

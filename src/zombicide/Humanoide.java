@@ -6,7 +6,7 @@ public class Humanoide {
 	private int maxHealth;
 	private boolean status;
 	
-	protected Humanoide() {
+	protected Humanoide(String name, int health, int maxHealth, boolean status) {
 		setName(name);
 		setHealth(health);
 		setMaxHealth(maxHealth);
