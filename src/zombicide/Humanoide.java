@@ -5,46 +5,46 @@ public class Humanoide {
 	private int health;
 	private int maxHealth;
 	private boolean status;
-	
+
 	protected Humanoide(String name, int health, int maxHealth, boolean status) {
 		setName(name);
 		setHealth(health);
 		setMaxHealth(maxHealth);
 		setStatus(status);
 	}
-	
-	//Nombre
+
+	// Nombre
 	protected String getName() {
 		return name;
 	}
-	
+
 	private void setName(String name) {
 		this.name = name;
 	}
-	
-	//Salud
+
+	// Salud
 	protected int getHealth() {
 		return health;
 	}
-	
+
 	private void setHealth(int health) {
 		this.health = health;
 	}
-	
-	//Salud Máxima
+
+	// Salud Máxima
 	protected int getMaxHealth() {
 		return maxHealth;
 	}
-	
+
 	private void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
 	}
-	
-	//Vivo o Muerto
+
+	// Vivo o Muerto
 	protected boolean getStatus() {
 		return status;
 	}
-	
+
 	private void setStatus(boolean status) {
 		this.status = status;
 	}
