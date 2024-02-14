@@ -4,13 +4,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Zombicide {
+	private static ArrayList<String> initcharacters= new ArrayList<String>(10);
+	private static ArrayList<Arma> initweapons;
 
-	private static ArrayList characters;
 	private static boolean leave= false; 
-
-	private String nombreCanal;
-	private static boolean salir = false; 
-	
+		
 	public static void main(String[] args) {
 		showMenu();
 	}
@@ -48,6 +46,7 @@ public class Zombicide {
 	}
 
 	private static void newCharacter() {
+		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
 		
 	}
 
@@ -58,12 +57,20 @@ public class Zombicide {
 					+ "0- Salir\r\n");
 		}
 
-	public static ArrayList getCharacters() {
-		return characters;
+	public static ArrayList<String> getCharacters() {
+		return initcharacters;
 	}
 
-	public static void setCharacters(ArrayList characters) {
-		Zombicide.characters = characters;
+	public static void setCharacters(ArrayList<String> characters) {
+		Zombicide.initcharacters = characters;
+	}
+
+	public static ArrayList<Arma> getInitweapons() {
+		return initweapons;
+	}
+
+	public static void setInitweapons(ArrayList<Arma> initweapons) {
+		Zombicide.initweapons = initweapons;
 	}
 
 }
