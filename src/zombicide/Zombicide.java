@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Zombicide {
 	private String nombreCanal;
-	private static boolean salir= false; 
+	private static boolean salir = false; 
+	
 	public static void main(String[] args) {
 		showMenu();
 	}

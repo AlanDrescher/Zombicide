@@ -1,5 +1,7 @@
 package zombicide;
 
+import java.util.Random;
+
 public class Arma {
 	private String name;
 	private int damage;
@@ -43,5 +45,11 @@ public class Arma {
 	
 	private void setHit(int hit) {
 		this.hit = hit;
+		Random Random = new Random();
+		hit = Random.nextInt(1,6);
+	}
+	
+	public String toString() {
+		return "No hay habilidad especial";
 	}
 }
