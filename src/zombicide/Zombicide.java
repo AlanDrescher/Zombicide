@@ -3,7 +3,7 @@ package zombicide;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Juego {
+public class Zombicide {
 	private String nombreCanal;
 	private static boolean salir= false; 
 	public static void main(String[] args) {
