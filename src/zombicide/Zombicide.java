@@ -40,23 +40,25 @@ public class Zombicide {
 
 	}
 
-
+	//Nueva Partida
 	private static void newGame() {
 		
 	}
 
+	//Nuevo Personaje
 	private static void newCharacter() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
 		
 	}
 
-	// TEXTO DE JUEGO
+	// Menú del Juego
 	public static void texto() {
 			System.out.println("|---Zombicide---|\r\n" + "1- Nueva partida\r\n"
 					+ "2- Nuevo personaje\r\n"
 					+ "0- Salir\r\n");
 		}
 
+	//Init Personajes
 	public static ArrayList<String> getCharacters() {
 		return initcharacters;
 	}
@@ -65,6 +67,7 @@ public class Zombicide {
 		Zombicide.initcharacters = characters;
 	}
 
+	//Init Objetos
 	public static ArrayList<Arma> getInitweapons() {
 		return initweapons;
 	}
