@@ -13,7 +13,6 @@ public class Zombie extends Humanoide{
 		getName();
 		getHealth();
 		getMaxHealth();
-		getStatus();
 		setMovement(movement);
 		setDamage(damage);
 		setType(type);
