@@ -1,7 +1,9 @@
 package zombicide;
 
-import java.util.Scanner;
+
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Zombicide {
 	private static ArrayList<String> initcharacters= new ArrayList<String>(10);
@@ -21,6 +23,7 @@ public class Zombicide {
 		//CREAR CANAL
 		case 1: {
 			newGame();
+			getArma();
 			break;
 		}
 		//SELCCIONAR CANAL
@@ -48,6 +51,19 @@ public class Zombicide {
 	//Nuevo Personaje
 	private static void newCharacter() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
+		
+	}
+	private static void getArma() {
+		Random random = new Random();
+		int resultado = random.nextInt(100);
+		System.out.println("Has Sacado un "+ resultado+". ");
+		if (resultado >= 50) {
+			System.out.println("Has obtenido: "+ getInitweapons());
+			getInitweapons();
+		}
+		else {
+			System.out.println("No te da nada");
+		}
 		
 	}
 
