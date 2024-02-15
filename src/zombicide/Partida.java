@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
+	private boolean leave;
 	private Random random;
 	public static void showMenu() {
+		leave =true;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 		texto();

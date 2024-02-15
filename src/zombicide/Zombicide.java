@@ -45,7 +45,8 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
-
+		
+		Partida.showMenu();
 	}
 
 	// Nuevo Personaje
@@ -70,7 +71,12 @@ public class Zombicide {
 	// Menú del Juego
 	public static void texto() {
 		System.out
-				.println("|---Zombicide---|\r\n" + "1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
+				.println("|---"
+						+ "\u001B[40m\u001B[31m"
+						+ "Zombi"
+						+ "\u001B[30m\u001B[41m"
+						+ "cide"
+						+ "\u001B[0m---|\r\n" + "1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
 	}
 
 	// Init Personajes
