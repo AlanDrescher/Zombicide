@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
-	private static boolean leave;
+	private boolean leave;
 	private Random random;
-	public static void showMenu() {
+	public void showMenu() {
 		leave =true;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
@@ -47,30 +47,31 @@ public class Partida {
 	}
 
 	//Nueva Partida
-	private static void attack() {
+	private void attack() {
 		
 	}
 
 	//Nuevo Personaje
-	private static void specialHability() {
+	private void specialHability() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
 		
 	}
 	
-	private static void search() {
+	private void search() {
 		
 	}
 	
-	private static void switchWeapon() {
+	private void switchWeapon() {
 		
 	}
-	private static void getArma() {
+	private void getArma() {
 		Random random = new Random();
+		Arma arma = new Arma();
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un "+ resultado+". ");
 		if (resultado >= 50) {
-			System.out.println("Has obtenido: "+ Arma.getWeapon());
-			Arma.getWeapon();
+			System.out.println("Has obtenido: "+ arma.getWeapon());
+			arma.getWeapon();
 		}
 		else {
 			System.out.println("No te da nada");

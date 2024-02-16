@@ -42,8 +42,8 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
-		
-		Partida.showMenu();
+		Partida partida = new Partida();
+		partida.showMenu();
 	}
 
 	// Nuevo Personaje
