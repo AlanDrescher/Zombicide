@@ -61,10 +61,8 @@ public class Zombicide {
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
-		Jugador jugador = new Jugador(nombre, 5, 0, true);
-		setCharacters(jugador);
-		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
-		
+		Jugador jugador = new Jugador(nombre, 5, 5, true);
+		setCharacters(jugador);		
 	}
 
 	// Menú del Juego

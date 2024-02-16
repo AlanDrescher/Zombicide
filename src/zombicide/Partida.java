@@ -74,6 +74,7 @@ public class Partida {
 		
 	}
 	private void texto(){
+		Zombicide.tittle();
 		System.out.print("1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
