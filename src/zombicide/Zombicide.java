@@ -37,7 +37,7 @@ public class Zombicide {
 	}
 
 	// Nueva Partida
-	private static void newGame() {
+	private static void newGame() {		
 		if (initcharacters.size()>3) {
 			System.out.println("Selecciona personajes:");
 			for (int x =0;x<initcharacters.size();x++) {
