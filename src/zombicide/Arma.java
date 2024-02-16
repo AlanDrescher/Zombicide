@@ -1,5 +1,6 @@
 package zombicide;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Arma {
@@ -7,6 +8,7 @@ public class Arma {
 	private int damage;
 	private int range;
 	private int hit;
+	private static ArrayList<Arma> initweapons;
 
 	protected Arma(String name, int damage, int range, int hit) {
 		setName("Daga");
@@ -52,6 +54,15 @@ public class Arma {
 		Random Random = new Random();
 		hit = Random.nextInt(1, 6);
 	}
+	
+	// Init Objetos
+		public static ArrayList<Arma> getWeapon() {
+			return initweapons;
+		}
+
+		public static void setWeapon(ArrayList<Arma> weapons) {
+			Arma.initweapons = weapons;
+		}
 
 	// Habilidad Especial
 	public String toString() {

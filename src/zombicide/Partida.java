@@ -57,27 +57,27 @@ public class Partida {
 		
 	}
 	
-	private void search() {
+	private static void search() {
 		
 	}
 	
-	private void switchWeapon() {
+	private static void switchWeapon() {
 		
 	}
-	private void getArma() {
+	private static void getArma() {
 		Random random = new Random();
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un "+ resultado+". ");
 		if (resultado >= 50) {
-			System.out.println("Has obtenido: "+ getInitweapons());
-			getInitweapons();
+			System.out.println("Has obtenido: "+ Arma.getWeapon());
+			Arma.getWeapon();
 		}
 		else {
 			System.out.println("No te da nada");
 		}
 		
 	}
-	private void texto(){
+	private static void texto(){
 		System.out.print("1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
