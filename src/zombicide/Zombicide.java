@@ -1,12 +1,10 @@
 package zombicide;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Zombicide {
-	private static ArrayList<String> initcharacters = new ArrayList<String>(10);
-	private static ArrayList<Arma> initweapons;
+	private static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
 
 	private static boolean leave = false;
 
@@ -66,21 +64,13 @@ public class Zombicide {
 	}
 
 	// Init Personajes
-	public static ArrayList<String> getCharacters() {
+	public static ArrayList<Jugador> getCharacters() {
 		return initcharacters;
 	}
 
-	public static void setCharacters(ArrayList<String> characters) {
+	public static void setCharacters(ArrayList<Jugador> characters) {
 		Zombicide.initcharacters = characters;
 	}
 
-	// Init Objetos
-	public static ArrayList<Arma> getInitweapons() {
-		return initweapons;
-	}
-
-	public static void setInitweapons(ArrayList<Arma> initweapons) {
-		Zombicide.initweapons = initweapons;
-	}
 
 }

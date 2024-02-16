@@ -64,7 +64,7 @@ public class Partida {
 	private void switchWeapon() {
 		
 	}
-	private static void getArma() {
+	private void getArma() {
 		Random random = new Random();
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un "+ resultado+". ");
@@ -77,7 +77,7 @@ public class Partida {
 		}
 		
 	}
-	private static void texto(){
+	private void texto(){
 		System.out.print("1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
