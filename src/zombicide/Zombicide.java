@@ -6,13 +6,12 @@ import java.util.Scanner;
 public class Zombicide {
 	protected static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
 
-	private static boolean leave = false;
-
 	public static void main(String[] args) {
 		showMenu();
 	}
 
 	public static void showMenu() {
+		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 			texto();

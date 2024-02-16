@@ -6,12 +6,11 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
-	private boolean leave;
 	private Random random;
 	private int level;
 
 	public void showMenu() {
-		leave = false;
+		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 			texto();
@@ -86,7 +85,7 @@ public class Partida {
 		if (random == 3) {
 			new ZombieGordo();
 		}
-		System.out.print("|----- NIVEL: " + level + "==|\r\n " + random + " |==\r\n" + "1- Atacar\r\n"
+		System.out.print("|----- NIVEL: " + level + "==|\r\n " + random + " |==\r\n" + "JUGADOR:" + "1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 	}
 
