@@ -41,8 +41,11 @@ public class Zombicide {
 		if (initcharacters.size()>3) {
 			System.out.println("Selecciona personajes:");
 			for (int x =0;x<initcharacters.size();x++) {
-				getCharacters().get(x);
+				System.out.println("Selecciona entre 3 y 6 personajes: "+getCharacters().get(x));
+	
 			}
+			System.out.println("Selecciona entre 3 y 6 personajes: ");
+			
 		}
 		else {
 			System.out.println("Tienes 3 personajes.");
@@ -71,9 +74,9 @@ public class Zombicide {
 	public static void tittle() {
 		System.out.println("|---"
 						+ "\u001B[40m\u001B[31m"
-						+ "Zombi"
+						+ "💀Zombi"
 						+ "\u001B[30m\u001B[41m"
-						+ "cide"
+						+ "cide💀"
 						+ "\u001B[0m---|\r\n");
 	}
 
