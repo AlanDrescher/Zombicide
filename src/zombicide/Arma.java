@@ -10,12 +10,17 @@ public class Arma {
 	private int hit;
 	private ArrayList<Arma> initweapons;
 
-	protected Arma() {
-		setName("Daga");
-		setDamage(1);
-		setRange(1);
-		setHit(4);
+	protected void Arma(String name, int damage, int range, int hit) {
+		setName(name);
+		setDamage(damage);
+		setRange(range);
+		setHit(hit);
 	}
+	public Arma() {
+		Arma("Daga",1,1,4);
+	}
+
+
 
 
 	// Nombre

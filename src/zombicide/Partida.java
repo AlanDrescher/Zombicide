@@ -82,7 +82,7 @@ public class Partida {
 		}
 		
 	}
-	private static void texto(){
+	private void texto(){
 		System.out.print("1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
