@@ -50,6 +50,10 @@ public class Partida {
 		
 	}
 
+	protected Partida() {
+		
+	}
+	
 	//Nueva Partida
 	private void attack() {
 		
