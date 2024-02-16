@@ -15,13 +15,10 @@ public class Partida {
 		while (!leave) {
 		texto();
 		switch (leer.nextInt()) {
-		//CREAR CANAL
 		case 1: {
 			attack();
-			getArma();
 			break;
 		}
-		//SELCCIONAR CANAL
 		case 2: {
 			specialHability();
 			break;
@@ -34,7 +31,6 @@ public class Partida {
 			switchWeapon();
 			break;
 		}
-		//SALIR DE YOUTUBE
 		case 0: {
 			System.out.println("Zombicide: Se apaga*");
 			leave = true;
@@ -50,25 +46,20 @@ public class Partida {
 		
 	}
 	
-	//Nueva Partida
 	private void attack() {
 		
 	}
 
-	//Nuevo Personaje
 	private void specialHability() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
 		
 	}
 	
-	private void search() {
-		
-	}
 	
 	private void switchWeapon() {
 		
 	}
-	private void getArma() {
+	private void search() {
 		Random random = new Random();
 		Arma arma = new Arma();
 		int resultado = random.nextInt(100);
@@ -89,4 +80,12 @@ public class Partida {
 				+ "4- Cambiar Arma\r\n"
 				+ "0- Pasar");
 		}
+
+	public ArrayList<Zombie> getInitzombies() {
+		return initzombies;
+	}
+
+	public void setInitzombies(ArrayList<Zombie> initzombies) {
+		this.initzombies = initzombies;
+	}
 	}

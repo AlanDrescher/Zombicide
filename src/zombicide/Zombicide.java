@@ -42,25 +42,38 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
+		if (initcharacters.size()>3) {
+			System.out.println("Selecciona personajes:");
+		}
+		else {
+			System.out.println("Tienes 3 personajes.");
+		}
 		Partida partida = new Partida();
 		partida.showMenu();
 	}
 
 	// Nuevo Personaje
 	private static void newCharacter() {
-		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
-
+		Scanner leer = new Scanner(System.in);
+		tittle();
+		System.out.println("Dame el nombre del personaje: ");
+		String nombre = leer.next();
+		Jugador jugador = new Jugador(nombre, 5, 0, true);
 	}
 
 	// Menú del Juego
 	public static void texto() {
-		System.out
-				.println("|---"
+		tittle();
+		System.out.println("1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
+	}
+	
+	public static void tittle() {
+		System.out.println("|---"
 						+ "\u001B[40m\u001B[31m"
 						+ "Zombi"
 						+ "\u001B[30m\u001B[41m"
 						+ "cide"
-						+ "\u001B[0m---|\r\n" + "1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
+						+ "\u001B[0m---|\r\n");
 	}
 
 	// Init Personajes
