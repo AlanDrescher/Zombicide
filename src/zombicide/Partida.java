@@ -10,7 +10,7 @@ public class Partida {
 	private boolean leave;
 	private Random random;
 	public void showMenu() {
-		leave =true;
+		leave =false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 		texto();
@@ -78,7 +78,7 @@ public class Partida {
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
 				+ "4- Cambiar Arma\r\n"
-				+ "0- Pasar");
+				+ "0- Pasar\r\n");
 		}
 
 	public ArrayList<Zombie> getInitzombies() {

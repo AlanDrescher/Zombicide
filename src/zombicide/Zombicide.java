@@ -44,6 +44,9 @@ public class Zombicide {
 	private static void newGame() {
 		if (initcharacters.size()>3) {
 			System.out.println("Selecciona personajes:");
+			for (int x =0;x<initcharacters.size();x++) {
+				getCharacters().get(x);
+			}
 		}
 		else {
 			System.out.println("Tienes 3 personajes.");
@@ -54,16 +57,13 @@ public class Zombicide {
 
 	// Nuevo Personaje
 	private static void newCharacter() {
-<<<<<<< Updated upstream
 		Scanner leer = new Scanner(System.in);
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
 		Jugador jugador = new Jugador(nombre, 5, 0, true);
-=======
-		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
-		
->>>>>>> Stashed changes
+		setCharacters(jugador);
+		jugador.setWeapon("Daga");
 	}
 
 	// Menú del Juego
@@ -86,8 +86,8 @@ public class Zombicide {
 		return initcharacters;
 	}
 
-	public static void setCharacters(ArrayList<Jugador> characters) {
-		Zombicide.initcharacters = characters;
+	public static void setCharacters(Jugador characters) {
+		Zombicide.initcharacters.add(characters);
 	}
 
 
