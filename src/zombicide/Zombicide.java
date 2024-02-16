@@ -54,11 +54,16 @@ public class Zombicide {
 
 	// Nuevo Personaje
 	private static void newCharacter() {
+<<<<<<< Updated upstream
 		Scanner leer = new Scanner(System.in);
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
 		Jugador jugador = new Jugador(nombre, 5, 0, true);
+=======
+		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
+		
+>>>>>>> Stashed changes
 	}
 
 	// Menú del Juego

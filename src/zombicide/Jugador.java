@@ -6,8 +6,9 @@ public class Jugador extends Humanoide{
 	
 	protected Jugador(String name, int health, int maxHealth, boolean status) {
 		super(name, health, maxHealth, status);
+		
 	}
-	
+
 	public String getWeapon() {
 		return weapon;
 	}
