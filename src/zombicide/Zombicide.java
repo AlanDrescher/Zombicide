@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Zombicide {
-	private static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
+	protected static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
 
 	private static boolean leave = false;
 
@@ -29,7 +29,7 @@ public class Zombicide {
 			}
 			// SALIR DE YOUTUBE
 			case 0: {
-				System.out.println("Zombicide: Se apaga*");
+				System.out.println("Zombicide: Se apaga");
 				leave = true;
 				break;
 			}
