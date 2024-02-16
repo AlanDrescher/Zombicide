@@ -16,17 +16,14 @@ public class Zombicide {
 		while (!leave) {
 			texto();
 			switch (leer.nextInt()) {
-			// CREAR CANAL
 			case 1: {
 				newGame();
 				break;
 			}
-			// SELCCIONAR CANAL
 			case 2: {
 				newCharacter();
 				break;
 			}
-			// SALIR DE YOUTUBE
 			case 0: {
 				System.out.println("Zombicide: Se apaga");
 				leave = true;
