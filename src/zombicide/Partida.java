@@ -42,24 +42,27 @@ public class Partida {
 		}
 
 	}
-
+	
 	protected Partida() {
-
+		
 	}
 
 	private void attack() {
 
 	}
 
+	//Habilidad Especial
 	private void specialHability() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
 
 	}
 
+	//Cambiar Arma
 	private void switchWeapon() {
 
 	}
-
+	
+	//Buscar
 	private void search() {
 		Random random = new Random();
 		Arma arma = new Arma();
@@ -74,6 +77,7 @@ public class Partida {
 
 	}
 
+	//Menú
 	private void texto() {
 		int random = new Random(Zombicide.initcharacters.size()).nextInt();
 		if (random == 1) {
