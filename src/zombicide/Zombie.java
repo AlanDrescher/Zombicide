@@ -6,7 +6,7 @@ public class Zombie extends Humanoide{
 	private int movement;
 	private int damage;
 	private String type;
-	private static ArrayList<Zombie> initzombies;
+	private ArrayList<Zombie> initzombies;
 	
 	protected Zombie(String name, int health, int maxHealth, boolean status) {
 		super(name, health, maxHealth, status);
@@ -43,11 +43,11 @@ public class Zombie extends Humanoide{
 	}
 	
 	//Init Zombies
-	public static ArrayList<Zombie> getInitZombies() {
+	public ArrayList<Zombie> getInitZombies() {
 		return initzombies;
 	}
 
-	public static void setInitZombies(ArrayList<Zombie> initzombies) {
-		Zombie.initzombies = initzombies;
+	public void setInitZombies(Zombie initzombies) {
+		this.initzombies.add(initzombies);
 	}
 }
