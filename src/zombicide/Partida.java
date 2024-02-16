@@ -17,13 +17,21 @@ public class Partida {
 		switch (leer.nextInt()) {
 		//CREAR CANAL
 		case 1: {
-			newGame();
+			attack();
 			getArma();
 			break;
 		}
 		//SELCCIONAR CANAL
 		case 2: {
-			newCharacter();
+			specialHability();
+			break;
+		}
+		case 3:{
+			search();
+			break;
+		}
+		case 4:{
+			switchWeapon();
 			break;
 		}
 		//SALIR DE YOUTUBE
@@ -39,13 +47,21 @@ public class Partida {
 	}
 
 	//Nueva Partida
-	private static void newGame() {
+	private static void attack() {
 		
 	}
 
 	//Nuevo Personaje
-	private static void newCharacter() {
+	private static void specialHability() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
+		
+	}
+	
+	private void search() {
+		
+	}
+	
+	private void switchWeapon() {
 		
 	}
 	private static void getArma() {
