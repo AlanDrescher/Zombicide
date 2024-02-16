@@ -49,10 +49,6 @@ public class Partida {
 	protected Partida() {
 		
 	}
-
-	protected Partida() {
-		
-	}
 	
 	//Nueva Partida
 	private void attack() {
