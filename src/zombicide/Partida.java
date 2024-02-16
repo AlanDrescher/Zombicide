@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
-	private boolean leave;
+	private static boolean leave;
 	private Random random;
 	public static void showMenu() {
 		leave =true;
@@ -61,7 +61,7 @@ public class Partida {
 		}
 		
 	}
-	void texto(){
+	private static void texto(){
 		System.out.print("1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n"
 				+ "3- Buscar\r\n"
