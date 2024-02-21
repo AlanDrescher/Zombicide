@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Zombicide {
 	protected static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
+	protected static ArrayList<Jugador> initselectcharacter = new ArrayList<Jugador>(7);
 
 	public static void main(String[] args) {
 		showMenu();
