@@ -1,6 +1,6 @@
 package zombicide;
 
-public class Zombie extends Humanoide{
+public class Zombie extends Humanoide {
 
 	private int movement;
 	private int damage;
@@ -18,6 +18,7 @@ public class Zombie extends Humanoide{
 		return movement;
 	}
 
+	
 	protected void setMovement(int movement) {
 		this.movement = movement;
 	}
@@ -26,6 +27,8 @@ public class Zombie extends Humanoide{
 	protected int getDamage() {
 		return damage;
 	}
+
+	
 	protected void setDamage(int damage) {
 		this.damage = damage;
 	}
@@ -34,6 +37,8 @@ public class Zombie extends Humanoide{
 	protected String getType() {
 		return type;
 	}
+
+	
 	protected void setType(String type) {
 		this.type = type;
 	}
