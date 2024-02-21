@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
-	private Random random;
 	private int level;
 
 	public void showMenu() {
@@ -76,13 +75,12 @@ public class Partida {
 		}
 
 	}
-
-	// Menú
-	private void texto() {
+	private void zombirandom() {
 		for (int i = 0; i < Zombicide.initcharacters.size(); i++) {
 			int random = new Random(3).nextInt();
 			if (random == 1) {
 				new ZombieCaminante();
+				setInitzombies(new ZombieCaminante());
 			}
 			if (random == 2) {
 				new ZombieCorredor();
@@ -91,9 +89,12 @@ public class Partida {
 				new ZombieGordo();
 			}
 		}
+	}
+	// Menú
+	private void texto() {
 		ArrayList<Jugador> jugador = new Zombicide().getCharacters();
-		for (int i = 0; i < Zombicide.initselectcharacter.size(); i++) {
-			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + random + " |==\r\n" + "JUGADOR: "
+		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i) + " |==\r\n" + "JUGADOR: "
 					+ Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 					
@@ -104,7 +105,7 @@ public class Partida {
 		return initzombies;
 	}
 
-	public void setInitzombies(ArrayList<Zombie> initzombies) {
-		this.initzombies = initzombies;
+	public void setInitzombies(Zombie initzombies) {
+		this.initzombies.add(initzombies);
 	}
 }
