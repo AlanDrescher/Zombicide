@@ -58,27 +58,16 @@ public class Zombicide {
 
 			}
 			System.out.println("Selecciona entre 3 y 6 personajes: ");
-<<<<<<< Updated upstream
-			for (int x = 0; x < initcharacters.size(); x++) {
-=======
 			for (int x = 0; x < getCharacters().size(); x++) {
->>>>>>> Stashed changes
 				System.out.println("Selecciona el personaje " + x + ": ");
 				int seleccion = leer.nextInt();
 				setSelectCharacters(getCharacters().get(seleccion));
 			}
 		} else {
 			System.out.println("Tienes solo 3 personajes. Empezaremos con esos 3");
-<<<<<<< Updated upstream
-			setSelectCharacters(jugador1);
-			setSelectCharacters(jugador2);
-			setSelectCharacters(jugador3);
-
-=======
 			for (int x = 0; x < getCharacters().size(); x++) {
 				setSelectCharacters(getCharacters().get(x));
 			}
->>>>>>> Stashed changes
 		}
 		Partida partida = new Partida();
 		partida.showMenu();
