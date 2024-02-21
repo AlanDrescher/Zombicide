@@ -7,6 +7,9 @@ import java.util.Scanner;
 public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private int level;
+	protected Partida() {
+		initzombies= new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
+	}
 
 	public void showMenu() {
 		boolean leave = false;
@@ -43,9 +46,6 @@ public class Partida {
 
 	}
 
-	protected Partida() {
-
-	}
 
 	private void attack() {
 
@@ -78,26 +78,27 @@ public class Partida {
 	}
 
 	private void zombirandom() {
-		for (int i = 0; i < Zombicide.initcharacters.size(); i++) {
+		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			int random = new Random().nextInt(3);
-			System.out.println(random);
 			if (random == 0) {
-				setInitzombies(new ZombieCaminante());
+				Zombie zombicaminante = new ZombieCaminante();
+				setInitzombies(zombicaminante);
 			}
 			if (random == 2) {
-				setInitzombies(new ZombieCorredor());
+				Zombie zombicorredor = new ZombieCorredor();
+				setInitzombies(zombicorredor);
 			}
 			if (random == 1) {
-				setInitzombies(new ZombieGordo());
+				Zombie zombigordo = new ZombieGordo();
+				setInitzombies(zombigordo);
 			}
 		}
 	}
 
 	// Menú
 	private void texto() {
-//		ArrayList<Jugador> jugador = new Zombicide().getCharacters();
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i) + " |==\r\n"
+			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i).getName()+ " "+getInitzombies().get(i).getType() + " |==\r\n"
 					+ "JUGADOR: " + Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 
