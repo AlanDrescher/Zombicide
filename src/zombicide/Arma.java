@@ -8,7 +8,7 @@ public class Arma {
 	private int damage;
 	private int range;
 	private int hit;
-	private static ArrayList<Arma> initweapons;
+	private ArrayList<Arma> initweapons;
 
 	protected void Arma(String name, int damage, int range, int hit) {
 		setName(name);
@@ -60,7 +60,7 @@ public class Arma {
 	}
 
 	// Init Objetos
-	public static ArrayList<Arma> getWeapon() {
+	public ArrayList<Arma> getWeapon() {
 		return initweapons;
 	}
 

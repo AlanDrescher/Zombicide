@@ -24,8 +24,6 @@ public class Zombicide {
 			}
 			case 2: {
 				newCharacter();
-				Random Random = new Random();
-				Arma.getWeapon().get(Random.nextInt());
 				break;
 			}
 			case 0: {
