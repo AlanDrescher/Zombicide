@@ -36,7 +36,7 @@ public class Zombicide {
 		}
 
 	}
-
+	
 	// Nueva Partida
 	private static void newGame() {
 		Jugador jugador3 = new Jugador("James", 7, 7, true);
@@ -67,7 +67,7 @@ public class Zombicide {
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
-		Jugador jugador = new Jugador(nombre);
+		Jugador jugador = new Jugador(nombre, 5, 5, true);
 		setCharacters(jugador);
 		jugador.setWeapon("Daga");
 	}
