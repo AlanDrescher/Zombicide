@@ -105,6 +105,6 @@ public class Partida {
 	}
 
 	public void setInitzombies(ArrayList<Zombie> initzombies) {
-		this.initzombies = initzombies;
+		this.initzombies.addAll(initzombies);
 	}
 }
