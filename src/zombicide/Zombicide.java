@@ -26,7 +26,7 @@ public class Zombicide {
 				break;
 			}
 			case 0: {
-				System.out.println("Zombicide: Se apaga");
+				System.out.println("\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m" + ": Se apaga");
 				leave = true;
 				break;
 			}
