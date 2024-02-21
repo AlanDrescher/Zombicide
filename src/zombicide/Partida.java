@@ -31,7 +31,7 @@ public class Partida {
 				break;
 			}
 			case 0: {
-				System.out.println("Zombicide: Se apaga*");
+				System.out.println("Has pasado");
 				leave = true;
 				break;
 			}
