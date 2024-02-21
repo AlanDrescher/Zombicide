@@ -75,6 +75,7 @@ public class Partida {
 		}
 
 	}
+
 	private void zombirandom() {
 		for (int i = 0; i < Zombicide.initcharacters.size(); i++) {
 			int random = new Random(3).nextInt();
@@ -90,14 +91,15 @@ public class Partida {
 			}
 		}
 	}
+
 	// Menú
 	private void texto() {
 		ArrayList<Jugador> jugador = new Zombicide().getCharacters();
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i) + " |==\r\n" + "JUGADOR: "
-					+ Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"
+			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i) + " |==\r\n"
+					+ "JUGADOR: " + Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
-					
+
 		}
 	}
 

@@ -26,7 +26,8 @@ public class Zombicide {
 				break;
 			}
 			case 0: {
-				System.out.println("\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m" + ": Se apaga");
+				System.out.println("\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m"
+						+ ": Se apaga");
 				leave = true;
 				break;
 			}
@@ -54,7 +55,7 @@ public class Zombicide {
 			}
 			System.out.println("Selecciona entre 3 y 6 personajes: ");
 			for (int x = 0; x < initcharacters.size(); x++) {
-				System.out.println("Selecciona el personaje "+x+": ");
+				System.out.println("Selecciona el personaje " + x + ": ");
 				int seleccion = leer.nextInt();
 				setSelectCharacters(getCharacters().get(seleccion));
 			}
@@ -64,7 +65,7 @@ public class Zombicide {
 			setSelectCharacters(jugador2);
 			setSelectCharacters(jugador3);
 
-			}
+		}
 		Partida partida = new Partida();
 		partida.showMenu();
 	}
