@@ -11,6 +11,7 @@ public class Partida {
 	public void showMenu() {
 		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
+		zombirandom();
 		while (!leave) {
 			texto();
 			switch (leer.nextInt()) {
@@ -78,23 +79,23 @@ public class Partida {
 
 	private void zombirandom() {
 		for (int i = 0; i < Zombicide.initcharacters.size(); i++) {
-			int random = new Random(3).nextInt();
-			if (random == 1) {
-				new ZombieCaminante();
+			int random = new Random().nextInt(3);
+			System.out.println(random);
+			if (random == 0) {
 				setInitzombies(new ZombieCaminante());
 			}
 			if (random == 2) {
-				new ZombieCorredor();
+				setInitzombies(new ZombieCorredor());
 			}
-			if (random == 3) {
-				new ZombieGordo();
+			if (random == 1) {
+				setInitzombies(new ZombieGordo());
 			}
 		}
 	}
 
 	// Menú
 	private void texto() {
-		ArrayList<Jugador> jugador = new Zombicide().getCharacters();
+//		ArrayList<Jugador> jugador = new Zombicide().getCharacters();
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i) + " |==\r\n"
 					+ "JUGADOR: " + Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"

@@ -1,8 +1,12 @@
 package zombicide;
 
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 
 public class Zombie extends Humanoide {
+=======
+public class Zombie extends Humanoide{
+>>>>>>> Stashed changes
 	private int movement;
 	private int damage;
 	private String type;
@@ -18,8 +22,13 @@ public class Zombie extends Humanoide {
 	protected int getMovement() {
 		return movement;
 	}
+<<<<<<< Updated upstream
 
 	private void setMovement(int movement) {
+=======
+	
+	protected void setMovement(int movement) {
+>>>>>>> Stashed changes
 		this.movement = movement;
 	}
 
@@ -27,8 +36,13 @@ public class Zombie extends Humanoide {
 	protected int getDamage() {
 		return damage;
 	}
+<<<<<<< Updated upstream
 
 	private void setDamage(int damage) {
+=======
+	
+	protected void setDamage(int damage) {
+>>>>>>> Stashed changes
 		this.damage = damage;
 	}
 
@@ -36,8 +50,13 @@ public class Zombie extends Humanoide {
 	protected String getType() {
 		return type;
 	}
+<<<<<<< Updated upstream
 
 	private void setType(String type) {
+=======
+	
+	protected void setType(String type) {
+>>>>>>> Stashed changes
 		this.type = type;
 	}
 }

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Zombicide {
-	protected static ArrayList<Jugador> initcharacters = new ArrayList<Jugador>(10);
-	protected static ArrayList<Jugador> initselectcharacter = new ArrayList<Jugador>(7);
+	protected static ArrayList<Jugador> initcharacters;
+	protected static ArrayList<Jugador> initselectcharacter;
 
 	public static void main(String[] args) {
+		initcharacters = new ArrayList<Jugador>(10);
+		initselectcharacter = new ArrayList<Jugador>(7);
+		defaultCharacter();
 		showMenu();
 	}
 
@@ -38,33 +41,44 @@ public class Zombicide {
 
 	}
 
+	private static void defaultCharacter() {
+		setCharacters(new Jugador("Marie", 5, 5, true));
+		setCharacters(new Jugador("Jaci", 5, 5, true));
+		setCharacters(new Jugador("James", 7, 7, true));
+	}
+
 	// Nueva Partida
 	private static void newGame() {
-		Jugador jugador1 = new Jugador("Marie", 5, 5, true);
-		Jugador jugador2 = new Jugador("Jaci", 5, 5, true);
-		Jugador jugador3 = new Jugador("James", 7, 7, true);
-		setCharacters(jugador1);
-		setCharacters(jugador2);
-		setCharacters(jugador3);
-		if (initcharacters.size() > 3) {
+
+		if (getCharacters().size() > 3) {
 			Scanner leer = new Scanner(System.in);
 			System.out.println("Selecciona personajes:");
-			for (int x = 0; x < initcharacters.size(); x++) {
+			for (int x = 0; x < getCharacters().size(); x++) {
 				System.out.println(x + "- " + getCharacters().get(x).getName());
 
 			}
 			System.out.println("Selecciona entre 3 y 6 personajes: ");
+<<<<<<< Updated upstream
 			for (int x = 0; x < initcharacters.size(); x++) {
+=======
+			for (int x = 0; x < getCharacters().size(); x++) {
+>>>>>>> Stashed changes
 				System.out.println("Selecciona el personaje " + x + ": ");
 				int seleccion = leer.nextInt();
 				setSelectCharacters(getCharacters().get(seleccion));
 			}
 		} else {
 			System.out.println("Tienes solo 3 personajes. Empezaremos con esos 3");
+<<<<<<< Updated upstream
 			setSelectCharacters(jugador1);
 			setSelectCharacters(jugador2);
 			setSelectCharacters(jugador3);
 
+=======
+			for (int x = 0; x < getCharacters().size(); x++) {
+				setSelectCharacters(getCharacters().get(x));
+			}
+>>>>>>> Stashed changes
 		}
 		Partida partida = new Partida();
 		partida.showMenu();
