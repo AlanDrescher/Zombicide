@@ -8,7 +8,7 @@ public class Arma {
 	private int damage;
 	private int range;
 	private int hit;
-	private ArrayList<Arma> initweapons;
+	private static ArrayList<Arma> initweapons;
 
 	protected void Arma(String name, int damage, int range, int hit) {
 		setName(name);
@@ -16,12 +16,10 @@ public class Arma {
 		setRange(range);
 		setHit(hit);
 	}
+
 	public Arma() {
-		Arma("Daga",1,1,4);
+		Arma("Daga", 1, 1, 4);
 	}
-
-
-
 
 	// Nombre
 	protected String getName() {
@@ -60,15 +58,15 @@ public class Arma {
 		Random Random = new Random();
 		hit = Random.nextInt(1, 6);
 	}
-	
-	// Init Objetos
-		public ArrayList<Arma> getWeapon() {
-			return initweapons;
-		}
 
-		public void setWeapon(ArrayList<Arma> weapons) {
-			initweapons = weapons;
-		}
+	// Init Objetos
+	public static ArrayList<Arma> getWeapon() {
+		return initweapons;
+	}
+
+	public void setWeapon(ArrayList<Arma> weapons) {
+		initweapons = weapons;
+	}
 
 	// Habilidad Especial
 	public String toString() {
