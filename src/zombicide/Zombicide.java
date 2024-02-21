@@ -60,7 +60,7 @@ public class Zombicide {
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
-		Jugador jugador = new Jugador(nombre, 5, 0, true);
+		Jugador jugador = new Jugador(nombre);
 		setCharacters(jugador);
 		jugador.setWeapon("Daga");
 	}
