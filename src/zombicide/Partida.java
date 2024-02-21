@@ -91,6 +91,7 @@ public class Partida {
 				new ZombieGordo();
 			}
 		}
+		ArrayList<Jugador> jugador =new Zombicide().getCharacters();
 		System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + random + " |==\r\n" + "JUGADOR:" + "\r\n1- Atacar\r\n"
 				+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 	}

@@ -37,7 +37,13 @@ public class Zombicide {
 	}
 
 	// Nueva Partida
-	private static void newGame() {		
+	private static void newGame() {
+		Jugador jugador3 = new Jugador("James", 7, 7, true);
+		Jugador jugador1 = new Jugador("Marie", 5, 5, true);
+		Jugador jugador2 = new Jugador("Jaci", 5, 5, true);
+		setCharacters(jugador1);
+		setCharacters(jugador2);
+		setCharacters(jugador3);
 		if (initcharacters.size()>3) {
 			System.out.println("Selecciona personajes:");
 			for (int x =0;x<initcharacters.size();x++) {

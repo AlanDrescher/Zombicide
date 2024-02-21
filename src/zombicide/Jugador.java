@@ -4,8 +4,8 @@ public class Jugador extends Humanoide{
 	private boolean pass;
 	private String weapon;
 	
-	protected Jugador(String name) {
-		super("James", 7, 7, true);
+	protected Jugador(String name, int hp,int maxhp,boolean status) {
+		super(name,hp,maxhp,status);
 	}
 
 	public String getWeapon() {
