@@ -9,6 +9,7 @@ public class Arma {
 	private int range;
 	private int hit;
 	private ArrayList<Arma> initweapons;
+	private ArrayList<Arma> specialattack;
 
 	protected void Arma(String name, int damage, int range, int hit) {
 		setName(name);
@@ -21,11 +22,6 @@ public class Arma {
 		Arma("Daga", 1, 1, 4);
 	}
 	
-	public void specialAttack(int damage, int range) {
-		setDamage(damage);
-		setRange(range);
-	}
-
 	// Nombre
 	protected String getName() {
 		return name;
@@ -77,4 +73,17 @@ public class Arma {
 	public String toString() {
 		return "No hay habilidad especial";
 	}
+	
+	public ArrayList<Arma> getSpecialAttack() {
+		return specialattack;
+	}
+	
+	public void setSpecialAttack(ArrayList<Arma> specialAttack) {
+		specialattack = specialAttack;
+	}
+	
+	private static void specialAttack() {
+		setSpecialAttack(new Arma("Bola de Fuego", 5, 5, 4));
+	}
+
 }

@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private int level;
+	Arma arma = new Arma();
 	protected Partida() {
 		initzombies= new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
 	}
@@ -53,8 +54,8 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability() {
-		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
-		Arma specialAttack = new specialAttack(5,5);
+		System.out.println("Elige una habilidad especial: ");
+		arma.getSpecialAttack();
 
 	}
 
@@ -66,7 +67,6 @@ public class Partida {
 	// Buscar
 	private void search() {
 		Random random = new Random();
-		Arma arma = new Arma();
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un " + resultado + ". ");
 		if (resultado >= 50) {
@@ -77,7 +77,7 @@ public class Partida {
 		}
 
 	}
-
+	
 	private void zombirandom() {
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			int random = new Random().nextInt(3);
