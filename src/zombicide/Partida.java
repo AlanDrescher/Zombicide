@@ -112,4 +112,10 @@ public class Partida {
 	public void setInitzombies(Zombie initzombies) {
 		this.initzombies.add(initzombies);
 	}
+	public void setlevel(int level) {
+		this.level = level;
+	}
+	public int getlevel() {
+		return level;
+	}
 }
