@@ -54,6 +54,7 @@ public class Partida {
 	// Habilidad Especial
 	private void specialHability() {
 		System.out.println("|---Zombicide---|\r\n" + "Dame el nombre del personaje: ");
+		Arma specialAttack = new specialAttack(5,5);
 
 	}
 

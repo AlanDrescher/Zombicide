@@ -20,6 +20,11 @@ public class Arma {
 	public Arma() {
 		Arma("Daga", 1, 1, 4);
 	}
+	
+	public void specialAttack(int damage, int range) {
+		setDamage(damage);
+		setRange(range);
+	}
 
 	// Nombre
 	protected String getName() {
