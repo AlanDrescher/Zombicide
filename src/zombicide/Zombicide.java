@@ -9,12 +9,12 @@ public class Zombicide {
 
 	public static void main(String[] args) {
 		initcharacters = new ArrayList<Jugador>(10);
-		initselectcharacter = new ArrayList<Jugador>(7);
 		defaultCharacter();
 		showMenu();
 	}
 
 	public static void showMenu() {
+		initselectcharacter = new ArrayList<Jugador>(7);
 		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
@@ -29,8 +29,8 @@ public class Zombicide {
 				break;
 			}
 			case 0: {
-				System.out.println("\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m"
-						+ ": Se apaga");
+				tittle();
+				System.out.print("Se apaga*");
 				leave = true;
 				break;
 			}
@@ -51,18 +51,7 @@ public class Zombicide {
 	private static void newGame() {
 
 		if (getCharacters().size() > 3) {
-			Scanner leer = new Scanner(System.in);
-			System.out.println("Selecciona personajes:");
-			for (int x = 0; x < getCharacters().size(); x++) {
-				System.out.println(x + "- " + getCharacters().get(x).getName());
-
-			}
-			System.out.println("Selecciona entre 3 y 6 personajes: ");
-			for (int x = 0; x < getCharacters().size(); x++) {
-				System.out.println("Selecciona el personaje " + x + ": ");
-				int seleccion = leer.nextInt();
-				setSelectCharacters(getCharacters().get(seleccion));
-			}
+			seleccionPersonaje();
 		} else {
 			System.out.println("Tienes solo 3 personajes. Empezaremos con esos 3");
 			for (int x = 0; x < getCharacters().size(); x++) {
@@ -71,6 +60,29 @@ public class Zombicide {
 		}
 		Partida partida = new Partida();
 		partida.showMenu();
+	}
+
+	private static void seleccionPersonaje() {
+		Scanner leer = new Scanner(System.in);
+		System.out.println("Selecciona personajes:");
+		for (int x = 0; x < getCharacters().size(); x++) {
+			System.out.println(x + "- " + getCharacters().get(x).getName());
+
+		}
+		System.out.println("Selecciona entre 3 y 6 personajes: ");
+		boolean salir= false;
+		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
+			if (getSelectCharacters().size() == 3) {
+				System.out.println("Para salir de la selección de personajes escriba 99. ");
+			}
+			System.out.println("Selecciona el personaje " + x + ": ");
+			int seleccion = leer.nextInt();
+			if (seleccion == 99) {
+				break;
+			}
+			setSelectCharacters(getCharacters().get(seleccion));
+		}
+
 	}
 
 	// Nuevo Personaje
@@ -94,6 +106,8 @@ public class Zombicide {
 		System.out.println(
 				"|---" + "\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m---|\r\n");
 	}
+
+//SETTERS Y GETTERS
 
 	// Init Personajes
 	public static ArrayList<Jugador> getCharacters() {
