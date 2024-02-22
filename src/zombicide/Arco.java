@@ -6,4 +6,7 @@ public class Arco  extends Arma{
 		super.Arma(toString, damage, range, hit);
 		toString();
 	}
+	public String toString() {
+		return "Mata gratis a 1 corredor.";
+	}
 }
