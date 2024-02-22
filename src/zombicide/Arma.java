@@ -11,15 +11,16 @@ public class Arma {
 	private ArrayList<Arma> initweapons;
 	private ArrayList<Arma> specialattack;
 
-	protected void Arma(String name, int damage, int range, int hit) {
+	protected Arma(String name, int damage, int range, int hit) {
 		setName(name);
 		setDamage(damage);
 		setRange(range);
 		setHit(hit);
 	}
 
-	public Arma() {
-		Arma("Daga", 1, 1, 4);
+	public void Daga() {
+		Arma daga = new Arma("Daga", 1, 1, 4);
+		setWeapon(daga);
 	}
 	
 	// Nombre
@@ -65,8 +66,8 @@ public class Arma {
 		return initweapons;
 	}
 
-	public void setWeapon(ArrayList<Arma> weapons) {
-		initweapons = weapons;
+	public void setWeapon(Arma weapons) {
+		initweapons.add(weapons);
 	}
 
 	// Habilidad Especial
@@ -78,11 +79,11 @@ public class Arma {
 		return specialattack;
 	}
 	
-	public void setSpecialAttack(ArrayList<Arma> specialAttack) {
-		specialattack = specialAttack;
+	public void setSpecialAttack(Arma specialAttack) {
+		specialattack.add(specialAttack);
 	}
 	
-	private static void specialAttack() {
+	private void specialAttack() {
 		setSpecialAttack(new Arma("Bola de Fuego", 5, 5, 4));
 	}
 
