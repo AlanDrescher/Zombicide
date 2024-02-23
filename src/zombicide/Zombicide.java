@@ -95,7 +95,7 @@ public class Zombicide {
 
 	}
 	// Buscar Arma
-	private static Arma search() {
+	public static Arma search() {
 		Random random = new Random();
 		int resultadoarma = random.nextInt(3);
 		int resultado = random.nextInt(100);
