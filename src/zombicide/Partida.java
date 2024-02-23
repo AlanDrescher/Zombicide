@@ -78,42 +78,51 @@ public class Partida {
 	// Menú
 	private void texto() {
 		Scanner leer = new Scanner(System.in);
-		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-			System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
-			for (int x = 0; x < getInitzombies().size(); x++) {
-				System.out.print(getInitzombies().get(x).toString() + " ");
+		while(level == 3) {
+			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
+				for (int x = 0; x < getInitzombies().size(); x++) {
+					System.out.print(getInitzombies().get(x).toString() + " ");
+				}
+				System.out.print("|==\r\n" + "JUGADOR: " +Zombicide.getSelectCharacters().get(i).toString() + " Arma["
+						+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
+						+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
+				switch (leer.nextInt()) {
+				case 1: {
+					attack(i);
+					break;
+				}
+				case 2: {
+					specialHability();
+					break;
+				}
+				case 3: {
+					System.out.println(Zombicide.search());
+					break;
+				}
+				case 4: {
+					switchWeapon(i);
+					break;
+				}
+				case 0: {
+					System.out.println("Has pasado");
+					break;
+				}
+				default:
+					System.out.println("Opcion no válida, intente otra");
+				}
 			}
-			System.out.print("|==\r\n" + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
-					+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
-					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
-			switch (leer.nextInt()) {
-			case 1: {
-				attack(i);
-				break;
-			}
-			case 2: {
-				specialHability();
-				break;
-			}
-			case 3: {
-				System.out.println(Zombicide.search());
-				break;
-			}
-			case 4: {
-				switchWeapon(i);
-				break;
-			}
-			case 0: {
-				System.out.println("Has pasado");
-				break;
-			}
-			default:
-				System.out.println("Opcion no válida, intente otra");
+			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+				if (getInitzombies().get(i).getStatus()==true) {
+					for (int x = 0; x< getInitzombies().get(i).getMovement();x++) {
+						int random = new Random().nextInt(Zombicide.getSelectCharacters().size());
+						Zombicide.getSelectCharacters().get(random).setHealth(Zombicide.getSelectCharacters().get(random).getHealth()-getInitzombies().get(i).getDamage());
+						System.out.println("Zombie " + getInitzombies().get(i).toString()+" ha atacado a "+ Zombicide.getSelectCharacters().get(random).toString());
+					}
+				}
 			}
 		}
-		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-
-		}
+		
 	}
 
 	public ArrayList<Zombie> getInitzombies() {

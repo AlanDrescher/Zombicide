@@ -24,7 +24,7 @@ public class Jugador extends Humanoide {
 		this.pass = pass;
 	}
 	public String toString() {
-		return "JUGADOR: " + getName() +" S:" + getHealth() +"/" + getMaxHealth();
+		return getName() +" S:" + getHealth() +"/" + getMaxHealth();
 	}
 
 }
