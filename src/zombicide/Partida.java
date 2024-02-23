@@ -23,6 +23,7 @@ public class Partida {
 	}
 
 	private void attack() {
+		
 	}
 
 	// Habilidad Especial
