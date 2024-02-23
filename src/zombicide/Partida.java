@@ -21,9 +21,7 @@ public class Partida {
 	}
 
 	private void attack() {
-<<<<<<< Updated upstream
-		
-=======
+
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 			for (int x = 0; x < getInitzombies().size(); x++) {
@@ -38,7 +36,6 @@ public class Partida {
 				}
 			}
 		}
->>>>>>> Stashed changes
 	}
 
 	// Habilidad Especial
