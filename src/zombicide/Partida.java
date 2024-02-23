@@ -24,16 +24,17 @@ public class Partida {
 
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
-			for (int x = 0; x < getInitzombies().size(); x++) {
-				int zombie = getInitzombies().get(x).getHealth();
-				
-				if (arma.getDamage() > zombie) {
-					getInitzombies().get(x).setStatus(false);
-					System.out.println("El zombie ha muerto");
-				} else {
-					 getInitzombies().get(x).setHealth(zombie - arma.getDamage());
-					System.out.println("La salud del zombie es de " + zombie) ;
+			int zombie = getInitzombies().get(i).getHealth();
+
+			if (arma.getDamage() > zombie) {
+				getInitzombies().get(i).setStatus(false);
+				System.out.println("El zombie ha muerto");
+			} else {
+				if (getInitzombies().get(i).getStatus() == false) {
+					break;
 				}
+				getInitzombies().get(i).setHealth(zombie - arma.getDamage());
+				System.out.println("La salud del zombie es de " + zombie);
 			}
 		}
 	}
@@ -81,7 +82,7 @@ public class Partida {
 			for (int x = 0; x < getInitzombies().size(); x++) {
 				System.out.print(getInitzombies().get(x).getType() + " ");
 			}
-			System.out.print("|==\r\n" +  Zombicide.getSelectCharacters().get(i).toString() + " Arma["
+			System.out.print("|==\r\n" + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
 					+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 			switch (leer.nextInt()) {
