@@ -27,7 +27,7 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability() {
-
+		
 	}
 
 	// Cambiar Arma
