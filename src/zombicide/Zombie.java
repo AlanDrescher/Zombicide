@@ -39,4 +39,7 @@ public class Zombie extends Humanoide {
 	protected void setType(String type) {
 		this.type = type;
 	}
+	public String toString() {
+		return getType() + " ("+ getHealth()+ "/" + getMaxHealth()+")";
+	}
 }

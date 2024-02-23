@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class Partida {
 	private ArrayList<Zombie> initzombies;
+	private ArrayList<Arma> initobjetos;
 	private int level;
 
 	protected Partida() {
+		initobjetos = new ArrayList<Arma>();
 		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
 		setlevel(Zombicide.getSelectCharacters().size());
 		showMenu();
@@ -21,22 +23,6 @@ public class Partida {
 	}
 
 	private void attack() {
-
-		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
-			int zombie = getInitzombies().get(i).getHealth();
-
-			if (arma.getDamage() > zombie) {
-				getInitzombies().get(i).setStatus(false);
-				System.out.println("El zombie ha muerto");
-			} else {
-				if (getInitzombies().get(i).getStatus() == false) {
-					break;
-				}
-				getInitzombies().get(i).setHealth(zombie - arma.getDamage());
-				System.out.println("La salud del zombie es de " + zombie);
-			}
-		}
 	}
 
 	// Habilidad Especial
@@ -46,12 +32,7 @@ public class Partida {
 
 	// Cambiar Arma
 	private void switchWeapon() {
-		Scanner leer = new Scanner(System.in);
-		for (int x = 0; x < Zombicide.getObject().size(); x++) {
-			System.out.println(x + "- " + Zombicide.getObject().get(x).toString());
-		}
-		System.out.println("Escoge arma: ");
-		Zombicide.getSelectCharacters().get(1).setWeapon(Zombicide.getObject().get(leer.nextInt()));
+
 	}
 
 	// Buscar
@@ -80,14 +61,26 @@ public class Partida {
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 			System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
 			for (int x = 0; x < getInitzombies().size(); x++) {
-				System.out.print(getInitzombies().get(x).getType() + " ");
+				System.out.print(getInitzombies().get(x).toString() + " ");
 			}
 			System.out.print("|==\r\n" + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
 					+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 			switch (leer.nextInt()) {
 			case 1: {
-				attack();
+				Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
+				int zombie = getInitzombies().get(i).getHealth();
+				getInitzombies().get(i).setHealth(zombie - arma.getDamage());
+				System.out.println("La salud del zombie es de " + getInitzombies().get(i).getHealth()+"/"+zombie);
+				if (arma.getDamage() >= zombie) {
+					getInitzombies().get(i).setStatus(false);
+					System.out.println("El zombie ha muerto");
+				} else {
+					if (getInitzombies().get(i).getStatus() == false) {
+						break;
+					}
+					
+				}
 				break;
 			}
 			case 2: {
@@ -99,7 +92,11 @@ public class Partida {
 				break;
 			}
 			case 4: {
-				switchWeapon();
+				for (int x = 0; x < getInitobjetos().size(); x++) {
+					System.out.println(x + "- " + getInitobjetos().get(x).toString());
+				}
+				System.out.println("Escoge arma: ");
+				Zombicide.getSelectCharacters().get(i).setWeapon(getInitobjetos().get(leer.nextInt()));
 				break;
 			}
 			case 0: {
@@ -126,5 +123,13 @@ public class Partida {
 
 	public int getlevel() {
 		return level;
+	}
+
+	public ArrayList<Arma> getInitobjetos() {
+		return initobjetos;
+	}
+
+	public void setInitobjetos(Arma initobjetos) {
+		this.initobjetos.add(initobjetos);
 	}
 }
