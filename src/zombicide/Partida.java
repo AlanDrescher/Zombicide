@@ -28,7 +28,7 @@ public class Partida {
 				break;
 			}
 			case 3: {
-				Zombicide.search();
+				System.out.println(Zombicide.search());
 				break;
 			}
 			case 4: {

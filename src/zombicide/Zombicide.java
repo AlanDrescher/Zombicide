@@ -106,7 +106,7 @@ public class Zombicide {
 		} else {
 			if (resultado >= 50) {
 				setObject(new Arma());
-				return "Has obtenido: " +new Arma().getName();
+				return "Has obtenido: " + new Arma().getName();
 			}
 			else {
 				return "No te da nada";
