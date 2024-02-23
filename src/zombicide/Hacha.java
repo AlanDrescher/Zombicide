@@ -2,8 +2,11 @@ package zombicide;
 
 public class Hacha extends Arma {
 
-	protected Hacha(String toString, int damage, int range, int hit) {
-		super(toString, damage, range, hit);
+	protected Hacha(String name, int damage, int range, int hit) {
+		super.setName(name);
+		super.setDamage(damage);
+		super.setRange(range);
+		super.setHit(hit);
 		super.toString("Mata gratis a 1 gordo.");
 	}
 }

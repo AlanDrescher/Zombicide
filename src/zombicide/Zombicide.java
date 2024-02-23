@@ -10,7 +10,7 @@ public class Zombicide {
 	protected static ArrayList<Arma> initObjetos;
 
 	public static void main(String[] args) {
-		initObjetos = new ArrayList<Arma>(4);
+		initObjetos= new ArrayList<Arma>(4);
 		initcharacters = new ArrayList<Jugador>(10);
 		defaultCharacter();
 		defaultArmas();
@@ -50,12 +50,11 @@ public class Zombicide {
 		setCharacters(new Jugador("Jaci", 5, 5, true));
 		setCharacters(new Jugador("James", 7, 7, true));
 	}
-
 	private static void defaultArmas() {
-		setObject(new Arma("Arco Largo", 1, 2, 3));
-		setObject(new Arma("Hacha doble", 2, 1, 3));
-		setObject(new Arma("Bola de fuego", 1, 3, 4));
-		setObject(new Arma("Espada corta", 1, 1, 4));
+		setObject(new Arco("Arco Largo", 1, 2, 3));
+		setObject(new Hacha("Hacha doble", 2,1,3));
+		setObject(new Hechizo("Bola de fuego", 1, 3, 4));
+		setObject(new Espada("Espada corta", 1, 1, 4));
 	}
 
 	// Nueva Partida
@@ -81,7 +80,7 @@ public class Zombicide {
 
 		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
-		boolean salir = false;
+		boolean salir= false;
 		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
 			if (getSelectCharacters().size() == 3) {
 				System.out.println("Para salir de la selección de personajes escriba 99. ");
@@ -95,23 +94,22 @@ public class Zombicide {
 		}
 
 	}
-
 	// Buscar Arma
-	public static Arma search() {
+	public static String search() {
 		Random random = new Random();
-		int resultadoarma = random.nextInt(3);
+		int resultadoarma = random.nextInt(4);
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un " + resultado + ". ");
 		if (resultado >= 70) {
-			System.out.println("Has obtenido: " + getObject().get(resultadoarma));
-			return getObject().get(resultadoarma);
+			setObject(getObject().get(resultadoarma));
+			return "Has obtenido: "+getObject().get(resultadoarma).getName();
 		} else {
 			if (resultado >= 50) {
-				System.out.println("Has obtenido: " + Arma.Daga());
-				return getObject().get(resultadoarma);
-			} else {
-				System.out.println("No te da nada");
-				return null;
+				setObject(new Arma());
+				return "Has obtenido: " +new Arma().getName();
+			}
+			else {
+				return "No te da nada";
 			}
 
 		}
@@ -159,7 +157,6 @@ public class Zombicide {
 	public static void setSelectCharacters(Jugador initObjetos) {
 		Zombicide.initselectcharacter.add(initObjetos);
 	}
-
 	// Init Objetos
 	public static ArrayList<Arma> getObject() {
 		return initObjetos;

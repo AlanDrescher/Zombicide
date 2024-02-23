@@ -10,24 +10,20 @@ public class Arma {
 	private int hit;
 	private ArrayList<Arma> initweapons;
 
-	protected Arma(String name, int damage, int range, int hit) {
-		setName(name);
-		setDamage(damage);
-		setRange(range);
-		setHit(hit);
+	protected Arma() {
+		setName("Daga");
+		setDamage(1);
+		setRange(1);
+		setHit(4);
 	}
 
-	public void Daga() {
-		Arma daga = new Arma("Daga", 1, 1, 4);
-		setWeapon(daga);
-	}
 
 	// Nombre
 	protected String getName() {
 		return name;
 	}
 
-	private void setName(String name) {
+	protected void setName(String name) {
 		this.name = name;
 	}
 
@@ -36,7 +32,7 @@ public class Arma {
 		return damage;
 	}
 
-	private void setDamage(int damage) {
+	protected void setDamage(int damage) {
 		this.damage = damage;
 	}
 
@@ -45,7 +41,7 @@ public class Arma {
 		return range;
 	}
 
-	private void setRange(int range) {
+	protected void setRange(int range) {
 		this.range = range;
 	}
 
@@ -54,7 +50,7 @@ public class Arma {
 		return hit;
 	}
 
-	private void setHit(int hit) {
+	protected void setHit(int hit) {
 		this.hit = hit;
 		Random Random = new Random();
 		hit = Random.nextInt(1, 6);
@@ -72,8 +68,8 @@ public class Arma {
 	// Habilidad Especial
 
 	public String toString(String specialAttack) {
-		;
-		return "No hay habilidad especial";
+		return "specialAttack";
 	}
+
 
 }

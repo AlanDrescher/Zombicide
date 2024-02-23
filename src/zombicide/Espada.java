@@ -2,8 +2,11 @@ package zombicide;
 
 public class Espada extends Arma {
 
-	protected Espada(String toString, int damage, int range, int hit) {
-		super("Espada corta", 1, 1, 4);
+	protected Espada(String name, int damage, int range, int hit) {
+		super.setName(name);
+		super.setDamage(damage);
+		super.setRange(range);
+		super.setHit(hit);
 		super.toString("Mata gratis a 2 zombies aleatorios.");
 	}
 }
