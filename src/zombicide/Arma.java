@@ -50,10 +50,13 @@ public class Arma {
 		return hit;
 	}
 
+	protected int randomHit() {
+		int random = new Random().nextInt(1, 6);
+		return random;
+	}
 	protected void setHit(int hit) {
 		this.hit = hit;
-		Random Random = new Random();
-		hit = Random.nextInt(1, 6);
+
 	}
 
 	// Init Objetos
