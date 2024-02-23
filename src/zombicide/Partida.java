@@ -21,7 +21,24 @@ public class Partida {
 	}
 
 	private void attack() {
+<<<<<<< Updated upstream
 		
+=======
+		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
+			for (int x = 0; x < getInitzombies().size(); x++) {
+				int zombie = getInitzombies().get(x).getHealth();
+				
+				if (arma.getDamage() > zombie) {
+					getInitzombies().get(x).setStatus(false);
+					System.out.println("El zombie ha muerto");
+				} else {
+					 getInitzombies().get(x).setHealth(zombie - arma.getDamage());
+					System.out.println("La salud del zombie es de " + zombie) ;
+				}
+			}
+		}
+>>>>>>> Stashed changes
 	}
 
 	// Habilidad Especial

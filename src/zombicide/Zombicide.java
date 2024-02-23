@@ -34,7 +34,7 @@ public class Zombicide {
 			}
 			case 0: {
 				tittle();
-				System.out.print("Se apaga*");
+				System.out.print("Se apaga");
 				leave = true;
 				break;
 			}

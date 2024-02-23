@@ -27,7 +27,7 @@ public class Humanoide {
 		return health;
 	}
 
-	private void setHealth(int health) {
+	protected void setHealth(int health) {
 		this.health = health;
 	}
 
@@ -45,7 +45,7 @@ public class Humanoide {
 		return status;
 	}
 
-	private void setStatus(boolean status) {
+	protected void setStatus(boolean status) {
 		this.status = status;
 	}
 }
