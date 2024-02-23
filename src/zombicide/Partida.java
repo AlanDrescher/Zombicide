@@ -54,8 +54,8 @@ public class Partida {
 	// Habilidad Especial
 	private void specialHability() {
 		ArrayList<Arma> arrayList = new ArrayList<Arma>();
-	//	arrayList.get(x).toString();
-	//	arma.getSpecialAttack();
+		// arrayList.get(x).toString();
+		// arma.getSpecialAttack();
 
 	}
 
