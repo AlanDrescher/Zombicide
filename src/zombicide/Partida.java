@@ -10,6 +10,8 @@ public class Partida {
 
 	protected Partida() {
 		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
+		setlevel(Zombicide.getSelectCharacters().size());
+		showMenu();
 	}
 
 	public void showMenu() {
@@ -19,23 +21,22 @@ public class Partida {
 	}
 
 	private void attack() {
-
+		
 	}
 
 	// Habilidad Especial
 	private void specialHability() {
-		ArrayList<Arma> arrayList = new ArrayList<Arma>();
-		// arrayList.get(x).toString();
-		// arma.getSpecialAttack();
 
 	}
 
 	// Cambiar Arma
 	private void switchWeapon() {
+		Scanner leer = new Scanner(System.in);
 		for (int x = 0; x < Zombicide.getObject().size(); x++) {
-			System.out.print(x + "- " + Zombicide.getObject().get(x).getName());
+			System.out.println(x + "- " + Zombicide.getObject().get(x).toString());
 		}
-		System.out.print("Escoge arma: ");
+		System.out.println("Escoge arma: ");
+		Zombicide.getSelectCharacters().get(1).setWeapon(Zombicide.getObject().get(leer.nextInt()));
 	}
 
 	// Buscar
@@ -66,8 +67,7 @@ public class Partida {
 			for (int x = 0; x < getInitzombies().size(); x++) {
 				System.out.print(getInitzombies().get(x).getType() + " ");
 			}
-			System.out.print(" |==\r\n" + "JUGADOR: " + Zombicide.getSelectCharacters().get(i).getName() + " S:"
-					+ Zombicide.getSelectCharacters().get(i).getHealth() + " Arma["
+			System.out.print("|==\r\n" +  Zombicide.getSelectCharacters().get(i).toString() + " Arma["
 					+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 			switch (leer.nextInt()) {

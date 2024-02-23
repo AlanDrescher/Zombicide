@@ -75,7 +75,6 @@ public class Zombicide {
 			}
 		}
 		Partida partida = new Partida();
-		partida.showMenu();
 	}
 
 	private static void seleccionPersonaje() {
