@@ -26,16 +26,16 @@ public class Partida {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		int zombie = getInitzombies().get(i).getHealth();
 		int random = new Random().nextInt(3);
-		if ( arma.randomHit() >= arma.getHit()) {
+		if (arma.randomHit() >= arma.getHit()) {
 			getInitzombies().get(i).setHealth(zombie - arma.getDamage());
 			System.out.println("Has herido al zombie!!");
 			System.out.println("Zombie " + getInitzombies().get(i).toString());
 			if (arma.getDamage() >= zombie) {
 				getInitzombies().get(i).setStatus(false);
-				System.out.println("El zombie ha muerto");
+				System.out.println(getInitzombies().get(i).getName() + " ha muerto");
 			}
-		}else {
-			System.out.println("Has fallado al zombie!!");
+		} else {
+			System.out.println(getInitzombies().get(i).getType() + " ha evitado el ataque!");
 		}
 
 	}
