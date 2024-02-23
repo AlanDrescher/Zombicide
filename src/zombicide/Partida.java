@@ -54,17 +54,16 @@ public class Partida {
 	// Habilidad Especial
 	private void specialHability() {
 		ArrayList<Arma> arrayList = new ArrayList<Arma>();
-		arrayList.get(x).toString();
-		arma.getSpecialAttack();
+	//	arrayList.get(x).toString();
+	//	arma.getSpecialAttack();
 
 	}
 
 	// Cambiar Arma	
 	private void switchWeapon() {
-		for (int x=0;x< getweapon();x++) {
+//		for (int x=0;x< getweapon();x++) {
 			
 		}
-	}
 
 	// Buscar
 	private void search() {

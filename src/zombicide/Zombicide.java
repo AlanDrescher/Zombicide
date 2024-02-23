@@ -1,15 +1,19 @@
 package zombicide;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Zombicide {
 	protected static ArrayList<Jugador> initcharacters;
 	protected static ArrayList<Jugador> initselectcharacter;
+	protected static ArrayList<Arma> initObjetos;
 
 	public static void main(String[] args) {
+		initObjetos= new ArrayList<Arma>(4);
 		initcharacters = new ArrayList<Jugador>(10);
 		defaultCharacter();
+		defaultArmas();
 		showMenu();
 	}
 
@@ -46,6 +50,12 @@ public class Zombicide {
 		setCharacters(new Jugador("Jaci", 5, 5, true));
 		setCharacters(new Jugador("James", 7, 7, true));
 	}
+	private static void defaultArmas() {
+		setObject(new Arma("Arco Largo", 1, 2, 3));
+		setObject(new Arma("Hacha doble", 2,1,3));
+		setObject(new Arma("Bola de fuego", 1, 3, 4));
+		setObject(new Arma("Espada corta", 1, 1, 4));
+	}
 
 	// Nueva Partida
 	private static void newGame() {
@@ -81,6 +91,28 @@ public class Zombicide {
 				break;
 			}
 			setSelectCharacters(getCharacters().get(seleccion));
+		}
+
+	}
+	// Buscar Arma
+	private static Arma search() {
+		Random random = new Random();
+		int resultadoarma = random.nextInt(3);
+		int resultado = random.nextInt(100);
+		System.out.println("Has Sacado un " + resultado + ". ");
+		if (resultado >= 70) {
+			System.out.println("Has obtenido: " + getObject().get(resultadoarma));
+			return getObject().get(resultadoarma);
+		} else {
+			if (resultado >= 50) {
+				System.out.println("Has obtenido: " + Arma.Daga());
+				return getObject().get(resultadoarma);
+			}
+			else {
+				System.out.println("No te da nada");
+				return null;
+			}
+
 		}
 
 	}
@@ -123,8 +155,15 @@ public class Zombicide {
 		return initselectcharacter;
 	}
 
-	public static void setSelectCharacters(Jugador characters) {
-		Zombicide.initselectcharacter.add(characters);
+	public static void setSelectCharacters(Jugador initObjetos) {
+		Zombicide.initselectcharacter.add(initObjetos);
+	}
+	// Init Objetos
+	public static ArrayList<Arma> getObject() {
+		return initObjetos;
 	}
 
+	public static void setObject(Arma initObjetos) {
+		Zombicide.initObjetos.add(initObjetos);
+	}
 }
