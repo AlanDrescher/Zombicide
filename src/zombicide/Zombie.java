@@ -18,7 +18,6 @@ public class Zombie extends Humanoide {
 		return movement;
 	}
 
-	
 	protected void setMovement(int movement) {
 		this.movement = movement;
 	}
@@ -28,7 +27,6 @@ public class Zombie extends Humanoide {
 		return damage;
 	}
 
-	
 	protected void setDamage(int damage) {
 		this.damage = damage;
 	}
@@ -38,7 +36,6 @@ public class Zombie extends Humanoide {
 		return type;
 	}
 
-	
 	protected void setType(String type) {
 		this.type = type;
 	}
