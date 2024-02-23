@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private int level;
-	Arma arma = new Arma();
 	protected Partida() {
 		initzombies= new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
 	}
@@ -54,14 +53,17 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability() {
-		System.out.println("Elige una habilidad especial: ");
+		ArrayList<Arma> arrayList = new ArrayList<Arma>();
+		arrayList.get(x).toString();
 		arma.getSpecialAttack();
 
 	}
 
-	// Cambiar Arma
+	// Cambiar Arma	
 	private void switchWeapon() {
-
+		for (int x=0;x< getweapon();x++) {
+			
+		}
 	}
 
 	// Buscar
