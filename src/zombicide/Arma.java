@@ -67,9 +67,11 @@ public class Arma {
 
 	// Habilidad Especial
 
-	public String toString(String specialAttack) {
+	public String specialattack(String specialAttack) {
 		return "specialAttack";
 	}
-
+	public String toString() {
+		return (getName() + " daño:" + getDamage()  +" dist:"+ getRange() +" acier:"+ getHit()).toUpperCase();
+	}
 
 }

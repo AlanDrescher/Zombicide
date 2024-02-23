@@ -13,37 +13,8 @@ public class Partida {
 	}
 
 	public void showMenu() {
-		boolean leave = false;
-		Scanner leer = new Scanner(System.in);
 		zombirandom();
-		while (!leave) {
-			texto();
-			switch (leer.nextInt()) {
-			case 1: {
-				attack();
-				break;
-			}
-			case 2: {
-				specialHability();
-				break;
-			}
-			case 3: {
-				System.out.println(Zombicide.search());
-				break;
-			}
-			case 4: {
-				switchWeapon();
-				break;
-			}
-			case 0: {
-				System.out.println("Has pasado");
-				leave = true;
-				break;
-			}
-			default:
-				System.out.println("Opcion no válida, intente otra");
-			}
-		}
+		texto();
 
 	}
 
@@ -61,8 +32,10 @@ public class Partida {
 
 	// Cambiar Arma
 	private void switchWeapon() {
-//		for (int x=0;x< getweapon();x++) {
-
+		for (int x = 0; x < Zombicide.getObject().size(); x++) {
+			System.out.print(x + "- " + Zombicide.getObject().get(x).getName());
+		}
+		System.out.print("Escoge arma: ");
 	}
 
 	// Buscar
@@ -87,12 +60,40 @@ public class Partida {
 
 	// Menú
 	private void texto() {
+		Scanner leer = new Scanner(System.in);
 		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-			System.out.print("|----- NIVEL: " + level + " -----|\r\n ==| " + getInitzombies().get(i).getName() + " "
-					+ getInitzombies().get(i).getType() + " |==\r\n" + "JUGADOR: "
-					+ Zombicide.getSelectCharacters().get(i).getName() + "\r\n1- Atacar\r\n"
+			System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
+			for (int x = 0; x < getInitzombies().size(); x++) {
+				System.out.print(getInitzombies().get(x).getType() + " ");
+			}
+			System.out.print(" |==\r\n" + "JUGADOR: " + Zombicide.getSelectCharacters().get(i).getName() + " S:"
+					+ Zombicide.getSelectCharacters().get(i).getHealth() + " Arma["
+					+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
 					+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
-
+			switch (leer.nextInt()) {
+			case 1: {
+				attack();
+				break;
+			}
+			case 2: {
+				specialHability();
+				break;
+			}
+			case 3: {
+				System.out.println(Zombicide.search());
+				break;
+			}
+			case 4: {
+				switchWeapon();
+				break;
+			}
+			case 0: {
+				System.out.println("Has pasado");
+				break;
+			}
+			default:
+				System.out.println("Opcion no válida, intente otra");
+			}
 		}
 	}
 

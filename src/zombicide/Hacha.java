@@ -7,6 +7,6 @@ public class Hacha extends Arma {
 		super.setDamage(damage);
 		super.setRange(range);
 		super.setHit(hit);
-		super.toString("Mata gratis a 1 gordo.");
+		super.specialattack("Mata gratis a 1 gordo.");
 	}
 }

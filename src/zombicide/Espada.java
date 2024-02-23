@@ -7,6 +7,6 @@ public class Espada extends Arma {
 		super.setDamage(damage);
 		super.setRange(range);
 		super.setHit(hit);
-		super.toString("Mata gratis a 2 zombies aleatorios.");
+		super.specialattack("Mata gratis a 2 zombies aleatorios.");
 	}
 }

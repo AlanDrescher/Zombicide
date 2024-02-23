@@ -46,9 +46,15 @@ public class Zombicide {
 	}
 
 	private static void defaultCharacter() {
-		setCharacters(new Jugador("Marie", 5, 5, true));
-		setCharacters(new Jugador("Jaci", 5, 5, true));
-		setCharacters(new Jugador("James", 7, 7, true));
+		Jugador marie = new Jugador("Marie", 5, 5, true);
+		marie.setWeapon(new Arma());
+		setCharacters(marie);
+		Jugador jaci = new Jugador("Jaci", 5, 5, true);
+		jaci.setWeapon(new Arma());
+		setCharacters(jaci);
+		Jugador james = new Jugador("James", 5, 5, true);
+		james.setWeapon(new Arma());
+		setCharacters(james);
 	}
 	private static void defaultArmas() {
 		setObject(new Arco("Arco Largo", 1, 2, 3));
@@ -123,7 +129,7 @@ public class Zombicide {
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
 		Jugador jugador = new Jugador(nombre, 5, 5, true);
-		jugador.setWeapon("Daga");
+		jugador.setWeapon(new Arma());
 		setCharacters(jugador);
 	}
 

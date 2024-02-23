@@ -2,18 +2,18 @@ package zombicide;
 
 public class Jugador extends Humanoide {
 	private boolean pass;
-	private String weapon;
+	private Arma weapon;
 
 	protected Jugador(String name, int hp, int maxhp, boolean status) {
 		super(name, hp, maxhp, status);
 	}
 
-	public String getWeapon() {
+	public Arma getWeapon() {
 		return weapon;
 	}
 
-	public void setWeapon(String weapon) {
-		this.weapon = weapon;
+	public void setWeapon(Arma arma) {
+		this.weapon = arma;
 	}
 
 	public boolean isPass() {
