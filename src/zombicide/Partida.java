@@ -37,6 +37,17 @@ public class Partida {
 					if (arma.getDamage() >= zombie.getHealth()) {
 						getInitzombies().get(i).setStatus(false);
 						System.out.println(getInitzombies().get(i).getName() + " ha muerto");
+						int habilidadZombie = new Random().nextInt(0,101);
+						if (habilidadZombie >= 95) {
+							System.out.println("¡¡El Zombie ha activado su habilidad especial!!");
+							if (getInitzombies().get(i).getType() == "Caminante") {
+								
+							} else if (getInitzombies().get(i).getType() == "Corredor") {
+								
+							} else {
+								
+							}
+						}
 					}
 				} else {
 					System.out.println(
