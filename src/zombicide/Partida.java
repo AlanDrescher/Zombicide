@@ -102,8 +102,12 @@ public class Partida {
 	// Menú
 	private void texto() {
 		Scanner leer = new Scanner(System.in);
-		while (level == 3) {
+		boolean perder = false;
+		while (perder == false) {
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+				if (Zombicide.getSelectCharacters().get(i).getStatus()== false) {
+					continue;
+				}
 				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
 				for (int x = 0; x < getInitzombies().size(); x++) {
 					System.out.print(getInitzombies().get(x).toString() + " ");
@@ -121,7 +125,7 @@ public class Partida {
 					break;
 				}
 				case 3: {
-					System.out.println(Zombicide.search());
+					setInitobjetos(Zombicide.search());
 					break;
 				}
 				case 4: {
@@ -136,16 +140,21 @@ public class Partida {
 					System.out.println("Opcion no válida, intente otra");
 				}
 			}
-			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				if (getInitzombies().get(i).getStatus() == true) {
-					for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
-						int random = new Random().nextInt(Zombicide.getSelectCharacters().size());
-						Zombicide.getSelectCharacters().get(random)
-								.setHealth(Zombicide.getSelectCharacters().get(random).getHealth()
-										- getInitzombies().get(i).getDamage());
-						System.out.println("Zombie " + getInitzombies().get(i).toString() + " ha atacado a "
-								+ Zombicide.getSelectCharacters().get(random).toString());
-					}
+			attackZombie();
+		}
+
+	}
+
+	private void attackZombie() {
+		for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+			if (getInitzombies().get(i).getStatus() == true) {
+				for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
+					int random = new Random().nextInt(Zombicide.getSelectCharacters().size());
+					Zombicide.getSelectCharacters().get(random)
+							.setHealth(Zombicide.getSelectCharacters().get(random).getHealth()
+									- getInitzombies().get(i).getDamage());
+					System.out.println("Zombie " + getInitzombies().get(i).toString() + " ha atacado a "
+							+ Zombicide.getSelectCharacters().get(random).toString());
 				}
 			}
 		}
@@ -173,6 +182,8 @@ public class Partida {
 	}
 
 	public void setInitobjetos(Arma initobjetos) {
-		this.initobjetos.add(initobjetos);
+		if (initobjetos != null) {
+			this.initobjetos.add(initobjetos);
+		}
 	}
 }
