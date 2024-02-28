@@ -22,6 +22,7 @@ public class Partida {
 
 	}
 
+	// Ataque y Habilidades de los zombies
 	private void attack(int i) {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		int random = new Random().nextInt(3);
@@ -36,9 +37,9 @@ public class Partida {
 					System.out.println("Zombie " + getInitzombies().get(i).toString());
 					if (arma.getDamage() >= zombie.getHealth()) {
 						getInitzombies().get(i).setStatus(false);
-						System.out.println(getInitzombies().get(i).getName() + " ha muerto");
-						int habilidadZombie = new Random().nextInt(0, 101);
-						if (habilidadZombie >= 95) {
+						System.out.println(getInitzombies().get(i).getType() + " ha muerto");
+						int zombieHability = new Random().nextInt(0, 101);
+						if (zombieHability >= 95) {
 							System.out.println("¡¡El Zombie ha activado su habilidad especial!!");
 							if (getInitzombies().get(i).getType() == "Caminante") {
 								getInitzombies().get(i * 2).toString();
@@ -47,6 +48,8 @@ public class Partida {
 							} else {
 								getInitzombies().remove(i);
 							}
+						} else {
+							getInitzombies().remove(i);
 						}
 					}
 				} else {
