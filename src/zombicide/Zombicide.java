@@ -102,20 +102,21 @@ public class Zombicide {
 	}
 
 	// Buscar Arma
-	public static String search() {
+	public static Arma search() {
 		Random random = new Random();
 		int resultadoarma = random.nextInt(4);
 		int resultado = random.nextInt(100);
 		System.out.println("Has Sacado un " + resultado + ". ");
 		if (resultado >= 70) {
-			setObject(getObject().get(resultadoarma));
-			return "Has obtenido: " + getObject().get(resultadoarma).getName();
+			System.out.println("Has obtenido: " + getObject().get(resultadoarma).getName());
+			return getObject().get(resultadoarma);
 		} else {
 			if (resultado >= 50) {
-				setObject(new Arma());
-				return "Has obtenido: " + new Arma().getName();
+				System.out.println("Has obtenido: " + new Arma().getName());
+				return new Arma();
 			} else {
-				return "No te da nada";
+				System.out.println("No te da nada");
+				return null;
 			}
 
 		}
