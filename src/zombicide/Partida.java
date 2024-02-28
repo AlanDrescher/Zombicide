@@ -33,7 +33,7 @@ public class Partida {
 			if (arma.getHit() >= zombie.getHealth()) {
 				if (arma.randomHit() >= arma.getHit()) {
 					getInitzombies().get(i).setHealth(zombie.getHealth() - arma.getDamage());
-					System.out.println("Has herido al zombie!!");
+					System.out.println("¡¡Has herido al zombie!!");
 					System.out.println("Zombie " + getInitzombies().get(i).toString());
 					if (arma.getDamage() >= zombie.getHealth()) {
 						getInitzombies().get(i).setStatus(false);
