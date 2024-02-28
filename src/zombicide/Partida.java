@@ -53,8 +53,7 @@ public class Partida {
 						}
 					}
 				} else {
-					System.out.println(
-							"Ha fallado tu ataque con un " + arma.randomHit());
+					System.out.println("Ha fallado tu ataque con un " + arma.randomHit());
 				}
 
 			} else {
@@ -106,7 +105,7 @@ public class Partida {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
 		while (perder == false) {
-			if (Zombicide.getSelectCharacters().size()==0) {
+			if (Zombicide.getSelectCharacters().size() == 0) {
 				System.out.print("Has perdido.");
 				perder = true;
 				break;
@@ -155,11 +154,13 @@ public class Partida {
 				for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
 					int random = new Random().nextInt(Zombicide.getSelectCharacters().size());
 					int a = random;
-					Zombicide.getSelectCharacters().get(a).setHealth(Zombicide.getSelectCharacters().get(a).getHealth()- getInitzombies().get(i).getDamage());
+					Zombicide.getSelectCharacters().get(a).setHealth(
+							Zombicide.getSelectCharacters().get(a).getHealth() - getInitzombies().get(i).getDamage());
 					System.out.println("Zombie " + getInitzombies().get(i).toString() + " ha atacado a "
 							+ Zombicide.getSelectCharacters().get(a).toString());
-					if (Zombicide.getSelectCharacters().get(i).getHealth()==0) {
-						System.out.println("El personaje: " + Zombicide.getSelectCharacters().get(a).toString() + " ha muerto.");
+					if (Zombicide.getSelectCharacters().get(i).getHealth() == 0) {
+						System.out.println(
+								"El personaje: " + Zombicide.getSelectCharacters().get(a).toString() + " ha muerto.");
 						Zombicide.getSelectCharacters().remove(a);
 					}
 				}
