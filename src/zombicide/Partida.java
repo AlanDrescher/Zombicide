@@ -80,8 +80,6 @@ public class Partida {
 		getInitobjetos().remove(arma);
 	}
 
-	// Buscar
-
 	private void zombirandom() {
 		for (int i = 0; i < getlevel(); i++) {
 			int random = new Random().nextInt(3);
