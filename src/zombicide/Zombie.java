@@ -13,6 +13,7 @@ public class Zombie extends Humanoide {
 		setType(type);
 	}
 
+	// SETTERS Y GETTERS
 	// Movimiento
 	protected int getMovement() {
 		return movement;

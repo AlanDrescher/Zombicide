@@ -17,7 +17,7 @@ public class Arma {
 		setHit(4);
 	}
 
-
+	// SETTERS Y GETTERS
 	// Nombre
 	protected String getName() {
 		return name;

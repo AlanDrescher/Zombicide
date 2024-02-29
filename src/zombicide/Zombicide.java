@@ -149,7 +149,6 @@ public class Zombicide {
 	}
 
 	// SETTERS Y GETTERS
-
 	// Init Personajes
 	public static ArrayList<Jugador> getCharacters() {
 		return initcharacters;

@@ -50,7 +50,7 @@ public class Partida {
 					break;
 				}
 				default:
-					System.out.println("Opcion no válida, intente otra");
+					System.out.println("Opción no válida, intente otra");
 				}
 				if (getInitzombies().size() == 0) {
 					setlevel((getlevel() + 1));
@@ -78,7 +78,6 @@ public class Partida {
 
 	public void showMenu() {
 		texto();
-
 	}
 
 	// Ataque y Habilidades de los zombies
