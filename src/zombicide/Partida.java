@@ -32,9 +32,9 @@ public class Partida {
 		} else {
 			if (arma.getHit() >= zombie.getHealth()) {
 				if (arma.randomHit() >= arma.getHit()) {
-					zombie.setHealth(zombie.getHealth() - arma.getDamage());
-					System.out.println("Has herido al zombie!!");
-					System.out.println("Zombie " + zombie.toString());
+					getInitzombies().get(i).setHealth(zombie.getHealth() - arma.getDamage());
+					System.out.println("¡¡Has herido al zombie!!");
+					System.out.println("Zombie " + getInitzombies().get(i).toString());
 					if (arma.getDamage() >= zombie.getHealth()) {
 						zombie.setStatus(false);
 						System.out.println(getInitzombies().get(a).getType() + " ha muerto");
@@ -79,8 +79,6 @@ public class Partida {
 		Zombicide.getSelectCharacters().get(i).setWeapon(getInitobjetos().get(arma));
 		getInitobjetos().remove(arma);
 	}
-
-	// Buscar
 
 	private void zombirandom() {
 		for (int i = getInitzombies().size(); i < getlevel(); i++) {
