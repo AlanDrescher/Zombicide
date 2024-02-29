@@ -17,7 +17,6 @@ public class Partida {
 	}
 
 	public void showMenu() {
-		zombirandom();
 		texto();
 
 	}
@@ -25,31 +24,32 @@ public class Partida {
 	// Ataque y Habilidades de los zombies
 	private void attack(int i) {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
-		int random = new Random().nextInt(getInitzombies().size());
-		Zombie zombie = getInitzombies().get(random);
+		Random random = new Random();
+		int a = random.nextInt(getInitzombies().size());
+		Zombie zombie = getInitzombies().get(a);
 		if (zombie.getStatus() == false) {
-			zombie = getInitzombies().get(random);
+			zombie = getInitzombies().get(a);
 		} else {
 			if (arma.getHit() >= zombie.getHealth()) {
 				if (arma.randomHit() >= arma.getHit()) {
-					getInitzombies().get(i).setHealth(zombie.getHealth() - arma.getDamage());
+					zombie.setHealth(zombie.getHealth() - arma.getDamage());
 					System.out.println("Has herido al zombie!!");
-					System.out.println("Zombie " + getInitzombies().get(i).toString());
+					System.out.println("Zombie " + zombie.toString());
 					if (arma.getDamage() >= zombie.getHealth()) {
-						getInitzombies().get(i).setStatus(false);
-						System.out.println(getInitzombies().get(i).getType() + " ha muerto");
+						zombie.setStatus(false);
+						System.out.println(getInitzombies().get(a).getType() + " ha muerto");
 						int zombieHability = new Random().nextInt(0, 101);
 						if (zombieHability >= 95) {
 							System.out.println("¡¡El Zombie ha activado su habilidad especial!!");
-							if (getInitzombies().get(i).getType() == "Caminante") {
-								getInitzombies().get(i * 2).toString();
-							} else if (getInitzombies().get(i).getType() == "Corredor") {
-								getInitzombies().remove(i);
+							if (zombie.getType() == "Caminante") {
+								getInitzombies().get(a * 2).toString();
+							} else if (zombie.getType() == "Corredor") {
+								getInitzombies().remove(a);
 							} else {
-								getInitzombies().remove(i);
+								getInitzombies().remove(a);
 							}
 						} else {
-							getInitzombies().remove(i);
+							getInitzombies().remove(a);
 						}
 					}
 				} else {
@@ -83,7 +83,7 @@ public class Partida {
 	// Buscar
 
 	private void zombirandom() {
-		for (int i = 0; i < getlevel(); i++) {
+		for (int i = getInitzombies().size(); i < getlevel(); i++) {
 			int random = new Random().nextInt(3);
 			if (random == 0) {
 				Zombie zombicaminante = new ZombieCaminante();
@@ -105,12 +105,13 @@ public class Partida {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
 		while (perder == false) {
-			if (Zombicide.getSelectCharacters().size() == 0) {
-				System.out.print("Has perdido.");
-				perder = true;
-				break;
-			}
+			zombirandom();	
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+				if (Zombicide.getSelectCharacters().size() == 0) {
+					System.out.print("Has perdido.");
+					perder = true;
+					break;
+				}
 				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
 				for (int x = 0; x < getInitzombies().size(); x++) {
 					System.out.print(getInitzombies().get(x).toString() + " ");
@@ -142,8 +143,19 @@ public class Partida {
 				default:
 					System.out.println("Opcion no válida, intente otra");
 				}
+				if (getInitzombies().size()==0) {
+					setlevel((getlevel()+1));
+					System.out.println("Has pasado al nivel: "+getlevel());
+					i=-1;
+					zombirandom();
+
+				}
+				if (getInitzombies().size()!=0 && i==(Zombicide.getSelectCharacters().size()-1)) {
+					attackZombie();
+					setlevel(0);
 			}
-			attackZombie();
+
+			}
 		}
 
 	}
@@ -152,8 +164,8 @@ public class Partida {
 		for (int i = 0; i < getInitzombies().size(); i++) {
 			if (getInitzombies().get(i).getStatus() == true) {
 				for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
-					int random = new Random().nextInt(Zombicide.getSelectCharacters().size());
-					int a = random;
+					Random random = new Random();
+					int a = random.nextInt(Zombicide.getSelectCharacters().size());
 					Zombicide.getSelectCharacters().get(a).setHealth(
 							Zombicide.getSelectCharacters().get(a).getHealth() - getInitzombies().get(i).getDamage());
 					System.out.println("Zombie " + getInitzombies().get(i).toString() + " ha atacado a "
