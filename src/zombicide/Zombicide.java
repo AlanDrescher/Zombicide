@@ -45,6 +45,7 @@ public class Zombicide {
 
 	}
 
+	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
 		marie.setWeapon(new Arma());
@@ -57,6 +58,7 @@ public class Zombicide {
 		setCharacters(james);
 	}
 
+	// Generador de Armas
 	private static void defaultArmas() {
 		setObject(new Arco("Arco Largo", 1, 2, 3));
 		setObject(new Hacha("Hacha doble", 2, 1, 3));
@@ -78,6 +80,7 @@ public class Zombicide {
 		Partida partida = new Partida();
 	}
 
+	// Selección de Personaje
 	private static void seleccionPersonaje() {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Selecciona personajes:");
@@ -145,7 +148,7 @@ public class Zombicide {
 				"|---" + "\u001B[40m\u001B[31m" + "💀Zombi" + "\u001B[30m\u001B[41m" + "cide💀" + "\u001B[0m---|\r\n");
 	}
 
-//SETTERS Y GETTERS
+	// SETTERS Y GETTERS
 
 	// Init Personajes
 	public static ArrayList<Jugador> getCharacters() {

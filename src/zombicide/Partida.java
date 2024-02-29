@@ -9,6 +9,66 @@ public class Partida {
 	private ArrayList<Arma> initobjetos;
 	private int level;
 
+	// Menú
+	private void texto() {
+		Scanner leer = new Scanner(System.in);
+		boolean perder = false;
+		while (perder == false) {
+			zombirandom();
+			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+				if (Zombicide.getSelectCharacters().size() == 0) {
+					System.out.print("Has perdido.");
+					perder = true;
+					break;
+				}
+				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
+				for (int x = 0; x < getInitzombies().size(); x++) {
+					System.out.print(getInitzombies().get(x).toString() + " ");
+				}
+				System.out.print("|==\r\n" + "JUGADOR: " + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
+						+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
+						+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
+				switch (leer.nextInt()) {
+				case 1: {
+					attack(i);
+					break;
+				}
+				case 2: {
+					specialHability();
+					break;
+				}
+				case 3: {
+					setInitobjetos(Zombicide.search());
+					break;
+				}
+				case 4: {
+					switchWeapon(i);
+					break;
+				}
+				case 0: {
+					System.out.println("Has pasado");
+					break;
+				}
+				default:
+					System.out.println("Opcion no válida, intente otra");
+				}
+				if (getInitzombies().size() == 0) {
+					setlevel((getlevel() + 1));
+					System.out.println("Has pasado al nivel: " + getlevel());
+					i = -1;
+					zombirandom();
+
+				}
+				if (getInitzombies().size() != 0 && i == (Zombicide.getSelectCharacters().size() - 1)) {
+					attackZombie();
+					setlevel(0);
+				}
+
+			}
+		}
+
+	}
+
 	protected Partida() {
 		initobjetos = new ArrayList<Arma>();
 		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
@@ -65,7 +125,7 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability() {
-		//Arma arma = Arma.specialattack;
+		// Arma arma = Arma.specialattack;
 
 	}
 
@@ -81,6 +141,7 @@ public class Partida {
 		getInitobjetos().remove(arma);
 	}
 
+	// Generador de Zombies
 	private void zombirandom() {
 		for (int i = getInitzombies().size(); i < getlevel(); i++) {
 			int random = new Random().nextInt(3);
@@ -99,66 +160,7 @@ public class Partida {
 		}
 	}
 
-	// Menú
-	private void texto() {
-		Scanner leer = new Scanner(System.in);
-		boolean perder = false;
-		while (perder == false) {
-			zombirandom();	
-			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				if (Zombicide.getSelectCharacters().size() == 0) {
-					System.out.print("Has perdido.");
-					perder = true;
-					break;
-				}
-				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
-				for (int x = 0; x < getInitzombies().size(); x++) {
-					System.out.print(getInitzombies().get(x).toString() + " ");
-				}
-				System.out.print("|==\r\n" + "JUGADOR: " + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
-						+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "] " + "\r\n1- Atacar\r\n"
-						+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
-				switch (leer.nextInt()) {
-				case 1: {
-					attack(i);
-					break;
-				}
-				case 2: {
-					specialHability();
-					break;
-				}
-				case 3: {
-					setInitobjetos(Zombicide.search());
-					break;
-				}
-				case 4: {
-					switchWeapon(i);
-					break;
-				}
-				case 0: {
-					System.out.println("Has pasado");
-					break;
-				}
-				default:
-					System.out.println("Opcion no válida, intente otra");
-				}
-				if (getInitzombies().size()==0) {
-					setlevel((getlevel()+1));
-					System.out.println("Has pasado al nivel: "+getlevel());
-					i=-1;
-					zombirandom();
-
-				}
-				if (getInitzombies().size()!=0 && i==(Zombicide.getSelectCharacters().size()-1)) {
-					attackZombie();
-					setlevel(0);
-			}
-
-			}
-		}
-
-	}
-
+	// Ataque de los Zombies
 	private void attackZombie() {
 		for (int i = 0; i < getInitzombies().size(); i++) {
 			if (getInitzombies().get(i).getStatus() == true) {
@@ -180,6 +182,7 @@ public class Partida {
 
 	}
 
+	// SETTERS Y GETTERS
 	public ArrayList<Zombie> getInitzombies() {
 		return initzombies;
 	}
