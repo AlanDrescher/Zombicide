@@ -39,7 +39,7 @@ public class Zombicide {
 				break;
 			}
 			default:
-				System.out.println("Opcion no válida, intente otra");
+				System.out.println("Opción no válida, intente otra");
 			}
 		}
 
