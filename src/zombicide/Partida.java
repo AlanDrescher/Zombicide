@@ -21,11 +21,11 @@ public class Partida {
 			}
 			zombirandom();
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				System.out.print("\r\n" + "\u001B[45m|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n==|");
+				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\r\n==|\u001B[45m");
 				for (int x = 0; x < getInitzombies().size(); x++) {
 					System.out.print(getInitzombies().get(x).toString() + " ");
 				}
-				System.out.print("|==\r\n" + "JUGADOR: " + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
+				System.out.print("\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
 						+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]" + "\u001B[0m\r\n " + "\r\n1- Atacar\r\n"
 						+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 				switch (leer.nextInt()) {
