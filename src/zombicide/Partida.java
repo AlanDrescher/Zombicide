@@ -97,7 +97,6 @@ public class Partida {
 						getInitzombies().remove(x);
 					}
 				}
-				getInitzombies().remove(a);
 			} else {
 				getInitzombies().remove(a);
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
