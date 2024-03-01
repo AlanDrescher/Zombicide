@@ -56,7 +56,8 @@ public class Partida {
 					setlevel((getlevel() + 1));
 					System.out.println("Has pasado al nivel: " + getlevel());
 					for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
-						Zombicide.getSelectCharacters().get(y).setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+						Zombicide.getSelectCharacters().get(y)
+								.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
 					}
 					System.out.println("Milagrosamente tus personajes se han regenerado");
 					i = -1;
@@ -121,10 +122,10 @@ public class Partida {
 		Random random = new Random();
 		int a = random.nextInt(getInitzombies().size());
 		Zombie zombie = getInitzombies().get(a);
-		if (zombie.getStatus() == false) {
-			zombie = getInitzombies().get(a);
-		} else {
-			for (int x = 0; x < arma.getRange(); x++) {
+		for (int x = 0; x < arma.getRange(); x++) {
+			if (zombie.getStatus() == false) {
+				zombie = getInitzombies().get(a);
+			} else {
 				if (arma.getHit() >= zombie.getHealth()) {
 					int randomhit = arma.randomHit();
 					if (randomhit >= arma.getHit()) {
@@ -187,10 +188,12 @@ public class Partida {
 
 	// Ataque de los Zombies
 	private void attackZombie() {
+		Random random = new Random();
 		for (int i = 0; i < getInitzombies().size(); i++) {
-			if (getInitzombies().get(i).getStatus() == true) {
-				for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
-					Random random = new Random();
+			for (int x = 0; x < getInitzombies().get(i).getMovement(); x++) {
+				if (Zombicide.getSelectCharacters().size() == 0) {
+					break;
+				} else {
 					int a = random.nextInt(Zombicide.getSelectCharacters().size());
 					Zombicide.getSelectCharacters().get(a).setHealth(
 							Zombicide.getSelectCharacters().get(a).getHealth() - getInitzombies().get(i).getDamage());
@@ -201,7 +204,9 @@ public class Partida {
 								"El personaje: " + Zombicide.getSelectCharacters().get(a).toString() + " ha muerto.");
 						Zombicide.getSelectCharacters().remove(a);
 					}
+
 				}
+
 			}
 		}
 
