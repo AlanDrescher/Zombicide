@@ -124,7 +124,6 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability() {
-		// Arma arma = Arma.specialattack;
 
 	}
 
