@@ -13,6 +13,7 @@ public class Humanoide {
 		setStatus(status);
 	}
 
+	// SETTERS Y GETTERS
 	// Nombre
 	protected String getName() {
 		return name;

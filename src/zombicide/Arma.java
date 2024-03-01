@@ -19,7 +19,7 @@ public class Arma {
 		setspecialattack("No hay habilidad especial");
 	}
 
-
+	// SETTERS Y GETTERS
 	// Nombre
 	protected String getName() {
 		return name;

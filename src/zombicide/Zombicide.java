@@ -39,7 +39,7 @@ public class Zombicide {
 				break;
 			}
 			default:
-				System.out.println("Opcion no válida, intente otra");
+				System.out.println("Opción no válida, intente otra");
 			}
 		}
 
@@ -149,7 +149,6 @@ public class Zombicide {
 	}
 
 	// SETTERS Y GETTERS
-
 	// Init Personajes
 	public static ArrayList<Jugador> getCharacters() {
 		return initcharacters;

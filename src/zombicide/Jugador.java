@@ -8,6 +8,7 @@ public class Jugador extends Humanoide {
 		super(name, hp, maxhp, status);
 	}
 
+	// SETTERS Y GETTERS
 	public Arma getWeapon() {
 		return weapon;
 	}
