@@ -15,13 +15,13 @@ public class Partida {
 		boolean perder = false;
 		while (perder == false) {
 			if (Zombicide.getSelectCharacters().size() == 0) {
-				System.out.println("Has perdido.");
+				System.out.println("Has perdido, más suerte la próxima vez");
 				perder = true;
 				break;
 			}
 			zombirandom();
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
+				System.out.print("\r\n|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n \r\n==| ");
 				for (int x = 0; x < getInitzombies().size(); x++) {
 					System.out.print(getInitzombies().get(x).toString() + " ");
 				}
