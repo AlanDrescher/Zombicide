@@ -53,8 +53,8 @@ public class Zombicide {
 		Jugador jaci = new Jugador("Jaci", 5, 5, true);
 		jaci.setWeapon(new Arma());
 		setCharacters(jaci);
-		Jugador james = new Jugador("James", 5, 5, true);
-		james.setWeapon(new Arma());
+		Jugador james = new Jugador("James", 7, 7, true);
+		james.setWeapon(new Espada("Mandoble", 2, 1, 4));
 		setCharacters(james);
 	}
 
@@ -86,7 +86,6 @@ public class Zombicide {
 		System.out.println("Selecciona personajes:");
 		for (int x = 0; x < getCharacters().size(); x++) {
 			System.out.println(x + "- " + getCharacters().get(x).getName());
-
 		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
 		boolean salir = false;
