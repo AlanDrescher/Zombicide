@@ -9,4 +9,5 @@ public class Espada extends Arma {
 		super.setHit(hit);
 		super.setspecialattack("Mata gratis a 2 zombies aleatorios.");
 	}
+
 }

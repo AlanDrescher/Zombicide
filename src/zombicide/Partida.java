@@ -20,6 +20,7 @@ public class Partida {
 				break;
 			}
 			zombirandom();
+			int sp=1;
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\r\n==|\u001B[45m");
 				for (int x = 0; x < getInitzombies().size(); x++) {
@@ -34,7 +35,7 @@ public class Partida {
 					break;
 				}
 				case 2: {
-					specialHability(i);
+					specialHability(i , sp);
 					break;
 				}
 				case 3: {
@@ -55,15 +56,11 @@ public class Partida {
 				if (getInitzombies().size() == 0) {
 					setlevel((getlevel() + 1));
 					System.out.println("Has pasado al nivel: " + getlevel());
-					for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
-						Zombicide.getSelectCharacters().get(y)
-								.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
-					}
-					System.out.println("Milagrosamente tus personajes se han regenerado");
+					bossOrHeal();
 					i = -1;
+					sp = 1;
 					zombirandom();
-
-				}
+					}
 				if (getInitzombies().size() != 0 && i == (Zombicide.getSelectCharacters().size() - 1)) {
 					attackZombie();
 					setlevel(0);
@@ -73,6 +70,25 @@ public class Partida {
 		}
 
 	}
+	
+
+	private void bossOrHeal() {
+		Random random = new Random();
+		int a = random.nextInt(3);
+		if (a==0) {
+			System.out.println("Los cadáveres de los zombis se acumulan y se convierte en el jefe");
+			setInitzombies(new ZombieRey());
+		}
+		else {
+			for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
+				Zombicide.getSelectCharacters().get(y)
+						.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+			}
+			System.out.println("Milagrosamente tus personajes se han curado");
+
+		}
+	}
+
 
 	protected Partida() {
 		initobjetos = new ArrayList<Arma>();
@@ -135,6 +151,10 @@ public class Partida {
 						if (zombie.getHealth() <= 0) {
 							zombie.setStatus(false);
 							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
+							if (zombie.getType()=="Rey") {
+								System.out.println("Has obtenido la Espada del Rey.");
+								setInitobjetos(new Espada("Espada del Rey", 4, 2, 4));
+							}
 							zombiehability(zombie, a);
 						}
 					} else {
@@ -142,7 +162,7 @@ public class Partida {
 					}
 
 				} else {
-					System.out.println(getInitzombies().get(i).getType() + " ha evitado el ataque!");
+					System.out.println(zombie.getType() + " ha evitado el ataque!");
 				}
 			}
 
@@ -151,8 +171,12 @@ public class Partida {
 	}
 
 	// Habilidad Especial
-	private void specialHability(int i) {
-		System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
+	private void specialHability(int i, int sp) {
+		if (sp == 1) {
+			Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack();
+		}else {
+			System.out.println("Has gastado tu ataque especial en esta ronda. ");
+		}
 	}
 
 	// Cambiar Arma
