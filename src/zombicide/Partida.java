@@ -55,6 +55,10 @@ public class Partida {
 				if (getInitzombies().size() == 0) {
 					setlevel((getlevel() + 1));
 					System.out.println("Has pasado al nivel: " + getlevel());
+					for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
+						Zombicide.getSelectCharacters().get(y).setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+					}
+					System.out.println("Milagrosamente tus personajes se han regenerado");
 					i = -1;
 					zombirandom();
 
@@ -82,7 +86,7 @@ public class Partida {
 
 	private void zombiehability(Zombie zombie, int a) {
 		int zombieHability = new Random().nextInt(0, 101);
-		if (zombieHability >= 5 && getInitzombies().size() >= 1) {
+		if (zombieHability >= 95 && getInitzombies().size() >= 1) {
 			System.out.println("¡¡El Zombie " + zombie.getType() + " ha activado su habilidad especial!!");
 			if (zombie.getType() == "Caminante") {
 				getInitzombies().remove(a);
@@ -146,7 +150,7 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability(int i) {
-		System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
+		//System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
 	}
 
 	// Cambiar Arma
