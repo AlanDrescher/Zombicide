@@ -53,7 +53,11 @@ public class Zombicide {
 		Jugador jaci = new Jugador("Jaci", 5, 5, true);
 		jaci.setWeapon(new Arma());
 		setCharacters(jaci);
+<<<<<<< HEAD
+		Jugador james = new Jugador("James", 5, 5, true);
+=======
 		Jugador james = new Jugador("James", 7, 7, true);
+>>>>>>> 94b4e8ee13f1327b61ce88f959b2aca2c82b9453
 		james.setWeapon(new Espada("Mandoble", 2, 1, 4));
 		setCharacters(james);
 	}
