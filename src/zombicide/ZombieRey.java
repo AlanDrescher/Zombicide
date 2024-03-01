@@ -6,6 +6,6 @@ public class ZombieRey extends Zombie{
 		super("Zombie", 7, 7, true);
 		super.setMovement(1);
 		super.setDamage(2);
-		super.setType("Rey");
+		super.setType("Rey 1");
 	}
 }
