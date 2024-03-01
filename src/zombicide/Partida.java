@@ -14,12 +14,12 @@ public class Partida {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
 		while (perder == false) {
-			zombirandom();
 			if (Zombicide.getSelectCharacters().size() == 0) {
-				System.out.print("Has perdido.");
+				System.out.println("Has perdido.");
 				perder = true;
 				break;
 			}
+			zombirandom();
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 				System.out.print("|----- NIVEL: " + getlevel() + " - " + i + " -----|\r\n ==| ");
 				for (int x = 0; x < getInitzombies().size(); x++) {
@@ -82,7 +82,7 @@ public class Partida {
 
 	private void zombiehability(Zombie zombie, int a) {
 		int zombieHability = new Random().nextInt(0, 101);
-		if (zombieHability >= 5 && getInitzombies().size() >= 1) {
+		if (zombieHability >= 95 && getInitzombies().size() >= 1) {
 			System.out.println("¡¡El Zombie " + zombie.getType() + " ha activado su habilidad especial!!");
 			if (zombie.getType() == "Caminante") {
 				getInitzombies().remove(a);
@@ -191,7 +191,7 @@ public class Partida {
 							Zombicide.getSelectCharacters().get(a).getHealth() - getInitzombies().get(i).getDamage());
 					System.out.println("Zombie " + getInitzombies().get(i).toString() + " ha atacado a "
 							+ Zombicide.getSelectCharacters().get(a).toString());
-					if (Zombicide.getSelectCharacters().get(i).getHealth() <= 0) {
+					if (Zombicide.getSelectCharacters().get(a).getHealth() <= 0) {
 						System.out.println(
 								"El personaje: " + Zombicide.getSelectCharacters().get(a).toString() + " ha muerto.");
 						Zombicide.getSelectCharacters().remove(a);
