@@ -150,7 +150,7 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability(int i) {
-		//System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
+		System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
 	}
 
 	// Cambiar Arma
