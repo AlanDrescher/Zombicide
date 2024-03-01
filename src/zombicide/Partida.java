@@ -126,7 +126,8 @@ public class Partida {
 		} else {
 			for (int x = 0; x < arma.getRange(); x++) {
 				if (arma.getHit() >= zombie.getHealth()) {
-					if (arma.randomHit() >= arma.getHit()) {
+					int randomhit = arma.randomHit();
+					if (randomhit >= arma.getHit()) {
 						zombie.setHealth(zombie.getHealth() - arma.getDamage());
 						System.out.println("¡¡Has herido al zombie!!");
 						System.out.println("Zombie " + zombie.toString());
@@ -136,7 +137,7 @@ public class Partida {
 							zombiehability(zombie, a);
 						}
 					} else {
-						System.out.println("Ha fallado tu ataque con un " + arma.randomHit());
+						System.out.println("Ha fallado tu ataque con un " + randomhit);
 					}
 
 				} else {
@@ -150,7 +151,7 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability(int i) {
-		//System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
+		System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
 	}
 
 	// Cambiar Arma
