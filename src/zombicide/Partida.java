@@ -34,7 +34,7 @@ public class Partida {
 					break;
 				}
 				case 2: {
-					specialHability();
+					specialHability(i);
 					break;
 				}
 				case 3: {
@@ -80,6 +80,26 @@ public class Partida {
 		texto();
 
 	}
+	private void zombiehability(Zombie zombie, int a) {
+		int zombieHability = new Random().nextInt(0, 101);
+		if (zombieHability >= 5 && getInitzombies().size()>=1) {
+			System.out.println("¡¡El Zombie "+zombie.getType()+" ha activado su habilidad especial!!");
+			if (zombie.getType() == "Caminante") {
+				getInitzombies().get(a).toString();
+				getInitzombies().remove(a);
+				for (int x=getInitzombies().size(); x>0 ;x--) {
+					Zombie zombicaminante = new ZombieCaminante();
+					setInitzombies(zombicaminante);
+				}
+			} else if (zombie.getType() == "Corredor") {
+				getInitzombies().remove(a);
+			} else {
+				getInitzombies().remove(a);
+			}
+		} else {
+			getInitzombies().remove(a);
+		}
+	}
 
 	// Ataque y Habilidades de los zombies
 	private void attack(int i) {
@@ -90,43 +110,33 @@ public class Partida {
 		if (zombie.getStatus() == false) {
 			zombie = getInitzombies().get(a);
 		} else {
-			if (arma.getHit() >= zombie.getHealth()) {
-				if (arma.randomHit() >= arma.getHit()) {
-					zombie.setHealth(zombie.getHealth() - arma.getDamage());
-					System.out.println("¡¡Has herido al zombie!!");
-					System.out.println("Zombie " + zombie.toString());
-					if (arma.getDamage() >= zombie.getHealth()) {
-						zombie.setStatus(false);
-						System.out.println(getInitzombies().get(a).getType() + " ha muerto");
-						int zombieHability = new Random().nextInt(0, 101);
-						if (zombieHability >= 95) {
-							System.out.println("¡¡El Zombie ha activado su habilidad especial!!");
-							if (zombie.getType() == "Caminante") {
-								getInitzombies().get(a * 2).toString();
-							} else if (zombie.getType() == "Corredor") {
-								getInitzombies().remove(a);
-							} else {
-								getInitzombies().remove(a);
-							}
-						} else {
-							getInitzombies().remove(a);
+			for (int x = 0; x < arma.getRange(); x++) {
+				if (arma.getHit() >= zombie.getHealth()) {
+					if (arma.randomHit() >= arma.getHit()) {
+						zombie.setHealth(zombie.getHealth() - arma.getDamage());
+						System.out.println("¡¡Has herido al zombie!!");
+						System.out.println("Zombie " + zombie.toString());
+						if (zombie.getHealth()<=0) {
+							zombie.setStatus(false);
+							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
+							zombiehability(zombie,a);
 						}
+					} else {
+						System.out.println("Ha fallado tu ataque con un " + arma.randomHit());
 					}
-				} else {
-					System.out.println("Ha fallado tu ataque con un " + arma.randomHit());
-				}
 
-			} else {
-				System.out.println(getInitzombies().get(i).getType() + " ha evitado el ataque!");
+				} else {
+					System.out.println(getInitzombies().get(i).getType() + " ha evitado el ataque!");
+				}
 			}
+
 		}
 
 	}
 
 	// Habilidad Especial
-	private void specialHability() {
-		// Arma arma = Arma.specialattack;
-
+	private void specialHability(int i) {
+		System.out.println(Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack());
 	}
 
 	// Cambiar Arma

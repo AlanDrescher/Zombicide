@@ -7,6 +7,6 @@ public class Arco extends Arma {
 		super.setDamage(damage);
 		super.setRange(range);
 		super.setHit(hit);
-		super.specialattack("Mata gratis a 1 corredor.");
+		super.setspecialattack("Mata gratis a 1 corredor.");
 	}
 }
