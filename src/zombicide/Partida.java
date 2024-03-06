@@ -13,6 +13,7 @@ public class Partida {
 	private void texto() {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
+		int sp = 1;
 		while (perder == false) {
 			if (Zombicide.getSelectCharacters().size() == 0) {
 				System.out.println("Has perdido, más suerte la próxima vez");
@@ -20,7 +21,6 @@ public class Partida {
 				break;
 			}
 			zombirandom();
-			int sp = 1;
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
 						+ " \u001B[0m-----|\r\n==|\u001B[45m");
@@ -183,16 +183,20 @@ public class Partida {
 				}
 			} else if (arma.getName() == "Espada corta") {
 				Random random = new Random();
-				int a = random.nextInt(getInitzombies().size());
-				for (int x = 0; x <= 2; x++) {
-					getInitzombies().remove(a);
+				for (int x = 0; x < 2; x++) {
+					if (getInitzombies().size() == 0) {
+						break;
+					} else {
+						int a = random.nextInt(getInitzombies().size());
+						getInitzombies().remove(a);
+					}
 				}
 			} else if (arma.getName() == "Bola de fuego") {
 				int var = 0;
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (var == 2) {
 						break;
-					} else if (getInitzombies().get(x).getType() == "Caminate") {
+					} else if (getInitzombies().get(x).getType() == "Caminante") {
 						getInitzombies().remove(x);
 						var++;
 					}
