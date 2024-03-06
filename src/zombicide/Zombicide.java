@@ -68,7 +68,10 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
-
+		for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
+			Zombicide.getSelectCharacters().get(y)
+					.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+		}
 		if (getCharacters().size() > 3) {
 			seleccionPersonaje();
 		} else {
