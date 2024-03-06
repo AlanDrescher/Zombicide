@@ -20,22 +20,25 @@ public class Partida {
 				break;
 			}
 			zombirandom();
-			int sp=1;
+			int sp = 1;
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\r\n==|\u001B[45m");
+				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
+						+ " \u001B[0m-----|\r\n==|\u001B[45m");
 				for (int x = 0; x < getInitzombies().size(); x++) {
 					System.out.print(getInitzombies().get(x).toString() + " ");
 				}
-				System.out.print("\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString() + " Arma["
-						+ Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]" + "\u001B[0m\r\n " + "\r\n1- Atacar\r\n"
-						+ "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
+				System.out.print(
+						"\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString()
+								+ " Arma[" + Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]"
+								+ "\u001B[0m\r\n " + "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n"
+								+ "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
 				switch (leer.nextInt()) {
 				case 1: {
 					attack(i);
 					break;
 				}
 				case 2: {
-					specialHability(i , sp);
+					specialHability(i, sp);
 					break;
 				}
 				case 3: {
@@ -60,7 +63,7 @@ public class Partida {
 					i = -1;
 					sp = 1;
 					zombirandom();
-					}
+				}
 				if (getInitzombies().size() != 0 && i == (Zombicide.getSelectCharacters().size() - 1)) {
 					attackZombie();
 					setlevel(0);
@@ -70,25 +73,21 @@ public class Partida {
 		}
 
 	}
-	
 
 	private void bossOrHeal() {
 		Random random = new Random();
 		int a = random.nextInt(3);
-		if (a==0) {
+		if (a == 0) {
 			System.out.println("Los cadáveres de los zombis se acumulan y se convierte en el jefe");
 			setInitzombies(new ZombieRey());
-		}
-		else {
+		} else {
 			for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
-				Zombicide.getSelectCharacters().get(y)
-						.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+				Zombicide.getSelectCharacters().get(y).setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
 			}
 			System.out.println("Milagrosamente tus personajes se han curado");
 
 		}
 	}
-
 
 	protected Partida() {
 		initobjetos = new ArrayList<Arma>();
@@ -151,7 +150,7 @@ public class Partida {
 						if (zombie.getHealth() <= 0) {
 							zombie.setStatus(false);
 							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
-							if (zombie.getType()=="Rey") {
+							if (zombie.getType() == "Rey") {
 								System.out.println("Has obtenido la Espada del Rey.");
 								setInitobjetos(new Espada("Espada del Rey", 4, 2, 4));
 							}
@@ -173,9 +172,42 @@ public class Partida {
 	// Habilidad Especial
 	private void specialHability(int i, int sp) {
 		if (sp == 1) {
-			Zombicide.getSelectCharacters().get(i).getWeapon().specialAttack();
-		}else {
-			System.out.println("Has gastado tu ataque especial en esta ronda. ");
+			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
+			arma.specialAttack();
+			if (arma.getName() == "Hacha") {
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (getInitzombies().get(x).getType() == "Gordo") {
+						getInitzombies().remove(x);
+						break;
+					}
+				}
+			} else if (arma.getName() == "Espada") {
+				Random random = new Random();
+				int a = random.nextInt(getInitzombies().size());
+				for (int x = 0; x <= 2; x++) {
+					getInitzombies().remove(a);
+				}
+			} else if (arma.getName() == "Hechizo") {
+				int var = 0;
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (var == 2) {
+						break;
+					} else if (getInitzombies().get(x).getType() == "Caminate") {
+						getInitzombies().remove(x);
+						var++;
+					}
+				}
+			} else if (arma.getName() == "Arco") {
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (getInitzombies().get(x).getType() == "Corredor") {
+						getInitzombies().remove(x);
+						break;
+					}
+				}
+			}
+			sp--;
+		} else {
+			System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
 		}
 	}
 
