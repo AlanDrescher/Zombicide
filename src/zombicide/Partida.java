@@ -171,8 +171,8 @@ public class Partida {
 
 	// Habilidad Especial
 	private void specialHability(int i, int sp) {
+		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		if (sp == 1) {
-			Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 			arma.specialAttack();
 			if (arma.getName() == "Hacha") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
