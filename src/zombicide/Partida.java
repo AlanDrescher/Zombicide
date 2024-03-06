@@ -174,20 +174,20 @@ public class Partida {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		if (sp == 1) {
 			arma.specialAttack();
-			if (arma.getName() == "Hacha") {
+			if (arma.getName() == "Hacha doble") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
 						getInitzombies().remove(x);
 						break;
 					}
 				}
-			} else if (arma.getName() == "Espada") {
+			} else if (arma.getName() == "Espada corta") {
 				Random random = new Random();
 				int a = random.nextInt(getInitzombies().size());
 				for (int x = 0; x <= 2; x++) {
 					getInitzombies().remove(a);
 				}
-			} else if (arma.getName() == "Hechizo") {
+			} else if (arma.getName() == "Bola de fuego") {
 				int var = 0;
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (var == 2) {
@@ -197,7 +197,7 @@ public class Partida {
 						var++;
 					}
 				}
-			} else if (arma.getName() == "Arco") {
+			} else if (arma.getName() == "Arco Largo") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Corredor") {
 						getInitzombies().remove(x);
