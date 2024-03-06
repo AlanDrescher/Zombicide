@@ -173,7 +173,7 @@ public class Partida {
 	// Habilidad Especial
 	private void specialHability(int i, int sp) {
 		if (sp == 1) {
-			Zombicide.getSelectCharacters().get(i).getWeapon().getspecialattack();
+			Zombicide.getSelectCharacters().get(i).getWeapon().specialAttack();
 		}else {
 			System.out.println("Has gastado tu ataque especial en esta ronda. ");
 		}

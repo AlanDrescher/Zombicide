@@ -7,6 +7,9 @@ public class Hacha extends Arma {
 		super.setDamage(damage);
 		super.setRange(range);
 		super.setHit(hit);
-		super.setspecialattack("Mata gratis a 1 gordo.");
+	}
+	@Override
+	public void specialAttack() {
+		System.out.println("Mata gratis a 1 gordo.");
 	}
 }
