@@ -13,7 +13,6 @@ public class Partida {
 	private void texto() {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
-		int sp = 1;
 		while (perder == false) {
 			if (Zombicide.getSelectCharacters().size() == 0) {
 				System.out.println("Has perdido, más suerte la próxima vez");
@@ -21,6 +20,7 @@ public class Partida {
 				break;
 			}
 			zombirandom();
+			int sp = 1;
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
 						+ " \u001B[0m-----|\r\n==|\u001B[45m");
@@ -39,6 +39,7 @@ public class Partida {
 				}
 				case 2: {
 					specialHability(i, sp);
+					sp=0;
 					break;
 				}
 				case 3: {
@@ -209,7 +210,6 @@ public class Partida {
 					}
 				}
 			}
-			sp--;
 		} else {
 			System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
 		}

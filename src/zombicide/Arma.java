@@ -11,6 +11,14 @@ public class Arma {
 	private ArrayList<Arma> initweapons;
 
 	protected Arma() {
+	}
+	protected void Mandoble() {
+		setName("Mandoble");
+		setDamage(2);
+		setRange(1);
+		setHit(4);
+	}
+	protected void Daga() {
 		setName("Daga");
 		setDamage(1);
 		setRange(1);

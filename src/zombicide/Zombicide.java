@@ -48,13 +48,17 @@ public class Zombicide {
 	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
-		marie.setWeapon(new Arma());
+		Arma a=new Arma();
+		Arma b=new Arma();
+		a.Daga();
+		marie.setWeapon(a);
 		setCharacters(marie);
 		Jugador jaci = new Jugador("Jaci", 5, 5, true);
-		jaci.setWeapon(new Arma());
+		jaci.setWeapon(a);
 		setCharacters(jaci);
 		Jugador james = new Jugador("James", 7, 7, true);
-		james.setWeapon(new Espada("Mandoble", 2, 1, 4));
+		b.Mandoble();
+		james.setWeapon(b);
 		setCharacters(james);
 	}
 
@@ -131,11 +135,13 @@ public class Zombicide {
 	// Nuevo Personaje
 	private static void newCharacter() {
 		Scanner leer = new Scanner(System.in);
+		Arma a=new Arma();
+		a.Daga();
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");
 		String nombre = leer.next();
 		Jugador jugador = new Jugador(nombre, 5, 5, true);
-		jugador.setWeapon(new Arma());
+		jugador.setWeapon(a);
 		setCharacters(jugador);
 	}
 
