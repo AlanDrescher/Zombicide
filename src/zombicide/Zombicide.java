@@ -48,8 +48,8 @@ public class Zombicide {
 	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
-		Arma a=new Arma();
-		Arma b=new Arma();
+		Arma a = new Arma();
+		Arma b = new Arma();
 		a.Daga();
 		marie.setWeapon(a);
 		setCharacters(marie);
@@ -72,9 +72,8 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
-		for (int y = 0; y < Zombicide.getSelectCharacters().size(); y++) {
-			Zombicide.getSelectCharacters().get(y)
-					.setHealth(Zombicide.getSelectCharacters().get(y).getMaxHealth());
+		for (int y = 0; y < getSelectCharacters().size(); y++) {
+			getSelectCharacters().get(y).setHealth(getSelectCharacters().get(y).getMaxHealth());
 		}
 		if (getCharacters().size() > 3) {
 			seleccionPersonaje();
@@ -92,7 +91,7 @@ public class Zombicide {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Selecciona personajes:");
 		for (int x = 0; x < getCharacters().size(); x++) {
-			System.out.println((x + 1)  + "- " + getCharacters().get(x).getName());
+			System.out.println((x + 1) + "- " + getCharacters().get(x).getName());
 		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
 		boolean salir = false;
@@ -121,8 +120,10 @@ public class Zombicide {
 			return getObject().get(resultadoarma);
 		} else {
 			if (resultado >= 50) {
-				System.out.println("Has obtenido: " + getObject().get(resultadoarma).getName());
-				return new Arma();
+				Arma arma = new Arma();
+				arma.Daga();
+				System.out.println("Has obtenido: " + arma.getName());
+				return arma;
 			} else {
 				System.out.println("No te da nada");
 				return null;
@@ -135,7 +136,7 @@ public class Zombicide {
 	// Nuevo Personaje
 	private static void newCharacter() {
 		Scanner leer = new Scanner(System.in);
-		Arma a=new Arma();
+		Arma a = new Arma();
 		a.Daga();
 		tittle();
 		System.out.println("Dame el nombre del personaje: ");

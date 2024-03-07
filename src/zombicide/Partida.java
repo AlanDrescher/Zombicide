@@ -13,7 +13,7 @@ public class Partida {
 	public void showMenu() {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
-		while (perder == false) {
+		while (!perder) {
 			if (Zombicide.getSelectCharacters().size() == 0) {
 				System.out.println("Has perdido, más suerte la próxima vez");
 				perder = true;
