@@ -10,7 +10,7 @@ public class Partida {
 	private int level;
 
 	// Menú
-	private void texto() {
+	public void showMenu() {
 		Scanner leer = new Scanner(System.in);
 		boolean perder = false;
 		while (perder == false) {
@@ -22,35 +22,26 @@ public class Partida {
 			zombirandom();
 			int sp = 1;
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
-						+ " \u001B[0m-----|\r\n==|\u001B[45m");
-				for (int x = 0; x < getInitzombies().size(); x++) {
-					System.out.print(getInitzombies().get(x).toString() + " ");
-				}
-				System.out.print(
-						"\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString()
-								+ " Arma[" + Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]"
-								+ "\u001B[0m\r\n " + "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n"
-								+ "4- Cambiar Arma\r\n" + "0- Pasar\r\n");
-				switch (leer.nextInt()) {
-				case 1: {
+				texto(i);
+				switch (leer.next()) {
+				case "1": {
 					attack(i);
 					break;
 				}
-				case 2: {
+				case "2": {
 					specialHability(i, sp);
-					sp=0;
+					sp = 0;
 					break;
 				}
-				case 3: {
+				case "3": {
 					setInitobjetos(Zombicide.search());
 					break;
 				}
-				case 4: {
+				case "4": {
 					switchWeapon(i);
 					break;
 				}
-				case 0: {
+				case "0": {
 					System.out.println("Has pasado");
 					break;
 				}
@@ -72,7 +63,18 @@ public class Partida {
 
 			}
 		}
+	}
 
+	private void texto(int i) {
+		System.out.print(
+				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\r\n==|\u001B[45m");
+		for (int x = 0; x < getInitzombies().size(); x++) {
+			System.out.print(getInitzombies().get(x).toString() + " ");
+		}
+		System.out.print("\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString()
+				+ " Arma[" + Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]" + "\u001B[0m\r\n "
+				+ "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n"
+				+ "0- Pasar\r\n");
 	}
 
 	private void bossOrHeal() {
@@ -95,10 +97,6 @@ public class Partida {
 		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
 		setlevel(Zombicide.getSelectCharacters().size());
 		showMenu();
-	}
-
-	public void showMenu() {
-		texto();
 	}
 
 	private void zombiehability(Zombie zombie, int a) {

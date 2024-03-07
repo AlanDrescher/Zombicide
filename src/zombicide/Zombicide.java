@@ -92,7 +92,7 @@ public class Zombicide {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Selecciona personajes:");
 		for (int x = 0; x < getCharacters().size(); x++) {
-			System.out.println(x + "- " + getCharacters().get(x).getName());
+			System.out.println((x + 1)  + "- " + getCharacters().get(x).getName());
 		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
 		boolean salir = false;
@@ -100,9 +100,9 @@ public class Zombicide {
 			if (getSelectCharacters().size() == 3) {
 				System.out.println("Para salir de la selección de personajes escriba 99. ");
 			}
-			System.out.println("Selecciona el personaje " + x + ": ");
-			int seleccion = leer.nextInt();
-			if (seleccion == 99) {
+			System.out.println("Selecciona el personaje " + (x + 1) + ": ");
+			int seleccion = leer.nextInt() - 1;
+			if (seleccion + 1 == 99) {
 				break;
 			}
 			setSelectCharacters(getCharacters().get(seleccion));
