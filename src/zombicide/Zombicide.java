@@ -121,7 +121,7 @@ public class Zombicide {
 			return getObject().get(resultadoarma);
 		} else {
 			if (resultado >= 50) {
-				System.out.println("Has obtenido: " + new Arma().getName());
+				System.out.println("Has obtenido: " + getObject().get(resultadoarma).getName());
 				return new Arma();
 			} else {
 				System.out.println("No te da nada");
