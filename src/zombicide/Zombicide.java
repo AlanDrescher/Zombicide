@@ -48,13 +48,12 @@ public class Zombicide {
 	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
-		Arma a = new Arma();
 		Arma b = new Arma();
-		a.Daga();
-		marie.setWeapon(a);
+		b.Daga();
+		marie.setWeapon(b);
 		setCharacters(marie);
 		Jugador jaci = new Jugador("Jaci", 5, 5, true);
-		jaci.setWeapon(a);
+		jaci.setWeapon(b);
 		setCharacters(jaci);
 		Jugador james = new Jugador("James", 7, 7, true);
 		b.Mandoble();
