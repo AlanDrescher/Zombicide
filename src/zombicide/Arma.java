@@ -12,12 +12,14 @@ public class Arma {
 
 	protected Arma() {
 	}
+
 	protected void Mandoble() {
 		setName("Mandoble");
 		setDamage(2);
 		setRange(1);
 		setHit(4);
 	}
+
 	protected void Daga() {
 		setName("Daga");
 		setDamage(1);
@@ -62,6 +64,7 @@ public class Arma {
 		int random = new Random().nextInt(1, 6);
 		return random;
 	}
+
 	protected void setHit(int hit) {
 		this.hit = hit;
 
@@ -81,8 +84,9 @@ public class Arma {
 	public void specialAttack() {
 		System.out.println("No hay habilidad especial");
 	}
+
 	public String toString() {
-		return (getName() + " daño:" + getDamage()  +" dist:"+ getRange() +" acier:"+ getHit()).toUpperCase();
+		return (getName() + " daño:" + getDamage() + " dist:" + getRange() + " acier:" + getHit()).toUpperCase();
 	}
 
 }

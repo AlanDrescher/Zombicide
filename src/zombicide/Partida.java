@@ -39,7 +39,7 @@ public class Partida {
 				}
 				case 2: {
 					specialHability(i, sp);
-					sp=0;
+					sp = 0;
 					break;
 				}
 				case 3: {
