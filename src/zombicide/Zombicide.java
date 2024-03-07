@@ -98,11 +98,11 @@ public class Zombicide {
 		boolean salir = false;
 		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
 			if (getSelectCharacters().size() == 3) {
-				System.out.println("Para salir de la selección de personajes escriba 99. ");
+				System.out.println("Para salir de la selección de personajes escriba 0. ");
 			}
 			System.out.println("Selecciona el personaje " + (x + 1) + ": ");
 			int seleccion = leer.nextInt() - 1;
-			if (seleccion + 1 == 99) {
+			if (seleccion + 1 == 0) {
 				break;
 			}
 			setSelectCharacters(getCharacters().get(seleccion));
