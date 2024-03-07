@@ -212,11 +212,12 @@ public class Partida {
 	// Cambiar Arma
 	private void switchWeapon(int i) {
 		Scanner leer = new Scanner(System.in);
+		System.out.println("\u001B[45m Escoge arma \u001B[0m");
 		for (int x = 0; x < getInitobjetos().size(); x++) {
-			System.out.println(x + "- " + getInitobjetos().get(x).toString());
+			System.out.println((x + 1) + "- " + getInitobjetos().get(x).toString());
 		}
-		System.out.println("Escoge arma: ");
-		int arma = leer.nextInt();
+		System.out.println(Zombicide.getSelectCharacters().get(i).getName() + " selecciona:");
+		int arma = leer.nextInt() - 1;
 		Zombicide.getSelectCharacters().get(i).setWeapon(getInitobjetos().get(arma));
 		getInitobjetos().remove(arma);
 	}
