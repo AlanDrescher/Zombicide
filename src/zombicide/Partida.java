@@ -151,10 +151,6 @@ public class Partida {
 						if (zombie.getHealth() <= 0) {
 							zombie.setStatus(false);
 							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
-							if (zombie.getType() == "Rey") {
-								System.out.println("Has obtenido la Espada del Rey.");
-								setInitobjetos(new Espada("Espada del Rey", 4, 2, 4));
-							}
 							zombiehability(zombie, a);
 						}
 					} else {
