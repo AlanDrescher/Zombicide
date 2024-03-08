@@ -221,7 +221,7 @@ public class Partida {
 	// Cambiar Arma
 	private void switchWeapon(int i) {
 		Scanner leer = new Scanner(System.in);
-		if (getInitobjetos().size()!=0) {
+		if (getInitobjetos().size() != 0) {
 			System.out.println("\u001B[45m Escoge arma \u001B[0m");
 			for (int x = 0; x < getInitobjetos().size(); x++) {
 				System.out.println((x + 1) + "- " + getInitobjetos().get(x).toString());
@@ -230,10 +230,10 @@ public class Partida {
 			int arma = leer.nextInt() - 1;
 			Zombicide.getSelectCharacters().get(i).setWeapon(getInitobjetos().get(arma));
 			getInitobjetos().remove(arma);
-		}else {
+		} else {
 			System.out.println("No hay armas.");
 		}
-		
+
 	}
 
 	// Generador de Zombies

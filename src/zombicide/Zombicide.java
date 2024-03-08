@@ -26,17 +26,17 @@ public class Zombicide {
 			texto();
 			switch (leer.next()) {
 			case "1": {
-				//nueva partida
+				// nueva partida
 				newGame();
 				break;
 			}
 			case "2": {
-				//nuevo personaje
+				// nuevo personaje
 				newCharacter();
 				break;
 			}
 			case "3": {
-				//borrar personaje
+				// borrar personaje
 				delCharacter();
 				break;
 			}
@@ -53,6 +53,7 @@ public class Zombicide {
 		}
 
 	}
+
 	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
@@ -88,7 +89,7 @@ public class Zombicide {
 				setSelectCharacters(getCharacters().get(x));
 			}
 		}
-		//Max vida de personajes seleccionados
+		// Max vida de personajes seleccionados
 		for (int y = 0; y < getSelectCharacters().size(); y++) {
 			getSelectCharacters().get(y).setHealth(getSelectCharacters().get(y).getMaxHealth());
 		}
@@ -100,7 +101,7 @@ public class Zombicide {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Selecciona personajes:");
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
-		for (int x = 0; x < 6 && getCharacters().size()!=0; x++) {
+		for (int x = 0; x < 6 && getCharacters().size() != 0; x++) {
 			for (int y = 0; y < getCharacters().size(); y++) {
 				System.out.println((y + 1) + "- " + getCharacters().get(y).getName());
 			}
@@ -112,12 +113,13 @@ public class Zombicide {
 			if (seleccion == 0) {
 				break;
 			}
-			setSelectCharacters(getCharacters().get(seleccion-1));
-			getCharacters().remove(seleccion-1);
+			setSelectCharacters(getCharacters().get(seleccion - 1));
+			getCharacters().remove(seleccion - 1);
 		}
 
 	}
-	//Borrar Personaje
+
+	// Borrar Personaje
 	private static void delCharacter() {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Personajes para borrar:");
@@ -171,16 +173,17 @@ public class Zombicide {
 			Jugador jugador = new Jugador(nombre, 5, 5, true);
 			jugador.setWeapon(a);
 			setCharacters(jugador);
-		}else {
+		} else {
 			System.out.println("Has superado el límite de personajes: ");
 		}
-		
+
 	}
 
 	// Menú del Juego
 	public static void texto() {
 		tittle();
-		System.out.println("1- Nueva partida\r\n" + "2- Nuevo personaje\r\n"+"3- Remover personaje\r\n" + "0- Salir\r\n");
+		System.out.println(
+				"1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "3- Remover personaje\r\n" + "0- Salir\r\n");
 	}
 	// Título del Juego
 
