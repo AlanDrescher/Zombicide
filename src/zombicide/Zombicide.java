@@ -18,23 +18,30 @@ public class Zombicide {
 	}
 	//Menú principal
 	public static void showMenu() {
-		initselectcharacter = new ArrayList<Jugador>(7);
+		initselectcharacter = new ArrayList<Jugador>(6);
 		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 			texto();
 			switch (leer.next()) {
 			case "1": {
+				//nueva partida
 				newGame();
 				break;
 			}
 			case "2": {
+				//nuevo personaje
 				newCharacter();
+				break;
+			}
+			case "3": {
+				//borrar personaje
+				delCharacter();
 				break;
 			}
 			case "0": {
 				tittle();
-				System.out.print("Se apaga");
+				System.out.println("Se apaga");
 				leave = true;
 				leer.close();
 				break;
@@ -45,13 +52,13 @@ public class Zombicide {
 		}
 
 	}
-
 	// Generador de Personajes
 	private static void defaultCharacter() {
 		Jugador marie = new Jugador("Marie", 5, 5, true);
 		Arma b = new Arma();
-		b.Daga();
-		marie.setWeapon(b);
+		Arma a = new Arma();
+		a.Daga();
+		marie.setWeapon(a);
 		setCharacters(marie);
 		Jugador jaci = new Jugador("Jaci", 5, 5, true);
 		jaci.setWeapon(b);
@@ -80,6 +87,7 @@ public class Zombicide {
 				setSelectCharacters(getCharacters().get(x));
 			}
 		}
+		//Max vida de personajes seleccionados
 		for (int y = 0; y < getSelectCharacters().size(); y++) {
 			getSelectCharacters().get(y).setHealth(getSelectCharacters().get(y).getMaxHealth());
 		}
@@ -90,22 +98,40 @@ public class Zombicide {
 	private static void seleccionPersonaje() {
 		Scanner leer = new Scanner(System.in);
 		System.out.println("Selecciona personajes:");
-		for (int x = 0; x < getCharacters().size(); x++) {
-			System.out.println((x + 1) + "- " + getCharacters().get(x).getName());
-		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
-		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
+		for (int x = 0; x < 6 && getCharacters().size()!=0; x++) {
+			for (int y = 0; y < getCharacters().size(); y++) {
+				System.out.println((y + 1) + "- " + getCharacters().get(y).getName());
+			}
 			if (getSelectCharacters().size() == 3) {
 				System.out.println("Para salir de la selección de personajes escriba 0. ");
 			}
 			System.out.println("Selecciona el personaje " + (x + 1) + ": ");
+			int seleccion = leer.nextInt();
+			if (seleccion == 0) {
+				break;
+			}
+			setSelectCharacters(getCharacters().get(seleccion-1));
+			getCharacters().remove(seleccion-1);
+		}
+
+	}
+	//Borrar Personaje
+	private static void delCharacter() {
+		Scanner leer = new Scanner(System.in);
+		System.out.println("Personajes para borrar:");
+		for (int x = 0; x < getCharacters().size(); x++) {
+			System.out.println((x + 1) + "- " + getCharacters().get(x).getName());
+		}
+		System.out.println("Para salir de borrar de personajes escriba 0. ");
+		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
+			System.out.println("Borrar el personaje " + (x + 1) + ": ");
 			int seleccion = leer.nextInt() - 1;
 			if (seleccion + 1 == 0) {
 				break;
 			}
-			setSelectCharacters(getCharacters().get(seleccion));
+			getCharacters().remove(seleccion);
 		}
-
 	}
 
 	// Buscar Arma
@@ -137,18 +163,23 @@ public class Zombicide {
 		Scanner leer = new Scanner(System.in);
 		Arma a = new Arma();
 		a.Daga();
-		tittle();
-		System.out.println("Dame el nombre del personaje: ");
-		String nombre = leer.next();
-		Jugador jugador = new Jugador(nombre, 5, 5, true);
-		jugador.setWeapon(a);
-		setCharacters(jugador);
+		if (getCharacters().size() < 10) {
+			tittle();
+			System.out.println("Dame el nombre del personaje: ");
+			String nombre = leer.next();
+			Jugador jugador = new Jugador(nombre, 5, 5, true);
+			jugador.setWeapon(a);
+			setCharacters(jugador);
+		}else {
+			System.out.println("Has superado el límite de personajes: ");
+		}
+		
 	}
 
 	// Menú del Juego
 	public static void texto() {
 		tittle();
-		System.out.println("1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
+		System.out.println("1- Nueva partida\r\n" + "2- Nuevo personaje\r\n"+"3- Remover personaje\r\n" + "0- Salir\r\n");
 	}
 	// Título del Juego
 
