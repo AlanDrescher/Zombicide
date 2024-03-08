@@ -59,6 +59,7 @@ public class Partida {
 				}
 				default:
 					System.out.println("Opción no válida, intente otra");
+					i--;
 				}
 				if (getInitzombies().size() == 0) {
 					setlevel((getlevel() + 1));
