@@ -2,6 +2,7 @@ package zombicide;
 
 public class ZombieGordo extends Zombie {
 
+	// Constructor
 	protected ZombieGordo() {
 		super("Zombie", 2, 2, true);
 		super.setMovement(1);

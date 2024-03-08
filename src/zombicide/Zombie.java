@@ -2,10 +2,12 @@ package zombicide;
 
 public class Zombie extends Humanoide {
 
+	// Variables
 	private int movement;
 	private int damage;
 	private String type;
 
+	// Constructor
 	protected Zombie(String name, int health, int maxHealth, boolean status) {
 		super(name, health, maxHealth, status);
 		setMovement(movement);
@@ -40,7 +42,8 @@ public class Zombie extends Humanoide {
 	protected void setType(String type) {
 		this.type = type;
 	}
+
 	public String toString() {
-		return getType() + " ("+ getHealth()+ "/" + getMaxHealth()+")";
+		return getType() + " (" + getHealth() + "/" + getMaxHealth() + ")";
 	}
 }

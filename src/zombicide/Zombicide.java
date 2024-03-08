@@ -16,7 +16,8 @@ public class Zombicide {
 		defaultArmas();
 		showMenu();
 	}
-	//Menú principal
+
+	// Menú principal
 	public static void showMenu() {
 		initselectcharacter = new ArrayList<Jugador>(7);
 		boolean leave = false;
