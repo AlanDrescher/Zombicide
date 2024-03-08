@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Arma {
+	// Variables
 	private String name;
 	private int damage;
 	private int range;
 	private int hit;
 	private ArrayList<Arma> initweapons;
 
+	// Constructores
 	protected Arma() {
 	}
 
@@ -80,7 +82,6 @@ public class Arma {
 	}
 
 	// Habilidad Especial
-
 	public void specialAttack() {
 		System.out.println("No hay habilidad especial");
 	}
