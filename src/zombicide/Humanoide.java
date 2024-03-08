@@ -1,11 +1,13 @@
 package zombicide;
 
 public class Humanoide {
+	// Variables
 	private String name;
 	private int health;
 	private int maxHealth;
 	private boolean status;
 
+	// Constructor
 	protected Humanoide(String name, int health, int maxHealth, boolean status) {
 		setName(name);
 		setHealth(health);
