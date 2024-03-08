@@ -80,6 +80,9 @@ public class Zombicide {
 				setSelectCharacters(getCharacters().get(x));
 			}
 		}
+		for (int y = 0; y < getSelectCharacters().size(); y++) {
+			getSelectCharacters().get(y).setHealth(getSelectCharacters().get(y).getMaxHealth());
+		}
 		Partida partida = new Partida();
 	}
 
