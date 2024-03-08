@@ -16,26 +16,27 @@ public class Zombicide {
 		defaultArmas();
 		showMenu();
 	}
-
+	//Menú principal
 	public static void showMenu() {
 		initselectcharacter = new ArrayList<Jugador>(7);
 		boolean leave = false;
 		Scanner leer = new Scanner(System.in);
 		while (!leave) {
 			texto();
-			switch (leer.nextInt()) {
-			case 1: {
+			switch (leer.next()) {
+			case "1": {
 				newGame();
 				break;
 			}
-			case 2: {
+			case "2": {
 				newCharacter();
 				break;
 			}
-			case 0: {
+			case "0": {
 				tittle();
 				System.out.print("Se apaga");
 				leave = true;
+				leer.close();
 				break;
 			}
 			default:
@@ -71,9 +72,6 @@ public class Zombicide {
 
 	// Nueva Partida
 	private static void newGame() {
-		for (int y = 0; y < getSelectCharacters().size(); y++) {
-			getSelectCharacters().get(y).setHealth(getSelectCharacters().get(y).getMaxHealth());
-		}
 		if (getCharacters().size() > 3) {
 			seleccionPersonaje();
 		} else {
@@ -93,7 +91,6 @@ public class Zombicide {
 			System.out.println((x + 1) + "- " + getCharacters().get(x).getName());
 		}
 		System.out.println("Selecciona entre 3 y 6 personajes: ");
-		boolean salir = false;
 		for (int x = 0; x < getCharacters().size() && x <= 6; x++) {
 			if (getSelectCharacters().size() == 3) {
 				System.out.println("Para salir de la selección de personajes escriba 0. ");
@@ -150,6 +147,7 @@ public class Zombicide {
 		tittle();
 		System.out.println("1- Nueva partida\r\n" + "2- Nuevo personaje\r\n" + "0- Salir\r\n");
 	}
+	// Título del Juego
 
 	public static void tittle() {
 		System.out.println(
