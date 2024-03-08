@@ -5,9 +5,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Partida {
+	// Variables
 	private ArrayList<Zombie> initzombies;
 	private ArrayList<Arma> initobjetos;
 	private int level;
+
+	// Constructor
+	protected Partida() {
+		initobjetos = new ArrayList<Arma>();
+		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
+		setlevel(Zombicide.getSelectCharacters().size());
+		showMenu();
+	}
 
 	// Menú
 	public void showMenu() {
@@ -15,6 +24,9 @@ public class Partida {
 		boolean perder = false;
 		while (!perder) {
 			if (Zombicide.getSelectCharacters().size() == 0) {
+				for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+					Zombicide.getSelectCharacters().remove(i);
+				}
 				System.out.println("Has perdido, más suerte la próxima vez");
 				perder = true;
 				break;
@@ -65,6 +77,7 @@ public class Partida {
 		}
 	}
 
+	// Contenido Menú
 	private void texto(int i) {
 		System.out.print(
 				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\r\n==|\u001B[45m");
@@ -77,6 +90,7 @@ public class Partida {
 				+ "0- Pasar\r\n");
 	}
 
+	// Zombie Rey y Curación de personajes
 	private void bossOrHeal() {
 		Random random = new Random();
 		int a = random.nextInt(3);
@@ -92,13 +106,7 @@ public class Partida {
 		}
 	}
 
-	protected Partida() {
-		initobjetos = new ArrayList<Arma>();
-		initzombies = new ArrayList<Zombie>(Zombicide.getSelectCharacters().size());
-		setlevel(Zombicide.getSelectCharacters().size());
-		showMenu();
-	}
-
+	// Habilidades de los zombies
 	private void zombiehability(Zombie zombie, int a) {
 		int zombieHability = new Random().nextInt(0, 101);
 		if (zombieHability >= 95 && getInitzombies().size() >= 1) {
@@ -130,7 +138,7 @@ public class Partida {
 		}
 	}
 
-	// Ataque y Habilidades de los zombies
+	// Ataque de los personajes
 	private void attack(int i) {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		Random random = new Random();
