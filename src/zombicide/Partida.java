@@ -9,7 +9,7 @@ public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private ArrayList<Arma> initobjetos;
 	private int level;
-	private int oro;
+	private int gold;
 
 	// Constructor
 	protected Partida() {
@@ -86,7 +86,7 @@ public class Partida {
 	// Contenido Menú
 	private void texto(int i) {
 		System.out.print(
-				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----| \u001B[33m Oro\033[0m: "+ getoro()+"\r\n==|\u001B[45m" );
+				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----| \u001B[33m Oro\033[0m: "+ getGold()+"\r\n==|\u001B[45m" );
 		for (int x = 0; x < getInitzombies().size(); x++) {
 			System.out.print(getInitzombies().get(x).toString() + " ");
 		}
@@ -141,7 +141,7 @@ public class Partida {
 			}
 		} else {
 			getInitzombies().remove(a);
-			setoro(getoro()+20);
+			setGold(getGold()+20);
 		}
 	}
 
@@ -303,12 +303,12 @@ public class Partida {
 	public int getlevel() {
 		return level;
 	}
-	public void setoro(int oro) {
-		this.oro = oro;
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 
-	public int getoro() {
-		return oro;
+	public int getGold() {
+		return gold;
 	}
 
 	public ArrayList<Arma> getInitobjetos() {
