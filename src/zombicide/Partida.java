@@ -194,7 +194,6 @@ public class Partida {
 		int gold = 0;
 		switch (zombie.getType()) {
 		case "Caminante": {
-<<<<<<< HEAD
 			gold = 20;
 			break;
 		}
@@ -208,25 +207,6 @@ public class Partida {
 		}
 		case "Rey": {
 			gold = 100;
-=======
-			setGold(getGold()+20);
-			System.out.println("+ 20 de oro");
-			break;
-		}
-		case "Corredor": {
-			setGold(getGold()+10);
-			System.out.println("+ 10 de oro");
-			break;
-		}
-		case "Gordo": {
-			setGold(getGold()+30);
-			System.out.println("+ 30 de oro");
-			break;
-		}
-		case "Rey": {
-			setGold(getGold()+100);
-			System.out.println("+ 100 de oro");
->>>>>>> 758edab742e36e7bdc08303e142b4364a931d844
 			break;
 		}
 		}
