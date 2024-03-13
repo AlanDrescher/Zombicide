@@ -191,24 +191,27 @@ public class Partida {
 
 	// Drop Oro Zombie
 	private void dropGold(Zombie zombie) {
+		int gold = 0;
 		switch (zombie.getType()) {
 		case "Caminante": {
-			setGold(getGold()+20);
+			gold = 20;
 			break;
 		}
 		case "Corredor": {
-			setGold(getGold()+10);
+			gold = 10;
 			break;
 		}
 		case "Gordo": {
-			setGold(getGold()+30);
+			gold = 30;
 			break;
 		}
 		case "Rey": {
-			setGold(getGold()+100);
+			gold = 100;
 			break;
 		}
 		}
+		setGold(getGold()+gold);
+		System.out.println("\u001B[33m+"+gold+"\033[0m");
 	}
 
 	// Habilidad Especial

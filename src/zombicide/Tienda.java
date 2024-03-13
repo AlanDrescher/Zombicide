@@ -7,8 +7,9 @@ public class Tienda {
 	int gold;
 	
 	protected Tienda(int gold) {
+		setGold(gold);
 		Menu();
-		this.gold = gold;	
+
 	}
 	
 	public void Menu() {
