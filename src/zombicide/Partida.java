@@ -112,25 +112,31 @@ public class Partida {
 		}
 	}
 
+
 	// Habilidades de los zombies
 	private void zombiehability(Zombie zombie, int a) {
 		int zombieHability = new Random().nextInt(0, 101);
 		if (zombieHability >= 95 && getInitzombies().size() >= 1) {
 			System.out.println("¡¡El Zombie " + zombie.getType() + " ha activado su habilidad especial!!");
-			if (zombie.getType() == "Caminante") {
+			switch (zombie.getType()) {
+			case "Caminante": {
 				getInitzombies().remove(a);
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Caminante") {
 						setInitzombies(new ZombieCaminante());
 					}
 				}
-			} else if (zombie.getType() == "Corredor") {
+				break;
+			}
+			case "Corredor": {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Corredor") {
 						getInitzombies().remove(x);
 					}
 				}
-			} else {
+				break;
+			}
+			case "Gordo": {
 				getInitzombies().remove(a);
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
@@ -138,10 +144,14 @@ public class Partida {
 						break;
 					}
 				}
+				break;
+			}
+			case "Rey": {
+				break;
+			}
 			}
 		} else {
 			getInitzombies().remove(a);
-			setGold(getGold()+20);
 		}
 	}
 
@@ -164,12 +174,12 @@ public class Partida {
 						if (zombie.getHealth() <= 0) {
 							zombie.setStatus(false);
 							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
+							dropGold(zombie);
 							zombiehability(zombie, a);
 						}
 					} else {
 						System.out.println("Ha fallado tu ataque con un " + randomhit);
 					}
-
 				} else {
 					System.out.println(zombie.getType() + " ha evitado el ataque!");
 				}
@@ -177,6 +187,28 @@ public class Partida {
 
 		}
 
+	}
+
+	// Drop Oro Zombie
+	private void dropGold(Zombie zombie) {
+		switch (zombie.getType()) {
+		case "Caminante": {
+			setGold(getGold()+20);
+			break;
+		}
+		case "Corredor": {
+			setGold(getGold()+10);
+			break;
+		}
+		case "Gordo": {
+			setGold(getGold()+30);
+			break;
+		}
+		case "Rey": {
+			setGold(getGold()+100);
+			break;
+		}
+		}
 	}
 
 	// Habilidad Especial
