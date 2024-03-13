@@ -41,6 +41,7 @@ public class Zombicide {
 				break;
 			}
 			case "0": {
+				// salir
 				tittle();
 				System.out.println("Se apaga");
 				leave = true;
@@ -48,6 +49,7 @@ public class Zombicide {
 				break;
 			}
 			default:
+				// opcion no valida
 				System.out.println("Opción no válida, intente otra");
 			}
 		}

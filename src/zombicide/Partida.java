@@ -222,6 +222,7 @@ public class Partida {
 			if (arma.getName() == "Hacha doble") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
+						dropGold(getInitzombies().get(x));
 						getInitzombies().remove(x);
 						break;
 					}
@@ -233,6 +234,7 @@ public class Partida {
 						break;
 					} else {
 						int a = random.nextInt(getInitzombies().size());
+						dropGold(getInitzombies().get(x));
 						getInitzombies().remove(a);
 					}
 				}
@@ -242,6 +244,7 @@ public class Partida {
 					if (var == 2) {
 						break;
 					} else if (getInitzombies().get(x).getType() == "Caminante") {
+						dropGold(getInitzombies().get(x));
 						getInitzombies().remove(x);
 						var++;
 					}
@@ -249,6 +252,7 @@ public class Partida {
 			} else if (arma.getName() == "Arco Largo") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Corredor") {
+						dropGold(getInitzombies().get(x));
 						getInitzombies().remove(x);
 						break;
 					}
