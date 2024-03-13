@@ -55,7 +55,7 @@ public class Partida {
 					break;
 				}
 				case "5": {
-					switchWeapon(i);
+					store();
 					break;
 				}
 				case "0": {
@@ -240,6 +240,10 @@ public class Partida {
 			System.out.println("No hay armas.");
 		}
 
+	}
+	
+	private void store() {
+		Tienda tienda = new Tienda(getGold());
 	}
 
 	// Generador de Zombies
