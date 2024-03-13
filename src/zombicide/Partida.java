@@ -9,7 +9,7 @@ public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private ArrayList<Arma> initobjetos;
 	private int level;
-	private int oro;
+	private int gold;
 
 	// Constructor
 	protected Partida() {
@@ -85,15 +85,15 @@ public class Partida {
 
 	// Contenido Menú
 	private void texto(int i) {
-		System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
-				+ " \u001B[0m-----| \u001B[33m Oro\033[0m: " + getoro() + "\r\n==|\u001B[45m");
+		System.out.print(
+				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----| \u001B[33m Oro\033[0m: "+ getGold()+"\r\n==|\u001B[45m" );
 		for (int x = 0; x < getInitzombies().size(); x++) {
 			System.out.print(getInitzombies().get(x).toString() + " ");
 		}
 		System.out.print("\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString()
 				+ " Arma[" + Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]" + "\u001B[0m\r\n "
-				+ "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n"
-				+ "5- Tienda\r\n" + "0- Pasar\r\n");
+				+ "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n"+ "5- Tienda\r\n"
+				+ "0- Pasar\r\n");
 	}
 
 	// Zombie Rey y Curación de personajes
@@ -115,27 +115,22 @@ public class Partida {
 	// Habilidades de los zombies
 	private void zombiehability(Zombie zombie, int a) {
 		int zombieHability = new Random().nextInt(0, 101);
-		if (zombieHability >= 5 && getInitzombies().size() >= 1) {
+		if (zombieHability >= 95 && getInitzombies().size() >= 1) {
 			System.out.println("¡¡El Zombie " + zombie.getType() + " ha activado su habilidad especial!!");
-			switch (zombie.getType()) {
-			case "Caminante": {
+			if (zombie.getType() == "Caminante") {
 				getInitzombies().remove(a);
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Caminante") {
 						setInitzombies(new ZombieCaminante());
 					}
 				}
-				break;
-			}
-			case "Corredor": {
+			} else if (zombie.getType() == "Corredor") {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Corredor") {
 						getInitzombies().remove(x);
 					}
 				}
-				break;
-			}
-			case "Gordo": {
+			} else {
 				getInitzombies().remove(a);
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
@@ -143,14 +138,10 @@ public class Partida {
 						break;
 					}
 				}
-				break;
-			}
-			case "Rey": {
-				break;
-			}
 			}
 		} else {
 			getInitzombies().remove(a);
+			setGold(getGold()+20);
 		}
 	}
 
@@ -173,12 +164,12 @@ public class Partida {
 						if (zombie.getHealth() <= 0) {
 							zombie.setStatus(false);
 							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
-							dropGold(zombie);
 							zombiehability(zombie, a);
 						}
 					} else {
 						System.out.println("Ha fallado tu ataque con un " + randomhit);
 					}
+
 				} else {
 					System.out.println(zombie.getType() + " ha evitado el ataque!");
 				}
@@ -186,26 +177,6 @@ public class Partida {
 
 		}
 
-	}
-
-	// Drop Oro Zombie
-	private void dropGold(Zombie zombie) {
-		switch (zombie.getType()) {
-		case "Caminante": {
-			setgold(getgold()+20);
-			break;
-		}
-		case "Corredor": {
-			break;
-		}
-		case "Gordo": {
-
-			break;
-		}
-		case "Rey": {
-			break;
-		}
-		}
 	}
 
 	// Habilidad Especial
@@ -332,13 +303,12 @@ public class Partida {
 	public int getlevel() {
 		return level;
 	}
-
-	public void setoro(int oro) {
-		this.oro = oro;
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 
-	public int getoro() {
-		return oro;
+	public int getGold() {
+		return gold;
 	}
 
 	public ArrayList<Arma> getInitobjetos() {
