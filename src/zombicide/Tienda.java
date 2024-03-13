@@ -9,7 +9,6 @@ public class Tienda {
 	protected Tienda(int gold) {
 		setGold(gold);
 		Menu();
-
 	}
 	
 	public void Menu() {
