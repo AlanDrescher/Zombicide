@@ -8,8 +8,7 @@ public class Tienda {
 	
 	protected Tienda(int gold) {
 		Menu();
-		this.gold = gold;
-		
+		this.gold = gold;	
 	}
 	
 	public void Menu() {
@@ -21,5 +20,13 @@ public class Tienda {
 			System.out.println("Vuelve cuando tengas dinero, no somos una ONG");
 			return;
 		}
+	}
+	
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
+
+	public int getGold() {
+		return gold;
 	}
 }
