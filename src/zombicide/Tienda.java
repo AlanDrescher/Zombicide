@@ -25,21 +25,27 @@ public class Tienda {
 					if (gold < 200) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-
+						
+						System.out.println("Has comprado la \033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m \r\n");
+						gold -= 200;
 					} break;
 				}
 				case "2": {
-					if (gold < 200) {
+					if (gold < 250) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-
+						
+						System.out.println("Has comprado la \033[47m\033[1;31m\033[4;31mHabilidad Extra\033[0m \r\n");
+						gold -= 250;
 					}break;
 				}
 				case "3": {
-					if (gold < 200) {
+					if (gold < 50) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-
+						
+						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mCuración\033[0m \r\n");
+						gold -= 50;
 					}break;
 				}
 				case "0": {
