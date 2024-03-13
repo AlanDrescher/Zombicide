@@ -86,7 +86,7 @@ public class Partida {
 	// Contenido Menú
 	private void texto(int i) {
 		System.out.print(
-				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----|\u001B[45m \u001B[33m Oro: "+ getoro()+"\r\n==|\u001B[45m" );
+				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----| \u001B[33m Oro\033[0m: "+ getoro()+"\r\n==|\u001B[45m" );
 		for (int x = 0; x < getInitzombies().size(); x++) {
 			System.out.print(getInitzombies().get(x).toString() + " ");
 		}
