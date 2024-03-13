@@ -9,6 +9,7 @@ public class Partida {
 	private ArrayList<Zombie> initzombies;
 	private ArrayList<Arma> initobjetos;
 	private int level;
+	private int oro;
 
 	// Constructor
 	protected Partida() {
@@ -50,6 +51,10 @@ public class Partida {
 					break;
 				}
 				case "4": {
+					switchWeapon(i);
+					break;
+				}
+				case "5": {
 					switchWeapon(i);
 					break;
 				}
@@ -136,6 +141,7 @@ public class Partida {
 			}
 		} else {
 			getInitzombies().remove(a);
+			setoro(getoro()+20);
 		}
 	}
 
@@ -296,6 +302,13 @@ public class Partida {
 
 	public int getlevel() {
 		return level;
+	}
+	public void setoro(int oro) {
+		this.oro = oro;
+	}
+
+	public int getoro() {
+		return oro;
 	}
 
 	public ArrayList<Arma> getInitobjetos() {
