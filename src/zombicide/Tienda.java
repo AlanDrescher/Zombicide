@@ -2,9 +2,9 @@ package zombicide;
 
 import java.util.Scanner;
 
-public class Tienda {
+public class Tienda extends Partida{
 
-	int gold;
+
 
 	protected Tienda(int gold) {
 		setGold(gold);
@@ -14,7 +14,7 @@ public class Tienda {
 	public void Menu() {
 		Scanner leer = new Scanner(System.in);
 		boolean salir = false;
-		if (gold > 0) {
+		if (super.getGold() > 0) {
 			System.out
 					.println("\r\n¡Bienvenido! \r\n¡Tengo una selección de productos en oferta, extranjero!");
 			while (!salir) {
@@ -22,30 +22,31 @@ public class Tienda {
 						+ "\r\n1- Hoja del Olimpo \u001B[33m200 de oro\033[0m \r\n2- Habilidad Extra \u001B[33m250 de oro\033[0m \r\n3- Curación \u001B[33m50 de oro\033[0m \r\n0- Salir");
 				switch (leer.next()) {
 				case "1": {
-					if (gold < 200) {
+					if (super.getGold() < 200) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						
 						System.out.println("Has comprado la \033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m \r\n");
-						gold -= 200;
+						super.setInitobjetos(new Arma());
+						super.setGold() -= 200;
 					} break;
 				}
 				case "2": {
-					if (gold < 250) {
+					if (super.getGold() < 250) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						
 						System.out.println("Has comprado la \033[47m\033[1;31m\033[4;31mHabilidad Extra\033[0m \r\n");
-						gold -= 250;
+						super.getGold() -= 250;
 					}break;
 				}
 				case "3": {
-					if (gold < 50) {
+					if (super.getGold() < 50) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						
 						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mCuración\033[0m \r\n");
-						gold -= 50;
+						super.getGold() -= 50;
 					}break;
 				}
 				case "0": {
