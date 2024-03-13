@@ -15,7 +15,7 @@ public class Tienda {
 		Scanner leer = new Scanner(System.in);
 		if (gold > 0) {
 			System.out.println("\u001B[33mOro\033[0m: " + gold);
-			System.out.println("¡Bienvenido! \r\n ¡Tengo una selección de buenos productos en venta, extranjero! \r\n 1- Hoja del Olimpo oro \\r\\n 2-");
+			System.out.println("¡Bienvenido! \r\n¡Tengo una selección de buenos productos en venta, extranjero! \r\n1- Hoja del Olimpo oro \r\n2-");
 		} else {
 			System.out.println("Vuelve cuando tengas dinero, no somos una ONG");
 			return;
