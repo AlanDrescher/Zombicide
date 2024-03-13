@@ -276,7 +276,7 @@ public class Partida {
 	
 	private void store() {
 		Tienda tienda = new Tienda(getGold());
-		setGold(tienda.);
+		setGold(tienda.getGold());
 	}
 
 	// Generador de Zombies
