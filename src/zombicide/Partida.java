@@ -189,9 +189,7 @@ public class Partida {
 					System.out.println(zombie.getType() + " ha evitado el ataque!");
 				}
 			}
-
 		}
-
 	}
 
 	// Drop Oro Zombie

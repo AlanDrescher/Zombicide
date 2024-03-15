@@ -88,6 +88,7 @@ public class Tienda {
 	}
 
 	// GETTERS Y SETTERS
+	// Oro
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
@@ -96,6 +97,7 @@ public class Tienda {
 		return gold;
 	}
 
+	// Ataque Especial
 	public void setSp(int sp) {
 		this.sp = sp;
 	}
@@ -104,6 +106,7 @@ public class Tienda {
 		return sp;
 	}
 
+	// Espada
 	public void setespada(int espada) {
 		this.espada = espada;
 	}

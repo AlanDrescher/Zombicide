@@ -11,6 +11,7 @@ public class Jugador extends Humanoide {
 	}
 
 	// SETTERS Y GETTERS
+	// Arma
 	public Arma getWeapon() {
 		return weapon;
 	}
@@ -19,6 +20,7 @@ public class Jugador extends Humanoide {
 		this.weapon = arma;
 	}
 
+	// Pasar
 	public boolean isPass() {
 		return pass;
 	}
