@@ -11,7 +11,7 @@ public class Arco extends Arma {
 	}
 
 	@Override
-	public void specialAttack() {
-		System.out.println("Mata gratis a 1 corredor.");
+	public String specialAttack() {
+		return "Mata gratis a 1 corredor.";
 	}
 }

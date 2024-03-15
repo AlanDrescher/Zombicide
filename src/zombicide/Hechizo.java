@@ -11,8 +11,8 @@ public class Hechizo extends Arma {
 	}
 
 	@Override
-	public void specialAttack() {
-		System.out.println("Mata gratis a 2 caminantes.");
+	public String specialAttack() {
+		return "Mata gratis a 2 caminantes.";
 	}
 
 }

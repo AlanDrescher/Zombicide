@@ -218,10 +218,9 @@ public class Partida {
 	private void specialHability(int i, int sp) {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		if (sp == 1) {
-			arma.specialAttack();
-			Scanner leer = new Scanner(System.in);
-			switch (leer.next()) {
-			case arma.specialAttack()=="Mata gratis a 1 gordo.": {
+			System.out.println(arma.specialAttack());
+			switch (arma.specialAttack()) {
+			case "Mata gratis a 1 gordo.": {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
 						dropGold(getInitzombies().get(x));
@@ -229,45 +228,44 @@ public class Partida {
 						break;
 					}
 				}
-			}
-			}
 
-		} else if (arma.getName() == "Espada corta") {
-			Random random = new Random();
-			for (int x = 0; x < 2; x++) {
-				if (getInitzombies().size() == 0) {
-					break;
-				} else {
-					int a = random.nextInt(getInitzombies().size());
-					dropGold(getInitzombies().get(x));
-					getInitzombies().remove(a);
+			}
+			case "Mata gratis a 2 zombies aleatorios.": {
+				Random random = new Random();
+				for (int x = 0; x < 2; x++) {
+					if (getInitzombies().size() == 0) {
+						break;
+					} else {
+						int a = random.nextInt(getInitzombies().size());
+						dropGold(getInitzombies().get(x));
+						getInitzombies().remove(a);
+					}
 				}
 			}
-		} else if (arma.getName() == "Bola de fuego") {
-			int var = 0;
-			for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
-				if (var == 2) {
-					break;
-				} else if (getInitzombies().get(x).getType() == "Caminante") {
-					dropGold(getInitzombies().get(x));
-					getInitzombies().remove(x);
-					var++;
+			case "Mata gratis a 2 caminantes.": {
+				int var = 0;
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (var == 2) {
+						break;
+					} else if (getInitzombies().get(x).getType() == "Caminante") {
+						dropGold(getInitzombies().get(x));
+						getInitzombies().remove(x);
+						var++;
+					}
 				}
 			}
-		} else if (arma.getName() == "Arco Largo") {
-			for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
-				if (getInitzombies().get(x).getType() == "Corredor") {
-					dropGold(getInitzombies().get(x));
-					getInitzombies().remove(x);
-					break;
+			case "Mata gratis a 1 corredor.": {
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (getInitzombies().get(x).getType() == "Corredor") {
+						dropGold(getInitzombies().get(x));
+						getInitzombies().remove(x);
+						break;
+					}
 				}
+			}
+				System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
 			}
 		}
-	}else
-
-	{
-		System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
-	}
 	}
 
 	// Cambiar Arma

@@ -82,8 +82,8 @@ public class Arma {
 	}
 
 	// Habilidad Especial
-	public void specialAttack() {
-		System.out.println("No hay habilidad especial");
+	public String specialAttack() {
+		return "No hay habilidad especial";
 	}
 
 	public String toString() {
