@@ -11,7 +11,8 @@ public class Hacha extends Arma {
 	}
 
 	@Override
-	public void specialAttack() {
-		System.out.println("Mata gratis a 1 gordo.");
+	public String specialAttack() {
+		return "Mata gratis a 1 gordo.";
+
 	}
 }

@@ -86,15 +86,15 @@ public class Partida {
 
 	// Contenido Menú
 	private void texto(int i) {
-		System.out.print(
-				"\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i + " \u001B[0m-----| \u001B[33mOro\033[0m: "+ getGold()+"\r\n==|\u001B[45m" );
+		System.out.print("\r\n" + "|-----\u001B[45m NIVEL: " + getlevel() + " - " + i
+				+ " \u001B[0m-----| \u001B[33mOro\033[0m: " + getGold() + "\r\n==|\u001B[45m");
 		for (int x = 0; x < getInitzombies().size(); x++) {
 			System.out.print(getInitzombies().get(x).toString() + " ");
 		}
 		System.out.print("\u001B[0m|==\r\n" + "\u001B[45mJUGADOR: " + Zombicide.getSelectCharacters().get(i).toString()
 				+ " Arma[" + Zombicide.getSelectCharacters().get(i).getWeapon().toString() + "]" + "\u001B[0m\r\n "
-				+ "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n"+ "5- Tienda\r\n"
-				+ "0- Pasar\r\n");
+				+ "\r\n1- Atacar\r\n" + "2- Habilidad Especial\r\n" + "3- Buscar\r\n" + "4- Cambiar Arma\r\n"
+				+ "5- Tienda\r\n" + "0- Pasar\r\n");
 	}
 
 	// Zombie Rey y Curación de personajes
@@ -112,7 +112,6 @@ public class Partida {
 
 		}
 	}
-
 
 	// Habilidades de los zombies
 	private void zombiehability(Zombie zombie, int a) {
@@ -211,8 +210,8 @@ public class Partida {
 			break;
 		}
 		}
-		setGold(getGold()+gold);
-		System.out.println("\u001B[33m+"+gold+"\033[0m");
+		setGold(getGold() + gold);
+		System.out.println("\u001B[33m+" + gold + "\033[0m");
 	}
 
 	// Habilidad Especial
@@ -220,7 +219,9 @@ public class Partida {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		if (sp == 1) {
 			arma.specialAttack();
-			if (arma.getName() == "Hacha doble") {
+			Scanner leer = new Scanner(System.in);
+			switch (leer.next()) {
+			case arma.specialAttack()=="Mata gratis a 1 gordo.": {
 				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
 					if (getInitzombies().get(x).getType() == "Gordo") {
 						dropGold(getInitzombies().get(x));
@@ -228,40 +229,45 @@ public class Partida {
 						break;
 					}
 				}
-			} else if (arma.getName() == "Espada corta") {
-				Random random = new Random();
-				for (int x = 0; x < 2; x++) {
-					if (getInitzombies().size() == 0) {
-						break;
-					} else {
-						int a = random.nextInt(getInitzombies().size());
-						dropGold(getInitzombies().get(x));
-						getInitzombies().remove(a);
-					}
-				}
-			} else if (arma.getName() == "Bola de fuego") {
-				int var = 0;
-				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
-					if (var == 2) {
-						break;
-					} else if (getInitzombies().get(x).getType() == "Caminante") {
-						dropGold(getInitzombies().get(x));
-						getInitzombies().remove(x);
-						var++;
-					}
-				}
-			} else if (arma.getName() == "Arco Largo") {
-				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
-					if (getInitzombies().get(x).getType() == "Corredor") {
-						dropGold(getInitzombies().get(x));
-						getInitzombies().remove(x);
-						break;
-					}
+			}
+			}
+
+		} else if (arma.getName() == "Espada corta") {
+			Random random = new Random();
+			for (int x = 0; x < 2; x++) {
+				if (getInitzombies().size() == 0) {
+					break;
+				} else {
+					int a = random.nextInt(getInitzombies().size());
+					dropGold(getInitzombies().get(x));
+					getInitzombies().remove(a);
 				}
 			}
-		} else {
-			System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
+		} else if (arma.getName() == "Bola de fuego") {
+			int var = 0;
+			for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+				if (var == 2) {
+					break;
+				} else if (getInitzombies().get(x).getType() == "Caminante") {
+					dropGold(getInitzombies().get(x));
+					getInitzombies().remove(x);
+					var++;
+				}
+			}
+		} else if (arma.getName() == "Arco Largo") {
+			for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+				if (getInitzombies().get(x).getType() == "Corredor") {
+					dropGold(getInitzombies().get(x));
+					getInitzombies().remove(x);
+					break;
+				}
+			}
 		}
+	}else
+
+	{
+		System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
+	}
 	}
 
 	// Cambiar Arma
@@ -281,7 +287,7 @@ public class Partida {
 		}
 
 	}
-	
+
 	private void store() {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
@@ -348,6 +354,7 @@ public class Partida {
 	public int getlevel() {
 		return level;
 	}
+
 	public void setsp(int sp) {
 		this.sp = sp;
 	}
@@ -355,6 +362,7 @@ public class Partida {
 	public int getsp() {
 		return sp;
 	}
+
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
