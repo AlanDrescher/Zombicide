@@ -292,7 +292,7 @@ public class Partida {
 	}
 
 	private void store() {
-		Tienda tienda = new Tienda();
+		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
 	}
 

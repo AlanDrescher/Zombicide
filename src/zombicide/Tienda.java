@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Tienda{
 
-	int gold = super.getGold();
+	int gold;
 
-	public Tienda() {
+	protected Tienda(int gold) {
+		setGold(gold);
 		Menu();
 	}
 
@@ -55,7 +56,6 @@ public class Tienda{
 					}break;
 				}
 				case "4": {
-<<<<<<< HEAD
 					if (gold < 0) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
@@ -66,18 +66,6 @@ public class Tienda{
 						gold -= 150;
 						
 					}break;
-=======
-				    if (gold < 150) {
-				        System.out.println("No tienes \u001B[33moro\033[0m suficiente");
-				    } else {
-				        for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
-				            Zombicide.getSelectCharacters().get(i).setMaxHealth(Zombicide.getSelectCharacters().get(i).getMaxHealth()+1);
-				        }
-				        System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mAumento de Vida Máxima\033[0m \r\n");
-				        gold -= 150;
-				    }
-				    break;
->>>>>>> 39049840a00496595b60dd6a199ebe9454c69614
 				}
 				case "0": {
 					System.out.println("Has salido de la tienda");
