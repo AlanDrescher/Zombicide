@@ -2,7 +2,13 @@ package zombicide;
 
 import java.util.Scanner;
 
+<<<<<<< HEAD
 public class Tienda {
+=======
+public class Tienda{
+
+	int gold;
+>>>>>>> parent of 87a70a6 (a)
 
 	// Variables
 	int gold;
@@ -18,7 +24,12 @@ public class Tienda {
 		Scanner leer = new Scanner(System.in);
 		boolean salir = false;
 		if (gold > 0) {
+<<<<<<< HEAD
 			System.out.println("\r\n¡Bienvenido! \r\n¡Tengo una selección de productos en oferta, extranjero!");
+=======
+			System.out
+					.println("\r\n¡Bienvenido! \r\n¡Tengo una selección de productos en oferta, extranjero!");
+>>>>>>> parent of 87a70a6 (a)
 			while (!salir) {
 				System.out.println("|-----\033[46m\033[1;30mTienda del buhonero\033[0m-----| \u001B[33mOro\033[0m: "
 						+ gold
@@ -42,7 +53,11 @@ public class Tienda {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						Partida partida2 = new Partida();
+<<<<<<< HEAD
 						partida2.setsp(partida2.getsp() + 1);
+=======
+						partida2.setsp(partida2.getsp()+1);
+>>>>>>> parent of 87a70a6 (a)
 						System.out.println("Has comprado la \033[47m\033[1;31m\033[4;31mHabilidad Extra\033[0m \r\n");
 						gold -= 250;
 					}
