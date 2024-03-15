@@ -43,9 +43,9 @@ public class Tienda {
 					if (gold < 50) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						
 						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mCuración\033[0m \r\n");
 						gold -= 50;
+						
 					}break;
 				}
 				case "0": {
