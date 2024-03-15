@@ -86,7 +86,7 @@ public class Zombicide {
 		if (getCharacters().size() > 3) {
 			seleccionPersonaje();
 		} else {
-			System.out.println("Tienes solo 3 personajes. Empezaremos con esos 3");
+			System.out.println("Todos tus personajes han sido seleccionados");
 			for (int x = 0; x < getCharacters().size(); x++) {
 				setSelectCharacters(getCharacters().get(x));
 			}
