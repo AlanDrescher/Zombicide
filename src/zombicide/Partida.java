@@ -290,18 +290,14 @@ public class Partida {
 		}
 
 	}
-//
 	private void store() {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
-<<<<<<< HEAD
 		setsp(tienda.getSp());
-		if (tienda.getespada() == 1) {
+		if (tienda.getespada()==1) {
 			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 3);
 			setInitobjetos(olimpo);
 		}
-=======
->>>>>>> parent of 87a70a6 (a)
 	}
 
 	// Generador de Zombies
