@@ -2,7 +2,7 @@ package zombicide;
 
 import java.util.Scanner;
 
-public class Tienda {
+public class Tienda extends Partida{
 
 	int gold;
 
@@ -25,7 +25,8 @@ public class Tienda {
 					if (gold < 200) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						
+						Arma olimpo = new Espada("\033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m", 7, 3, 3);
+						super.setInitobjetos(null);
 						System.out.println("Has comprado la \033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m \r\n");
 						gold -= 200;
 					} break;
