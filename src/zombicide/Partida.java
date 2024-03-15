@@ -147,6 +147,11 @@ public class Partida {
 				break;
 			}
 			case "Rey": {
+				for (int x = (getInitzombies().size() - 1); x >= 0; x--) {
+					if (getInitzombies().get(x).getType() == "Rey") {
+						setInitzombies(new ZombieRey());
+					}
+				}
 				break;
 			}
 			}
