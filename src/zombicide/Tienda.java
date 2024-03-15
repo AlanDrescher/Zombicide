@@ -35,13 +35,13 @@ public class Tienda extends Partida{
 					if (gold < 250) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						
+						super.setsp(getsp()+1);
 						System.out.println("Has comprado la \033[47m\033[1;31m\033[4;31mHabilidad Extra\033[0m \r\n");
 						gold -= 250;
 					}break;
 				}
 				case "3": {
-					if (gold < 5) {
+					if (gold < 50) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
@@ -49,6 +49,18 @@ public class Tienda extends Partida{
 						}
 						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mCuración Total\033[0m \r\n");
 						gold -= 50;
+						
+					}break;
+				}
+				case "4": {
+					if (gold < 1) {
+						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
+					} else {
+						for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
+							Zombicide.getSelectCharacters().get(i).setMaxHealth(Zombicide.getSelectCharacters().get(i).getMaxHealth()+1);
+						}
+						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mAumento de vida máxima\033[0m \r\n");
+						gold -= 100;
 						
 					}break;
 				}
