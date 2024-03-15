@@ -4,13 +4,16 @@ import java.util.Scanner;
 
 public class Tienda{
 
+	// Variables
 	int gold;
 
+	// Constructor
 	protected Tienda(int gold) {
 		setGold(gold);
 		Menu();
 	}
 
+	// Menú
 	public void Menu() {
 		Scanner leer = new Scanner(System.in);
 		boolean salir = false;
