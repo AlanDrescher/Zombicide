@@ -20,7 +20,7 @@ public class Tienda extends Partida{
 			while (!salir) {
 				System.out.println("|-----\033[46m\033[1;30mTienda del buhonero\033[0m-----| \u001B[33mOro\033[0m: " + gold
 						+ "\r\n1- Hoja del Olimpo \u001B[33m200 de oro\033[0m \r\n2- Habilidad Extra \u001B[33m250 de oro\033[0m \r\n"
-						+ "3- Curación Total\u001B[33m50 de oro\033[0m \r\n4- Aumento de Vida Máxima \r\n0- Salir");
+						+ "3- Curación Total\u001B[33m50 de oro\033[0m \r\n4- \033[47m\\033[1;32m\\033[4;32mAumento de Vida Máxima\033[0m \r\n0- Salir");
 				switch (leer.next()) {
 				case "1": {
 					if (gold < 200) {
@@ -60,7 +60,7 @@ public class Tienda extends Partida{
 						for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 							Zombicide.getSelectCharacters().get(i).setMaxHealth(Zombicide.getSelectCharacters().get(i).getMaxHealth()+1);
 						}
-						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mAumento de vida máxima\033[0m \r\n");
+						System.out.println("Has comprado \033[47m\033[1;32m\033[4;32mAumento de Vida Máxima\033[0m \r\n");
 						gold -= 100;
 						
 					}break;
