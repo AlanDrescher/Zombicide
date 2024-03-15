@@ -39,7 +39,7 @@ public class Humanoide {
 		return maxHealth;
 	}
 
-	private void setMaxHealth(int maxHealth) {
+	void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
 	}
 
