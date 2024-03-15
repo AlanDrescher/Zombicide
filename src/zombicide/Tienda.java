@@ -1,10 +1,12 @@
 package zombicide;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tienda{
-
+	int sp;
 	int gold;
+	int espada;
 
 	protected Tienda(int gold) {
 		setGold(gold);
@@ -14,7 +16,7 @@ public class Tienda{
 	public void Menu() {
 		Scanner leer = new Scanner(System.in);
 		boolean salir = false;
-		if (gold > 0) {
+		if (getGold() > 0) {
 			System.out
 					.println("\r\n¡Bienvenido! \r\n¡Tengo una selección de productos en oferta, extranjero!");
 			while (!salir) {
@@ -23,28 +25,25 @@ public class Tienda{
 						+ "3- Curación Total\u001B[33m50 de oro\033[0m \r\n4- Aumento de Vida Máxima \u001B[33m150 de oro\033[0m \r\n0- Salir");
 				switch (leer.next()) {
 				case "1": {
-					if (gold < 0) {
+					if (getGold() < 0) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						Arma olimpo = new Espada("\033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m", 7, 3, 3);
-						Partida partida = new Partida();
-						partida.setInitobjetos(olimpo);
+						setespada(1);
 						System.out.println("Has comprado la \033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m \r\n");
 						gold -= 200;
 					} break;
 				}
 				case "2": {
-					if (gold < 0) {
+					if (getGold() < 0) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						Partida partida2 = new Partida();
-						partida2.setsp(partida2.getsp()+1);
+						setSp(getSp()+1);
 						System.out.println("Has comprado la \033[47m\033[1;31m\033[4;31mHabilidad Extra\033[0m \r\n");
 						gold -= 250;
 					}break;
 				}
 				case "3": {
-					if (gold < 0) {
+					if (getGold() < 0) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
@@ -56,7 +55,7 @@ public class Tienda{
 					}break;
 				}
 				case "4": {
-					if (gold < 0) {
+					if (getGold() < 0) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
 						for(int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
@@ -85,5 +84,19 @@ public class Tienda{
 
 	public int getGold() {
 		return gold;
+	}
+	public void setSp(int sp) {
+		this.sp = sp;
+	}
+
+	public int getSp() {
+		return sp;
+	}
+	public void setespada(int espada) {
+		this.espada = espada;
+	}
+
+	public int getespada() {
+		return espada;
 	}
 }

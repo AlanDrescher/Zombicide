@@ -294,6 +294,11 @@ public class Partida {
 	private void store() {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
+		setsp(tienda.getSp());
+		if (tienda.getespada()==1) {
+			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 3);
+			setInitobjetos(olimpo);
+		}
 	}
 
 	// Generador de Zombies
