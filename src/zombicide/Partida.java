@@ -10,6 +10,7 @@ public class Partida {
 	private ArrayList<Arma> initobjetos;
 	private int level;
 	private int gold;
+	private int sp;
 
 	// Constructor
 	protected Partida() {
@@ -33,7 +34,7 @@ public class Partida {
 				break;
 			}
 			zombirandom();
-			int sp = 1;
+			setsp(1);
 			for (int i = 0; i < Zombicide.getSelectCharacters().size(); i++) {
 				texto(i);
 				switch (leer.next()) {
@@ -42,8 +43,8 @@ public class Partida {
 					break;
 				}
 				case "2": {
-					specialHability(i, sp);
-					sp = 0;
+					specialHability(i, getsp());
+					setsp(0);
 					break;
 				}
 				case "3": {
@@ -71,7 +72,7 @@ public class Partida {
 					System.out.println("Has pasado al nivel: " + getlevel());
 					bossOrHeal();
 					i = -1;
-					sp = 1;
+					setsp(1);
 					zombirandom();
 				}
 				if (getInitzombies().size() != 0 && i == (Zombicide.getSelectCharacters().size() - 1)) {
@@ -346,6 +347,13 @@ public class Partida {
 
 	public int getlevel() {
 		return level;
+	}
+	public void setsp(int sp) {
+		this.sp = sp;
+	}
+
+	public int getsp() {
+		return sp;
 	}
 	public void setGold(int gold) {
 		this.gold = gold;
