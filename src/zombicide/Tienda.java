@@ -30,7 +30,7 @@ public class Tienda {
 					if (getGold() < 200) {
 						System.out.println("No tienes \u001B[33moro\033[0m suficiente");
 					} else {
-						setespada(1);
+						setespada(getespada()+1);
 						System.out.println("Has comprado la \033[47m\033[1;36m\033[4;34mHoja del Olimpo\033[0m \r\n");
 						gold -= 200;
 					}

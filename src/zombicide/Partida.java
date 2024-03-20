@@ -167,8 +167,13 @@ public class Partida {
 		int a = random.nextInt(getInitzombies().size());
 		Zombie zombie = getInitzombies().get(a);
 		for (int x = 0; x < arma.getRange(); x++) {
+			
 			if (zombie.getStatus() == false) {
+				if (getInitzombies().size()==0 ){
+					break;
+				}
 				zombie = getInitzombies().get(a);
+				x--;
 			} else {
 				if (arma.getHit() >= zombie.getHealth()) {
 					int randomhit = arma.randomHit();
@@ -239,8 +244,8 @@ public class Partida {
 					if (getInitzombies().size() == 0) {
 						break;
 					} else {
-						int a = random.nextInt((getInitzombies().size()-1));
-						dropGold(getInitzombies().get(x));
+						int a = random.nextInt((getInitzombies().size()));
+						dropGold(getInitzombies().get(a));
 						getInitzombies().remove(a);
 					}
 				}
@@ -295,9 +300,12 @@ public class Partida {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
 		setsp(tienda.getSp());
-		if (tienda.getespada() == 1) {
+		if (tienda.getespada() > 0) {
 			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 3);
-			setInitobjetos(olimpo);
+			for (int x =0 ; x < tienda.getespada(); x++) {
+				setInitobjetos(olimpo);
+			}
+			
 		}
 	}
 
@@ -372,7 +380,7 @@ public class Partida {
 	}
 
 	public void setGold(int gold) {
-		this.gold = gold;
+		this.gold = 99999;
 	}
 
 	public int getGold() {
