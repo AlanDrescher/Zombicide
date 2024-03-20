@@ -266,8 +266,10 @@ public class Partida {
 					}
 				}
 			}
-				System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
 			}
+		}else {
+			System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
+
 		}
 	}
 
