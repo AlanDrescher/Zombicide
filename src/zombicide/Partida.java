@@ -379,7 +379,7 @@ public class Partida {
 	}
 
 	public void setGold(int gold) {
-		this.gold = 99999;
+		this.gold = gold;
 	}
 
 	public int getGold() {
