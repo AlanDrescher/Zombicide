@@ -299,7 +299,7 @@ public class Partida {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
 		setsp(tienda.getSp());
-		if (tienda.getespada() > 0) {
+		if (tienda.getespada() != 0) {
 			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 5);
 			for (int x = 0; x < tienda.getespada(); x++) {
 				setInitobjetos(olimpo);
