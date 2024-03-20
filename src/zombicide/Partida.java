@@ -164,37 +164,34 @@ public class Partida {
 	private void attack(int i) {
 		Arma arma = Zombicide.getSelectCharacters().get(i).getWeapon();
 		Random random = new Random();
-		int a = random.nextInt(getInitzombies().size());
-		Zombie zombie = getInitzombies().get(a);
+		int a;
+		Zombie zombie;
 		for (int x = 0; x < arma.getRange(); x++) {
-			
-			if (zombie.getStatus() == false) {
-				if (getInitzombies().size()==0 ){
-					break;
-				}
-				zombie = getInitzombies().get(a);
-				x--;
-			} else {
-				if (arma.getHit() >= zombie.getHealth()) {
-					int randomhit = arma.randomHit();
-					if (randomhit >= arma.getHit()) {
-						zombie.setHealth(zombie.getHealth() - arma.getDamage());
-						System.out.println("¡¡Has herido al zombie!!");
-						System.out.println("Zombie " + zombie.toString());
-						if (zombie.getHealth() <= 0) {
-							zombie.setStatus(false);
-							System.out.println(getInitzombies().get(a).getType() + " ha muerto");
-							dropGold(zombie);
-							zombiehability(zombie, a);
-						}
-					} else {
-						System.out.println("Ha fallado tu ataque con un " + randomhit);
+			if (getInitzombies().size() == 0) {
+				break;
+			}
+			a = random.nextInt(getInitzombies().size());
+			zombie = getInitzombies().get(a);
+			if (arma.getHit() >= zombie.getHealth()) {
+				int randomhit = arma.randomHit();
+				if (randomhit >= arma.getHit()) {
+					zombie.setHealth(zombie.getHealth() - arma.getDamage());
+					System.out.println("¡¡Has herido al zombie!!");
+					System.out.println("Zombie " + zombie.toString());
+					if (zombie.getHealth() <= 0) {
+						zombie.setStatus(false);
+						System.out.println(getInitzombies().get(a).getType() + " ha muerto");
+						dropGold(zombie);
+						zombiehability(zombie, a);
 					}
 				} else {
-					System.out.println(zombie.getType() + " ha evitado el ataque!");
+					System.out.println("Ha fallado tu ataque con un " + randomhit);
 				}
+			} else {
+				System.out.println(zombie.getType() + " ha evitado el ataque!");
 			}
 		}
+
 	}
 
 	// Drop Oro Zombie
@@ -272,7 +269,7 @@ public class Partida {
 				}
 			}
 			}
-		}else {
+		} else {
 			System.out.println("Ya has gastado tu ataque especial en esta ronda. ");
 
 		}
@@ -295,17 +292,18 @@ public class Partida {
 		}
 
 	}
-	//Tienda
+
+	// Tienda
 	private void store() {
 		Tienda tienda = new Tienda(getGold());
 		setGold(tienda.getGold());
 		setsp(tienda.getSp());
 		if (tienda.getespada() > 0) {
 			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 3);
-			for (int x =0 ; x < tienda.getespada(); x++) {
+			for (int x = 0; x < tienda.getespada(); x++) {
 				setInitobjetos(olimpo);
 			}
-			
+
 		}
 	}
 
