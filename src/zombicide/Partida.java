@@ -239,7 +239,7 @@ public class Partida {
 					if (getInitzombies().size() == 0) {
 						break;
 					} else {
-						int a = random.nextInt(getInitzombies().size());
+						int a = random.nextInt((getInitzombies().size()-1));
 						dropGold(getInitzombies().get(x));
 						getInitzombies().remove(a);
 					}
