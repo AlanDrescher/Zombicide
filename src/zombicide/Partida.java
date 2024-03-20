@@ -246,6 +246,7 @@ public class Partida {
 						getInitzombies().remove(a);
 					}
 				}
+				break;
 			}
 			case "Mata gratis a 2 caminantes.": {
 				int var = 0;
@@ -299,7 +300,7 @@ public class Partida {
 		setGold(tienda.getGold());
 		setsp(tienda.getSp());
 		if (tienda.getespada() > 0) {
-			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 3);
+			Arma olimpo = new Espada("Hoja del Olimpo", 7, 3, 5);
 			for (int x = 0; x < tienda.getespada(); x++) {
 				setInitobjetos(olimpo);
 			}
